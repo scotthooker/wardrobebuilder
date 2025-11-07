@@ -1,0 +1,172 @@
+{
+  "materials": {
+    "Moisture Resistant MDF": {
+      "type": "CARCASS",
+      "category": "Plain MDF",
+      "recommended": true,
+      "image": "/images/materials/mr-mdf.png",
+      "description": "MR MDF is a moisture resistant MDF panel designed for use in humid conditions, so is ideal for applications such as kitchen and bathroom furniture, window and skirting boards and architectural mouldings.",
+      "usage": "Recommended for wardrobe carcass construction. Moisture resistant properties make it ideal for all interior applications.",
+      "commonThicknesses": ["18mm", "15mm", "12mm"]
+    },
+    "Premium Quality MDF": {
+      "type": "CARCASS",
+      "category": "Plain MDF",
+      "recommended": false,
+      "image": "/images/materials/mdf.png",
+      "description": "Premium quality MDF board suitable for interior applications. Smooth surface ideal for painting or veneering.",
+      "usage": "Alternative carcass material for dry environments. More economical than MR MDF.",
+      "commonThicknesses": ["18mm", "15mm", "12mm", "6mm"]
+    },
+    "WBP Birch Plywood BB/BB": {
+      "type": "CARCASS",
+      "category": "Birch and Hardwood Plywood",
+      "recommended": true,
+      "image": "/images/materials/birch-plywood.png",
+      "description": "Water Boil Proof birch plywood with BB/BB grade faces. Extremely strong and durable with excellent screw holding properties.",
+      "usage": "Premium carcass material offering superior strength. Excellent for drawer boxes and structural components.",
+      "commonThicknesses": ["18mm", "12mm", "9mm"]
+    },
+    "Oak Crown Cut MDF Veneered": {
+      "type": "LINING",
+      "category": "MDF Veneered 2 Sides Premium A/B Grade",
+      "recommended": true,
+      "description": "Premium oak veneered MDF with crown cut pattern. Real wood veneer on both sides for a luxurious natural wood appearance.",
+      "usage": "Perfect for visible interior surfaces and wardrobe lining. Creates a premium finished look.",
+      "commonThicknesses": ["19mm", "15mm", "12mm"]
+    },
+    "Ash Veneered MDF": {
+      "type": "LINING",
+      "category": "MDF Veneered 2 Sides Premium A/B Grade",
+      "recommended": true,
+      "description": "Premium ash veneered MDF with distinctive grain pattern. Real wood veneer on both sides.",
+      "usage": "Elegant alternative for visible interior surfaces. Light color complements modern designs.",
+      "commonThicknesses": ["19mm", "15mm"]
+    },
+    "Walnut Veneered MDF": {
+      "type": "LINING",
+      "category": "MDF Veneered 2 Sides Premium A/B Grade",
+      "recommended": true,
+      "description": "Rich walnut veneered MDF with premium dark finish. Real wood veneer on both sides.",
+      "usage": "Luxury option for visible surfaces. Rich color adds sophistication to any wardrobe.",
+      "commonThicknesses": ["19mm", "15mm"]
+    },
+    "Oak Iron on Edging": {
+      "type": "EDGING",
+      "category": "Edging",
+      "recommended": true,
+      "description": "Pre-glued oak veneer edge banding tape. Simply iron on for a professional finished edge that matches oak veneered panels.",
+      "usage": "Essential for finishing exposed edges on oak veneered materials. Easy to apply with household iron.",
+      "commonWidths": ["22mm", "30mm", "40mm"]
+    },
+    "Ash Iron on Edging": {
+      "type": "EDGING",
+      "category": "Edging",
+      "recommended": true,
+      "description": "Pre-glued ash veneer edge banding tape. Iron-on application for professional edge finishing.",
+      "usage": "Match ash veneered panels with coordinating edge banding.",
+      "commonWidths": ["22mm", "30mm"]
+    },
+    "Walnut Iron on Edging": {
+      "type": "EDGING",
+      "category": "Edging",
+      "recommended": true,
+      "description": "Pre-glued walnut veneer edge banding tape for professional finishing.",
+      "usage": "Essential companion to walnut veneered panels.",
+      "commonWidths": ["22mm", "30mm"]
+    },
+    "White Melamine Edging": {
+      "type": "EDGING",
+      "category": "Edging",
+      "recommended": true,
+      "description": "Pre-glued white melamine edge banding. Heat-activated adhesive for clean, durable edges.",
+      "usage": "Perfect for finishing MDF edges with a clean white finish.",
+      "commonWidths": ["22mm", "30mm", "40mm"]
+    },
+    "Beech White MDF Veneered": {
+      "type": "LINING",
+      "category": "MDF Veneered 2 Sides Premium A/B Grade",
+      "recommended": false,
+      "description": "Premium beech white veneered MDF with natural wood appearance. Real wood veneer on both sides.",
+      "usage": "Light colored option for visible interior surfaces.",
+      "commonThicknesses": ["19mm", "15mm"]
+    },
+    "Cherry MDF Veneered": {
+      "type": "LINING",
+      "category": "MDF Veneered 2 Sides Premium A/B Grade",
+      "recommended": false,
+      "description": "Premium cherry veneered MDF with warm reddish-brown tones. Real wood veneer on both sides.",
+      "usage": "Rich warm option for visible interior surfaces.",
+      "commonThicknesses": ["19mm", "15mm"]
+    },
+    "Ash MDF Veneered": {
+      "type": "LINING",
+      "category": "MDF Veneered 2 Sides Premium A/B Grade",
+      "recommended": true,
+      "description": "Premium ash veneered MDF with distinctive grain pattern. Real wood veneer on both sides.",
+      "usage": "Elegant alternative for visible interior surfaces. Light color complements modern designs.",
+      "commonThicknesses": ["19mm", "15mm"]
+    },
+    "Walnut MDF Veneered": {
+      "type": "LINING",
+      "category": "MDF Veneered 2 Sides Premium A/B Grade",
+      "recommended": true,
+      "description": "Rich walnut veneered MDF with premium dark finish. Real wood veneer on both sides.",
+      "usage": "Luxury option for visible surfaces. Rich color adds sophistication to any wardrobe.",
+      "commonThicknesses": ["19mm", "15mm"]
+    },
+    "WBP Birch Plywood B/BB": {
+      "type": "CARCASS",
+      "category": "Birch and Hardwood Plywood",
+      "recommended": true,
+      "description": "Water Boil Proof birch plywood with B/BB grade faces. Strong and durable with good screw holding.",
+      "usage": "Quality carcass material offering good strength. Good for drawer boxes and structural components.",
+      "commonThicknesses": ["18mm", "12mm", "9mm"]
+    },
+    "Black Textured Melamine MDF": {
+      "type": "CARCASS",
+      "category": "Melamine Faced MDF",
+      "recommended": false,
+      "description": "Black textured melamine faced MDF. Durable, wipe-clean surface with modern textured finish.",
+      "usage": "Contemporary option for modern wardrobe designs. No additional finishing required.",
+      "commonThicknesses": ["18mm", "15mm"]
+    },
+    "White Melamine Faced MDF": {
+      "type": "CARCASS",
+      "category": "Melamine Faced MDF",
+      "recommended": true,
+      "description": "White melamine faced MDF. Durable, wipe-clean surface ideal for painted finish look.",
+      "usage": "Popular choice for clean, modern designs. No additional finishing required.",
+      "commonThicknesses": ["18mm", "15mm"]
+    }
+  },
+  "categories": {
+    "CARCASS": {
+      "name": "Carcass Materials",
+      "description": "Structural materials for the main wardrobe body",
+      "required": true,
+      "recommendedThickness": "18mm",
+      "defaultMaterial": "Moisture Resistant MDF"
+    },
+    "LINING": {
+      "name": "Lining Materials",
+      "description": "Premium veneered materials for visible interior surfaces",
+      "required": false,
+      "recommendedThickness": "19mm",
+      "note": "Optional upgrade for a premium finish"
+    },
+    "DRAWER": {
+      "name": "Drawer Box Materials",
+      "description": "Materials for drawer construction",
+      "required": true,
+      "recommendedThickness": "12mm",
+      "defaultMaterial": "WBP Birch Plywood BB/BB"
+    },
+    "EDGING": {
+      "name": "Edge Banding",
+      "description": "Iron-on edge tape for finishing exposed edges",
+      "required": false,
+      "note": "Required when using veneered materials or for painted finishes"
+    }
+  }
+}
