@@ -12,7 +12,7 @@ const spinnerVariants = cva('animate-spin', {
     variant: {
       default: 'text-primary-600',
       white: 'text-white',
-      gray: 'text-gray-600',
+      gray: 'text-text-secondary',
       success: 'text-success-600',
       error: 'text-error-600',
     },

@@ -8,16 +8,16 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const inputVariants = cva(
-  'w-full rounded-lg border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50',
+  'w-full rounded-lg border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-100',
   {
     variants: {
       variant: {
         default:
-          'border-gray-300 bg-white text-gray-900 placeholder:text-gray-400 focus:border-primary-500 focus:ring-primary-500',
+          'border-gray-300 bg-white text-text-primary placeholder:text-text-tertiary focus:border-primary-500 focus:ring-primary-500',
         error:
-          'border-error-300 bg-white text-gray-900 placeholder:text-gray-400 focus:border-error-500 focus:ring-error-500',
+          'border-error-300 bg-white text-text-primary placeholder:text-text-tertiary focus:border-error-500 focus:ring-error-500',
         success:
-          'border-success-300 bg-white text-gray-900 placeholder:text-gray-400 focus:border-success-500 focus:ring-success-500',
+          'border-success-300 bg-white text-text-primary placeholder:text-text-tertiary focus:border-success-500 focus:ring-success-500',
       },
       inputSize: {
         sm: 'px-3 py-1.5 text-sm',
@@ -73,7 +73,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       <div className="w-full">
         <div className="relative">
           {leftIcon && (
-            <div className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none text-gray-400">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none text-text-tertiary">
               {leftIcon}
             </div>
           )}
@@ -90,7 +90,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           />
 
           {rightIcon && (
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none text-gray-400">
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none text-text-tertiary">
               {rightIcon}
             </div>
           )}
@@ -100,7 +100,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           <p
             className={cn(
               'mt-1.5 text-sm',
-              error ? 'text-error-600' : 'text-gray-500'
+              error ? 'text-error-600' : 'text-text-secondary'
             )}
           >
             {helperText}

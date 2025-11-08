@@ -1,50 +1,7 @@
 import { Download, FileText, FileSpreadsheet } from 'lucide-react';
 import { useState } from 'react';
-import { exportBuildsToCSV, exportBuildDetailsToCSV, exportBuildsToJSON } from '../../utils/exportCSV';
-
-interface Build {
-  id: string | number;
-  name?: string;
-  character?: string;
-  costs: {
-    materialTotal: number;
-    professionalDoorsDrawersTotal: number;
-    extrasTotal: number;
-    hardwareTotal: number;
-    grandTotal: number;
-    savingsVsBudget: number;
-    savingsPercent: number;
-    materials: Array<{
-      component: string;
-      material: string;
-      thickness: string;
-      sheets: number;
-      pricePerSheet: number;
-      subtotal: number;
-      sku: string;
-      note?: string;
-    }>;
-    professionalDoorsDrawers: Record<string, {
-      desc: string;
-      size: string;
-      qty: number;
-      unitPrice: number;
-      total: number;
-    }>;
-    hardware: Record<string, {
-      desc: string;
-      qty: number;
-      unitPrice: number;
-      total: number;
-    }>;
-    extras: Array<{
-      item: string;
-      desc: string;
-      estimate: number;
-    }>;
-  };
-  toJSON?: () => unknown;
-}
+import { exportBuildsToCSV, exportBuildDetailsToCSV, exportBuildsToJSON, type Build } from '../../utils/exportCSV';
+import { Button } from '../ui/Button';
 
 type ExportFormat = 'csv' | 'csv-details' | 'json';
 
@@ -78,25 +35,29 @@ export function ExportButton({ builds, build, variant = 'default' }: ExportButto
 
   if (variant === 'simple') {
     return (
-      <button
+      <Button
         onClick={() => handleExport('csv')}
-        className="btn-premium flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl shadow-lg hover:shadow-xl hover:from-green-700 hover:to-green-800 font-semibold transition-all duration-200 border-2 border-green-700"
+        variant="success"
+        size="lg"
+        leftIcon={<Download className="w-5 h-5" />}
+        className="shadow-lg hover:shadow-xl"
       >
-        <Download className="w-5 h-5" />
-        <span>Export CSV</span>
-      </button>
+        Export CSV
+      </Button>
     );
   }
 
   return (
     <div className="relative">
-      <button
+      <Button
         onClick={() => setIsOpen(!isOpen)}
-        className="btn-premium flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl shadow-lg hover:shadow-xl hover:from-green-700 hover:to-green-800 font-semibold transition-all duration-200 border-2 border-green-700"
+        variant="success"
+        size="lg"
+        leftIcon={<Download className="w-5 h-5" />}
+        className="shadow-lg hover:shadow-xl"
       >
-        <Download className="w-5 h-5" />
-        <span>Export</span>
-      </button>
+        Export
+      </Button>
 
       {isOpen && (
         <>
@@ -119,8 +80,8 @@ export function ExportButton({ builds, build, variant = 'default' }: ExportButto
                       <FileSpreadsheet className="w-4 h-4 text-secondary-700" />
                     </div>
                     <div className="flex-1">
-                      <div className="font-semibold text-gray-900">Export to CSV</div>
-                      <div className="text-xs text-gray-600">
+                      <div className="font-semibold text-text-primary">Export to CSV</div>
+                      <div className="text-xs text-text-secondary">
                         Comparison spreadsheet
                       </div>
                     </div>
@@ -133,8 +94,8 @@ export function ExportButton({ builds, build, variant = 'default' }: ExportButto
                       <FileText className="w-4 h-4 text-primary-700" />
                     </div>
                     <div className="flex-1">
-                      <div className="font-semibold text-gray-900">Export to JSON</div>
-                      <div className="text-xs text-gray-600">
+                      <div className="font-semibold text-text-primary">Export to JSON</div>
+                      <div className="text-xs text-text-secondary">
                         Raw data format
                       </div>
                     </div>
@@ -152,8 +113,8 @@ export function ExportButton({ builds, build, variant = 'default' }: ExportButto
                       <FileSpreadsheet className="w-4 h-4 text-secondary-700" />
                     </div>
                     <div className="flex-1">
-                      <div className="font-semibold text-gray-900">Full Details CSV</div>
-                      <div className="text-xs text-gray-600">
+                      <div className="font-semibold text-text-primary">Full Details CSV</div>
+                      <div className="text-xs text-text-secondary">
                         Complete breakdown
                       </div>
                     </div>
@@ -166,8 +127,8 @@ export function ExportButton({ builds, build, variant = 'default' }: ExportButto
                       <FileText className="w-4 h-4 text-primary-700" />
                     </div>
                     <div className="flex-1">
-                      <div className="font-semibold text-gray-900">Export to JSON</div>
-                      <div className="text-xs text-gray-600">
+                      <div className="font-semibold text-text-primary">Export to JSON</div>
+                      <div className="text-xs text-text-secondary">
                         Build configuration
                       </div>
                     </div>

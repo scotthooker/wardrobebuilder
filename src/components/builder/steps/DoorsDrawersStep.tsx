@@ -242,7 +242,7 @@ export function DoorsDrawersStep({ configuration, updateConfiguration }: DoorsDr
   if (!configuration.sections || configuration.sections.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-gray-500">Please complete the previous steps first.</p>
+        <p className="text-text-secondary">Please complete the previous steps first.</p>
       </div>
     );
   }
@@ -260,8 +260,8 @@ export function DoorsDrawersStep({ configuration, updateConfiguration }: DoorsDr
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Doors & Front Configuration</h2>
-        <p className="text-gray-600">
+        <h2 className="text-2xl font-bold text-text-primary mb-2">Doors & Front Configuration</h2>
+        <p className="text-text-secondary">
           Configure doors for each section. Sections with external drawers cannot have doors over those carcasses.
         </p>
       </div>
@@ -269,7 +269,7 @@ export function DoorsDrawersStep({ configuration, updateConfiguration }: DoorsDr
       {/* Door Style Selection */}
       <Card variant="default" padding="md">
         <CardHeader>
-          <label className="block text-sm font-semibold text-gray-900 mb-4">
+          <label className="block text-sm font-semibold text-text-primary mb-4">
             Door Style
           </label>
         </CardHeader>
@@ -286,8 +286,8 @@ export function DoorsDrawersStep({ configuration, updateConfiguration }: DoorsDr
                 }`}
               >
                 <div className="text-4xl mb-3">{style.icon}</div>
-                <h3 className="font-semibold text-gray-900 mb-1">{style.name}</h3>
-                <p className="text-sm text-gray-600">{style.description}</p>
+                <h3 className="font-semibold text-text-primary mb-1">{style.name}</h3>
+                <p className="text-sm text-text-secondary">{style.description}</p>
               </button>
             ))}
           </div>
@@ -301,7 +301,7 @@ export function DoorsDrawersStep({ configuration, updateConfiguration }: DoorsDr
             <CardContent>
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <h3 className="font-semibold text-gray-900">
+                  <h3 className="font-semibold text-text-primary">
                     Configure Section {currentSectionIndex + 1} of {configuration.sections.length}
                   </h3>
                   <Badge variant="primary" size="sm">
@@ -325,7 +325,7 @@ export function DoorsDrawersStep({ configuration, updateConfiguration }: DoorsDr
                 />
               </div>
 
-              <div className="text-sm text-gray-600 mb-4">
+              <div className="text-sm text-text-secondary mb-4">
                 Section Width: {currentSection.width}mm • {currentSection.carcasses.length} Carcass{currentSection.carcasses.length !== 1 ? 'es' : ''}
               </div>
 
@@ -354,23 +354,23 @@ export function DoorsDrawersStep({ configuration, updateConfiguration }: DoorsDr
                         ) : zone.doorCount === 1 ? (
                           <div className="h-full bg-gradient-to-br from-gray-100 to-gray-200 border-4 border-gray-400 rounded flex items-center justify-center">
                             <div className="text-center">
-                              <DoorClosed className="w-12 h-12 text-gray-600 mx-auto mb-2" />
-                              <div className="text-sm text-gray-700 font-semibold">1 Door</div>
-                              <div className="text-xs text-gray-600">Carcass {zone.startCarcass + 1}{zone.endCarcass !== zone.startCarcass ? ` - ${zone.endCarcass + 1}` : ''}</div>
+                              <DoorClosed className="w-12 h-12 text-text-secondary mx-auto mb-2" />
+                              <div className="text-sm text-text-primary font-semibold">1 Door</div>
+                              <div className="text-xs text-text-secondary">Carcass {zone.startCarcass + 1}{zone.endCarcass !== zone.startCarcass ? ` - ${zone.endCarcass + 1}` : ''}</div>
                             </div>
                           </div>
                         ) : (
                           <div className="h-full flex gap-1">
                             <div className="flex-1 bg-gradient-to-br from-gray-100 to-gray-200 border-4 border-gray-400 rounded flex items-center justify-center">
                               <div className="text-center">
-                                <DoorClosed className="w-8 h-8 text-gray-600 mx-auto mb-1" />
-                                <div className="text-xs text-gray-700 font-semibold">Door 1</div>
+                                <DoorClosed className="w-8 h-8 text-text-secondary mx-auto mb-1" />
+                                <div className="text-xs text-text-primary font-semibold">Door 1</div>
                               </div>
                             </div>
                             <div className="flex-1 bg-gradient-to-br from-gray-100 to-gray-200 border-4 border-gray-400 rounded flex items-center justify-center">
                               <div className="text-center">
-                                <DoorClosed className="w-8 h-8 text-gray-600 mx-auto mb-1" />
-                                <div className="text-xs text-gray-700 font-semibold">Door 2</div>
+                                <DoorClosed className="w-8 h-8 text-text-secondary mx-auto mb-1" />
+                                <div className="text-xs text-text-primary font-semibold">Door 2</div>
                               </div>
                             </div>
                           </div>
@@ -385,7 +385,7 @@ export function DoorsDrawersStep({ configuration, updateConfiguration }: DoorsDr
               <Card variant="default" padding="md">
                 <CardContent>
                   <div className="flex items-center justify-between mb-4">
-                    <h4 className="font-semibold text-gray-900">Door Zones</h4>
+                    <h4 className="font-semibold text-text-primary">Door Zones</h4>
                     <Button
                       variant="primary"
                       size="sm"
@@ -410,7 +410,7 @@ export function DoorsDrawersStep({ configuration, updateConfiguration }: DoorsDr
                           <CardContent>
                             <div className="flex items-center justify-between mb-3">
                               <div className="flex items-center gap-2">
-                                <h5 className="font-medium text-gray-900">Zone {idx + 1}</h5>
+                                <h5 className="font-medium text-text-primary">Zone {idx + 1}</h5>
                                 {isExternalDrawerZone && (
                                   <Badge variant="orange" size="sm">
                                     External Drawers
@@ -430,7 +430,7 @@ export function DoorsDrawersStep({ configuration, updateConfiguration }: DoorsDr
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                               <div>
-                                <label className="block text-xs text-gray-600 mb-1">Start Carcass</label>
+                                <label className="block text-xs text-text-secondary mb-1">Start Carcass</label>
                                 <select
                                   value={zone.startCarcass}
                                   onChange={(e) => updateZoneCarcassRange(currentSectionIndex, zone.id, 'startCarcass', e.target.value)}
@@ -444,7 +444,7 @@ export function DoorsDrawersStep({ configuration, updateConfiguration }: DoorsDr
                               </div>
 
                               <div>
-                                <label className="block text-xs text-gray-600 mb-1">End Carcass</label>
+                                <label className="block text-xs text-text-secondary mb-1">End Carcass</label>
                                 <select
                                   value={zone.endCarcass}
                                   onChange={(e) => updateZoneCarcassRange(currentSectionIndex, zone.id, 'endCarcass', e.target.value)}
@@ -460,7 +460,7 @@ export function DoorsDrawersStep({ configuration, updateConfiguration }: DoorsDr
                               </div>
 
                               <div>
-                                <label className="block text-xs text-gray-600 mb-1">Door Count</label>
+                                <label className="block text-xs text-text-secondary mb-1">Door Count</label>
                                 <ButtonGroup
                                   size="sm"
                                   options={doorCountOptions.map(opt => ({
@@ -471,12 +471,12 @@ export function DoorsDrawersStep({ configuration, updateConfiguration }: DoorsDr
                                   onChange={(value) => updateZoneDoorCount(currentSectionIndex, zone.id, Number(value))}
                                 />
                                 {currentSection.width < DOUBLE_DOOR_WIDTH && (
-                                  <p className="text-xs text-gray-500 mt-1">Section too narrow for 2 doors</p>
+                                  <p className="text-xs text-text-secondary mt-1">Section too narrow for 2 doors</p>
                                 )}
                               </div>
                             </div>
 
-                            <div className="mt-2 text-xs text-gray-600">
+                            <div className="mt-2 text-xs text-text-secondary">
                               Height: {getCarcassHeight(currentSectionIndex, zone.startCarcass, zone.endCarcass)}mm
                             </div>
                           </CardContent>

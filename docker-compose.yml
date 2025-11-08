@@ -16,23 +16,23 @@ services:
     ports:
       - "5432:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U wardrobe_user -d wardrobe_builder"]
+      test: [ "CMD-SHELL", "pg_isready -U wardrobe_user -d wardrobe_builder" ]
       interval: 10s
       timeout: 5s
       retries: 5
 
-  # Frontend - Vite Dev Server with Hot Reload
+  # Frontend - Vite Dev Server with Hot Reload + TypeScript Watch
   app:
     image: node:20-alpine
     container_name: wardrobe-app
     restart: unless-stopped
     working_dir: /app
-    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    command: sh -c "npm install && npm run dev:docker"
     environment:
       NODE_ENV: development
       VITE_API_URL: http://localhost:3002
     ports:
-      - "5173:5173"  # Vite dev server with HMR
+      - "5175:5173" # Vite dev server with HMR
     volumes:
       # Mount source code for live updates
       - ./src:/app/src
@@ -40,7 +40,9 @@ services:
       - ./index.html:/app/index.html
       - ./package.json:/app/package.json
       - ./package-lock.json:/app/package-lock.json
+      - ./tsconfig.json:/app/tsconfig.json
       - ./vite.config.js:/app/vite.config.js
+      - ./vite.config.ts:/app/vite.config.ts
       - ./tailwind.config.js:/app/tailwind.config.js
       - ./postcss.config.js:/app/postcss.config.js
       - ./eslint.config.js:/app/eslint.config.js
@@ -62,7 +64,7 @@ services:
       OPENROUTER_API_KEY: ${OPENROUTER_API_KEY}
       PORT: 3001
     ports:
-      - "3002:3001"  # Host:3002 -> Container:3001 (avoiding port conflict)
+      - "3002:3001" # Host:3002 -> Container:3001 (avoiding port conflict)
     volumes:
       # Mount source code for live updates
       - ./server:/app/server

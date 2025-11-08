@@ -1,0 +1,4999 @@
+[
+  {
+    "id": 1,
+    "name": "The Ultimate Premium Build",
+    "character": "Luxury boutique joinery with real wood warmth and painted elegance",
+    "image": "build_01_ultimate_premium_2025-11-07T11-15-23-062Z_1.png",
+    "furniture_type": "wardrobe",
+    "width": 3100,
+    "height": 2370,
+    "depth": 600,
+    "configuration": {
+      "depth": 600,
+      "doors": {
+        "style": "hinged",
+        "sectionConfigs": {
+          "0": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 0,
+                "startCarcass": 0
+              }
+            ]
+          },
+          "1": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 1,
+                "startCarcass": 0
+              }
+            ]
+          },
+          "2": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 0,
+                "startCarcass": 0
+              }
+            ]
+          }
+        }
+      },
+      "width": 3100,
+      "height": 2370,
+      "sections": [
+        {
+          "id": 0,
+          "width": 1033,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1033,
+              "height": 2370,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "rail",
+                  "height": 1182
+                },
+                {
+                  "id": 1,
+                  "type": "shelves",
+                  "height": 1152,
+                  "shelfCount": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "width": 1034,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1034,
+              "height": 1200,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "drawers",
+                  "height": 1164,
+                  "drawers": 6,
+                  "isExternal": true
+                }
+              ]
+            },
+            {
+              "id": 1,
+              "width": 1034,
+              "height": 1170,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "shelves",
+                  "height": 1134,
+                  "shelfCount": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "width": 1033,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1033,
+              "height": 2370,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "double_rail",
+                  "height": 2334
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "cost": 200,
+          "name": "Solid Beech for external drawers",
+          "notes": "solidBeech"
+        },
+        {
+          "cost": 180,
+          "name": "Premium brass handles and knobs",
+          "notes": "brassHardware"
+        },
+        {
+          "cost": 150,
+          "name": "Recessed aluminium LED channels",
+          "notes": "ledUpgrade"
+        }
+      ],
+      "hardware": {
+        "hinges": {
+          "qty": 12,
+          "name": "Soft-close hinges (Blum/Häfele)",
+          "total": 96,
+          "unitPrice": 8
+        },
+        "ledLights": {
+          "qty": 3,
+          "name": "LED strip lights with power",
+          "total": 75,
+          "unitPrice": 25
+        },
+        "shelfPins": {
+          "qty": 48,
+          "name": "Adjustable shelf pins",
+          "total": 24,
+          "unitPrice": 0.5
+        },
+        "glueFixings": {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 50,
+          "unitPrice": 50
+        },
+        "wallAnchors": {
+          "qty": 1,
+          "name": "Wall mounting hardware",
+          "total": 15,
+          "unitPrice": 15
+        },
+        "clothingRails": {
+          "qty": 3,
+          "name": "Chrome oval clothing rails",
+          "total": 45,
+          "unitPrice": 15
+        },
+        "drawerRunners": {
+          "qty": 7,
+          "name": "Soft-close drawer runners 500mm",
+          "total": 245,
+          "unitPrice": 35
+        }
+      },
+      "materials": [
+        {
+          "sku": "3901289006119",
+          "sheets": 12,
+          "material": "WBP Birch Plywood BB/BB",
+          "subtotal": 2233.56,
+          "component": "Main Carcass",
+          "thickness": "18mm",
+          "pricePerSheet": 186.13
+        },
+        {
+          "sku": "3901289007144",
+          "sheets": 3,
+          "material": "Oak Crown Cut MDF Veneered",
+          "subtotal": 259.95,
+          "component": "Interior Lining",
+          "thickness": "19mm",
+          "pricePerSheet": 86.65
+        },
+        {
+          "sku": "3901289006308",
+          "sheets": 3,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 108.75,
+          "component": "Back Panel",
+          "thickness": "6mm",
+          "pricePerSheet": 36.25
+        },
+        {
+          "sku": "3901289006117",
+          "sheets": 1,
+          "material": "WBP Birch Plywood BB/BB",
+          "subtotal": 145.09,
+          "component": "Drawer Boxes",
+          "thickness": "12mm",
+          "pricePerSheet": 145.09
+        }
+      ],
+      "grandTotal": 4707.35,
+      "extrasTotal": 530,
+      "hardwareTotal": 550,
+      "materialTotal": 2747.35,
+      "savingsPercent": "5.9",
+      "savingsVsBudget": 1292.6499999999996,
+      "professionalDoorsDrawers": {
+        "largeDoors": {
+          "qty": 4,
+          "total": 500,
+          "unitPrice": 125
+        },
+        "mediumDoors": {
+          "qty": 2,
+          "total": 170,
+          "unitPrice": 85
+        },
+        "drawerFronts": {
+          "qty": 6,
+          "total": 210,
+          "unitPrice": 35
+        }
+      },
+      "professionalDoorsDrawersTotal": 880
+    },
+    "hardware_json": [],
+    "extras_json": [
+      {
+        "cost": 200,
+        "name": "Solid Beech for external drawers",
+        "notes": "solidBeech"
+      },
+      {
+        "cost": 180,
+        "name": "Premium brass handles and knobs",
+        "notes": "brassHardware"
+      },
+      {
+        "cost": 150,
+        "name": "Recessed aluminium LED channels",
+        "notes": "ledUpgrade"
+      }
+    ],
+    "generated_image": "build_01_ultimate_premium_2025-11-07T11-15-23-062Z_1.png",
+    "generated_prompt": "Professional product photography of a luxury wardrobe, high-end boutique wardrobe. 3-section wardrobe with hinged doors, featuring hanging rail visible, organized shelving, integrated drawer units, double hanging rails visible through open doors. Built from premium birch plywood, natural wood grain finish, visible plywood edges showcasing quality, brass hardware accents. upscale bedroom interior, designer furniture setting, soft studio lighting with elegant shadows, premium ambiance. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+    "image_gallery": [
+      {
+        "url": "build_01_ultimate_premium_2025-11-07T11-15-23-062Z_1.png",
+        "prompt": "Professional product photography of a luxury wardrobe, high-end boutique wardrobe. 3-section wardrobe with hinged doors, featuring hanging rail visible, organized shelving, integrated drawer units, double hanging rails visible through open doors. Built from premium birch plywood, natural wood grain finish, visible plywood edges showcasing quality, brass hardware accents. upscale bedroom interior, designer furniture setting, soft studio lighting with elegant shadows, premium ambiance. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+        "created_at": "2025-11-07T13:19:41.176344+00:00",
+        "is_primary": true
+      }
+    ],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [
+        "Section 0, Carcass 0: Shelf spacing (192mm) may be too tight",
+        "Section 1, Carcass 1: Shelf spacing (189mm) may be too tight"
+      ],
+      "calculations": [
+        {
+          "carcass": 0,
+          "section": 0,
+          "external": {
+            "depth": 600,
+            "width": 1033,
+            "height": 2370
+          },
+          "internal": {
+            "depth": 582,
+            "width": 997,
+            "height": 2334
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 0,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1034,
+            "height": 1200
+          },
+          "internal": {
+            "depth": 582,
+            "width": 998,
+            "height": 1164
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 1,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1034,
+            "height": 1170
+          },
+          "internal": {
+            "depth": 582,
+            "width": 998,
+            "height": 1134
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 0,
+          "section": 2,
+          "external": {
+            "depth": 600,
+            "width": 1033,
+            "height": 2370
+          },
+          "internal": {
+            "depth": 582,
+            "width": 997,
+            "height": 2334
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        }
+      ]
+    },
+    "special_tools": [],
+    "considerations": [
+      "Professional painted doors and drawer fronts included in price",
+      "Oak veneer lining requires careful handling to avoid damage",
+      "Birch plywood carcass provides premium structural quality",
+      "Solid beech components need milling and joinery skills",
+      "Focus is on premium carcass construction - doors pre-finished",
+      "Assembly and hinge installation simplified with pre-made doors",
+      "Moisture resistant backing provides durability"
+    ],
+    "recommended_for": "Master bedroom with luxury requirements",
+    "created_at": "2025-11-07T11:11:03.388Z",
+    "updated_at": "2025-11-08T16:33:29.043Z"
+  },
+  {
+    "id": 2,
+    "name": "Modern Minimalist",
+    "character": "Clean lines with white melamine and efficient storage",
+    "image": "build_02_modern_minimalist_2025-11-07T11-15-49-597Z_1.png",
+    "furniture_type": "wardrobe",
+    "width": 3100,
+    "height": 2370,
+    "depth": 600,
+    "configuration": {
+      "depth": 600,
+      "doors": {
+        "style": "hinged",
+        "sectionConfigs": {
+          "0": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 0,
+                "startCarcass": 0
+              }
+            ]
+          },
+          "1": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 1,
+                "startCarcass": 0
+              }
+            ]
+          }
+        }
+      },
+      "width": 3100,
+      "height": 2370,
+      "sections": [
+        {
+          "id": 0,
+          "width": 1550,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1550,
+              "height": 2370,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "rail",
+                  "height": 2334
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "width": 1550,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1550,
+              "height": 1200,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "shelves",
+                  "height": 1164,
+                  "shelfCount": 6
+                }
+              ]
+            },
+            {
+              "id": 1,
+              "width": 1550,
+              "height": 1170,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "drawers",
+                  "height": 1134,
+                  "drawers": 5,
+                  "isExternal": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "cost": 120,
+          "name": "Clean brass handles",
+          "notes": "brassHardware"
+        },
+        {
+          "cost": 100,
+          "name": "Matte lacquer for birch interiors",
+          "notes": "lacquer"
+        }
+      ],
+      "hardware": {
+        "hinges": {
+          "qty": 12,
+          "name": "Soft-close hinges (Blum/Häfele)",
+          "total": 96,
+          "unitPrice": 8
+        },
+        "ledLights": {
+          "qty": 3,
+          "name": "LED strip lights with power",
+          "total": 75,
+          "unitPrice": 25
+        },
+        "shelfPins": {
+          "qty": 48,
+          "name": "Adjustable shelf pins",
+          "total": 24,
+          "unitPrice": 0.5
+        },
+        "glueFixings": {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 50,
+          "unitPrice": 50
+        },
+        "wallAnchors": {
+          "qty": 1,
+          "name": "Wall mounting hardware",
+          "total": 15,
+          "unitPrice": 15
+        },
+        "clothingRails": {
+          "qty": 3,
+          "name": "Chrome oval clothing rails",
+          "total": 45,
+          "unitPrice": 15
+        },
+        "drawerRunners": {
+          "qty": 7,
+          "name": "Soft-close drawer runners 500mm",
+          "total": 245,
+          "unitPrice": 35
+        }
+      },
+      "materials": [
+        {
+          "sku": "3901289006119",
+          "sheets": 12,
+          "material": "WBP Birch Plywood BB/BB",
+          "subtotal": 2233.56,
+          "component": "Main Carcass",
+          "thickness": "18mm",
+          "pricePerSheet": 186.13
+        },
+        {
+          "sku": "3901289006308",
+          "sheets": 3,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 108.75,
+          "component": "Back Panel",
+          "thickness": "6mm",
+          "pricePerSheet": 36.25
+        },
+        {
+          "sku": "3901289006118",
+          "sheets": 2,
+          "material": "WBP Birch Plywood BB/BB",
+          "subtotal": 332.74,
+          "component": "Drawer Boxes",
+          "thickness": "15mm",
+          "pricePerSheet": 166.37
+        }
+      ],
+      "grandTotal": 4325.05,
+      "extrasTotal": 220,
+      "hardwareTotal": 550,
+      "materialTotal": 2675.05,
+      "savingsPercent": "13.5",
+      "savingsVsBudget": 1674.9499999999998,
+      "professionalDoorsDrawers": {
+        "largeDoors": {
+          "qty": 4,
+          "total": 500,
+          "unitPrice": 125
+        },
+        "mediumDoors": {
+          "qty": 2,
+          "total": 170,
+          "unitPrice": 85
+        },
+        "drawerFronts": {
+          "qty": 6,
+          "total": 210,
+          "unitPrice": 35
+        }
+      },
+      "professionalDoorsDrawersTotal": 880
+    },
+    "hardware_json": [],
+    "extras_json": [
+      {
+        "cost": 120,
+        "name": "Clean brass handles",
+        "notes": "brassHardware"
+      },
+      {
+        "cost": 100,
+        "name": "Matte lacquer for birch interiors",
+        "notes": "lacquer"
+      }
+    ],
+    "generated_image": "build_02_modern_minimalist_2025-11-07T11-15-49-597Z_1.png",
+    "generated_prompt": "Professional product photography of a modern minimalist wardrobe, contemporary furniture design. 2-section wardrobe with hinged doors, featuring hanging rail visible, organized shelving, integrated drawer units. Built from premium birch plywood, hand-applied lacquer finish, visible plywood edges showcasing quality, brass hardware accents. modern bedroom with white walls, scandinavian interior, bright even lighting, clean aesthetic. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+    "image_gallery": [
+      {
+        "url": "build_02_modern_minimalist_2025-11-07T11-15-49-597Z_1.png",
+        "prompt": "Professional product photography of a modern minimalist wardrobe, contemporary furniture design. 2-section wardrobe with hinged doors, featuring hanging rail visible, organized shelving, integrated drawer units. Built from premium birch plywood, hand-applied lacquer finish, visible plywood edges showcasing quality, brass hardware accents. modern bedroom with white walls, scandinavian interior, bright even lighting, clean aesthetic. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+        "created_at": "2025-11-07T13:19:41.176344+00:00",
+        "is_primary": true
+      }
+    ],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [
+        "Section 1, Carcass 0: Shelf spacing (166.28571428571428mm) may be too tight"
+      ],
+      "calculations": [
+        {
+          "carcass": 0,
+          "section": 0,
+          "external": {
+            "depth": 600,
+            "width": 1550,
+            "height": 2370
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1514,
+            "height": 2334
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 0,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1550,
+            "height": 1200
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1514,
+            "height": 1164
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 1,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1550,
+            "height": 1170
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1514,
+            "height": 1134
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        }
+      ]
+    },
+    "special_tools": [],
+    "considerations": [
+      "Professional painted doors and drawer fronts included in price",
+      "Birch plywood edges can be exposed for natural look",
+      "Lacquer finish on birch requires 2-3 coats with sanding",
+      "Simplified build - only finishing birch carcass interiors",
+      "Good balance of premium carcass and pre-finished doors",
+      "Faster timeline since doors arrive ready to install"
+    ],
+    "recommended_for": "Contemporary spaces prioritizing simplicity",
+    "created_at": "2025-11-07T11:11:03.391Z",
+    "updated_at": "2025-11-08T16:33:29.040Z"
+  },
+  {
+    "id": 3,
+    "name": "Smart Storage Essential",
+    "character": "MDF construction with smart storage solutions",
+    "image": "build_03_smart_storage_2025-11-07T11-16-00-935Z_1.png",
+    "furniture_type": "wardrobe",
+    "width": 3100,
+    "height": 2370,
+    "depth": 600,
+    "configuration": {
+      "depth": 600,
+      "doors": {
+        "style": "hinged",
+        "sectionConfigs": {
+          "0": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 1,
+                "startCarcass": 0
+              }
+            ]
+          },
+          "1": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 0,
+                "startCarcass": 0
+              }
+            ]
+          }
+        }
+      },
+      "width": 3100,
+      "height": 2370,
+      "sections": [
+        {
+          "id": 0,
+          "width": 1550,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1550,
+              "height": 1200,
+              "material": {
+                "sku": "3901289006312",
+                "price": 50.8,
+                "material": "Moisture Resistant MDF",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "rail",
+                  "height": 1164
+                }
+              ]
+            },
+            {
+              "id": 1,
+              "width": 1550,
+              "height": 1170,
+              "material": {
+                "sku": "3901289006312",
+                "price": 50.8,
+                "material": "Moisture Resistant MDF",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "shelves",
+                  "height": 1134,
+                  "shelfCount": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "width": 1550,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1550,
+              "height": 2370,
+              "material": {
+                "sku": "3901289006312",
+                "price": 50.8,
+                "material": "Moisture Resistant MDF",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "drawers",
+                  "height": 886,
+                  "drawers": 4,
+                  "isExternal": true
+                },
+                {
+                  "id": 1,
+                  "type": "shelves",
+                  "height": 1448,
+                  "shelfCount": 6
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "cost": 150,
+          "name": "Edge banding for MR MDF",
+          "notes": "edging"
+        }
+      ],
+      "hardware": {
+        "hinges": {
+          "qty": 12,
+          "name": "Soft-close hinges (Blum/Häfele)",
+          "total": 96,
+          "unitPrice": 8
+        },
+        "ledLights": {
+          "qty": 3,
+          "name": "LED strip lights with power",
+          "total": 75,
+          "unitPrice": 25
+        },
+        "shelfPins": {
+          "qty": 48,
+          "name": "Adjustable shelf pins",
+          "total": 24,
+          "unitPrice": 0.5
+        },
+        "glueFixings": {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 50,
+          "unitPrice": 50
+        },
+        "wallAnchors": {
+          "qty": 1,
+          "name": "Wall mounting hardware",
+          "total": 15,
+          "unitPrice": 15
+        },
+        "clothingRails": {
+          "qty": 3,
+          "name": "Chrome oval clothing rails",
+          "total": 45,
+          "unitPrice": 15
+        },
+        "drawerRunners": {
+          "qty": 7,
+          "name": "Soft-close drawer runners 500mm",
+          "total": 245,
+          "unitPrice": 35
+        }
+      },
+      "materials": [
+        {
+          "sku": "3901289006312",
+          "sheets": 12,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 609.6,
+          "component": "Main Carcass",
+          "thickness": "18mm",
+          "pricePerSheet": 50.8
+        },
+        {
+          "sku": "3901289006308",
+          "sheets": 3,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 108.75,
+          "component": "Back Panel",
+          "thickness": "6mm",
+          "pricePerSheet": 36.25
+        },
+        {
+          "sku": "3901289006117",
+          "sheets": 1,
+          "material": "WBP Birch Plywood BB/BB",
+          "subtotal": 145.09,
+          "component": "Drawer Boxes",
+          "thickness": "12mm",
+          "pricePerSheet": 145.09
+        }
+      ],
+      "grandTotal": 2443.44,
+      "extrasTotal": 150,
+      "hardwareTotal": 550,
+      "materialTotal": 863.44,
+      "savingsPercent": "51.1",
+      "savingsVsBudget": 1556.56,
+      "professionalDoorsDrawers": {
+        "largeDoors": {
+          "qty": 4,
+          "total": 500,
+          "unitPrice": 125
+        },
+        "mediumDoors": {
+          "qty": 2,
+          "total": 170,
+          "unitPrice": 85
+        },
+        "drawerFronts": {
+          "qty": 6,
+          "total": 210,
+          "unitPrice": 35
+        }
+      },
+      "professionalDoorsDrawersTotal": 880
+    },
+    "hardware_json": [],
+    "extras_json": [
+      {
+        "cost": 150,
+        "name": "Edge banding for MR MDF",
+        "notes": "edging"
+      }
+    ],
+    "generated_image": "build_03_smart_storage_2025-11-07T11-16-00-935Z_1.png",
+    "generated_prompt": "Professional product photography of a modern wardrobe, contemporary furniture design. 2-section wardrobe with hinged doors, featuring hanging rail visible, organized shelving, integrated drawer units. Built from eco-friendly MDF, painted finish ready, smooth painted surface. modern bedroom with white walls, scandinavian interior, bright even lighting, clean aesthetic. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+    "image_gallery": [
+      {
+        "url": "build_03_smart_storage_2025-11-07T11-16-00-935Z_1.png",
+        "prompt": "Professional product photography of a modern wardrobe, contemporary furniture design. 2-section wardrobe with hinged doors, featuring hanging rail visible, organized shelving, integrated drawer units. Built from eco-friendly MDF, painted finish ready, smooth painted surface. modern bedroom with white walls, scandinavian interior, bright even lighting, clean aesthetic. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+        "created_at": "2025-11-07T13:19:41.176344+00:00",
+        "is_primary": true
+      }
+    ],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [
+        "Section 0, Carcass 1: Shelf spacing (189mm) may be too tight"
+      ],
+      "calculations": [
+        {
+          "carcass": 0,
+          "section": 0,
+          "external": {
+            "depth": 600,
+            "width": 1550,
+            "height": 1200
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1514,
+            "height": 1164
+          },
+          "material": "Moisture Resistant MDF",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 1,
+          "section": 0,
+          "external": {
+            "depth": 600,
+            "width": 1550,
+            "height": 1170
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1514,
+            "height": 1134
+          },
+          "material": "Moisture Resistant MDF",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 0,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1550,
+            "height": 2370
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1514,
+            "height": 2334
+          },
+          "material": "Moisture Resistant MDF",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        }
+      ]
+    },
+    "special_tools": [],
+    "considerations": [
+      "Professional painted doors and drawer fronts included in price",
+      "MR MDF throughout provides consistent material",
+      "Edge banding MR MDF carcass requires patience and precision",
+      "Birch ply drawers add durability where needed",
+      "Simplest finishing - just edge banding carcass",
+      "Good material efficiency reduces waste",
+      "Modern aesthetic with practical materials and pre-finished doors"
+    ],
+    "recommended_for": "Budget-conscious builds with maximum functionality",
+    "created_at": "2025-11-07T11:11:03.392Z",
+    "updated_at": "2025-11-08T16:33:29.037Z"
+  },
+  {
+    "id": 4,
+    "name": "Walk-In Closet System",
+    "character": "Open wardrobe with maximum accessibility and display storage",
+    "image": "build_04_walkin_closet_2025-11-07T11-16-08-239Z_1.png",
+    "furniture_type": "wardrobe",
+    "width": 3100,
+    "height": 2370,
+    "depth": 600,
+    "configuration": {
+      "depth": 600,
+      "doors": {
+        "style": "none",
+        "sectionConfigs": {}
+      },
+      "width": 3100,
+      "height": 2370,
+      "sections": [
+        {
+          "id": 0,
+          "width": 1033,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1033,
+              "height": 2370,
+              "material": {
+                "sku": "3901289006312",
+                "price": 50.8,
+                "material": "Moisture Resistant MDF",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "rail",
+                  "height": 2334
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "width": 1034,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1034,
+              "height": 2370,
+              "material": {
+                "sku": "3901289006312",
+                "price": 50.8,
+                "material": "Moisture Resistant MDF",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "shelves",
+                  "height": 2334,
+                  "shelfCount": 10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "width": 1033,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1033,
+              "height": 800,
+              "material": {
+                "sku": "3901289006312",
+                "price": 50.8,
+                "material": "Moisture Resistant MDF",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "drawers",
+                  "height": 764,
+                  "drawers": 4,
+                  "isExternal": true
+                }
+              ]
+            },
+            {
+              "id": 1,
+              "width": 1033,
+              "height": 1570,
+              "material": {
+                "sku": "3901289006312",
+                "price": 50.8,
+                "material": "Moisture Resistant MDF",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "rail",
+                  "height": 1534
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "cost": 120,
+          "name": "Iron-on edge banding",
+          "notes": "edging"
+        }
+      ],
+      "hardware": {
+        "hinges": {
+          "qty": 12,
+          "name": "Soft-close hinges (Blum/Häfele)",
+          "total": 96,
+          "unitPrice": 8
+        },
+        "ledLights": {
+          "qty": 3,
+          "name": "LED strip lights with power",
+          "total": 75,
+          "unitPrice": 25
+        },
+        "shelfPins": {
+          "qty": 48,
+          "name": "Adjustable shelf pins",
+          "total": 24,
+          "unitPrice": 0.5
+        },
+        "glueFixings": {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 50,
+          "unitPrice": 50
+        },
+        "wallAnchors": {
+          "qty": 1,
+          "name": "Wall mounting hardware",
+          "total": 15,
+          "unitPrice": 15
+        },
+        "clothingRails": {
+          "qty": 3,
+          "name": "Chrome oval clothing rails",
+          "total": 45,
+          "unitPrice": 15
+        },
+        "drawerRunners": {
+          "qty": 7,
+          "name": "Soft-close drawer runners 500mm",
+          "total": 245,
+          "unitPrice": 35
+        }
+      },
+      "materials": [
+        {
+          "sku": "3901289006312",
+          "sheets": 12,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 609.6,
+          "component": "Main Carcass",
+          "thickness": "18mm",
+          "pricePerSheet": 50.8
+        },
+        {
+          "sku": "3901289006308",
+          "sheets": 3,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 108.75,
+          "component": "Back Panel",
+          "thickness": "6mm",
+          "pricePerSheet": 36.25
+        },
+        {
+          "sku": "3901289006310",
+          "sheets": 2,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 89.64,
+          "component": "Drawer Boxes",
+          "thickness": "12mm",
+          "pricePerSheet": 44.82
+        }
+      ],
+      "grandTotal": 2357.99,
+      "extrasTotal": 120,
+      "hardwareTotal": 550,
+      "materialTotal": 807.99,
+      "savingsPercent": "52.8",
+      "savingsVsBudget": 1642.0100000000002,
+      "professionalDoorsDrawers": {
+        "largeDoors": {
+          "qty": 4,
+          "total": 500,
+          "unitPrice": 125
+        },
+        "mediumDoors": {
+          "qty": 2,
+          "total": 170,
+          "unitPrice": 85
+        },
+        "drawerFronts": {
+          "qty": 6,
+          "total": 210,
+          "unitPrice": 35
+        }
+      },
+      "professionalDoorsDrawersTotal": 880
+    },
+    "hardware_json": [],
+    "extras_json": [
+      {
+        "cost": 120,
+        "name": "Iron-on edge banding",
+        "notes": "edging"
+      }
+    ],
+    "generated_image": "build_04_walkin_closet_2025-11-07T11-16-08-239Z_1.png",
+    "generated_prompt": "Professional product photography of a modern wardrobe, contemporary furniture design. 3-section wardrobe with none doors, featuring hanging rail visible, organized shelving, integrated drawer units. Built from eco-friendly MDF, painted finish ready, smooth painted surface. modern bedroom with white walls, scandinavian interior, bright even lighting, clean aesthetic. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+    "image_gallery": [
+      {
+        "url": "build_04_walkin_closet_2025-11-07T11-16-08-239Z_1.png",
+        "prompt": "Professional product photography of a modern wardrobe, contemporary furniture design. 3-section wardrobe with none doors, featuring hanging rail visible, organized shelving, integrated drawer units. Built from eco-friendly MDF, painted finish ready, smooth painted surface. modern bedroom with white walls, scandinavian interior, bright even lighting, clean aesthetic. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+        "created_at": "2025-11-07T13:19:41.176344+00:00",
+        "is_primary": true
+      }
+    ],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "calculations": [
+        {
+          "carcass": 0,
+          "section": 0,
+          "external": {
+            "depth": 600,
+            "width": 1033,
+            "height": 2370
+          },
+          "internal": {
+            "depth": 582,
+            "width": 997,
+            "height": 2334
+          },
+          "material": "Moisture Resistant MDF",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 0,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1034,
+            "height": 2370
+          },
+          "internal": {
+            "depth": 582,
+            "width": 998,
+            "height": 2334
+          },
+          "material": "Moisture Resistant MDF",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 0,
+          "section": 2,
+          "external": {
+            "depth": 600,
+            "width": 1033,
+            "height": 800
+          },
+          "internal": {
+            "depth": 582,
+            "width": 997,
+            "height": 764
+          },
+          "material": "Moisture Resistant MDF",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 1,
+          "section": 2,
+          "external": {
+            "depth": 600,
+            "width": 1033,
+            "height": 1570
+          },
+          "internal": {
+            "depth": 582,
+            "width": 997,
+            "height": 1534
+          },
+          "material": "Moisture Resistant MDF",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        }
+      ]
+    },
+    "special_tools": [],
+    "considerations": [
+      "Professional painted doors and drawer fronts included in price",
+      "All MR MDF construction simplifies material handling",
+      "Single material type means consistent cutting and joinery",
+      "Edge banding only finishing task - very beginner friendly",
+      "Budget-friendly without compromising structural integrity",
+      "Easiest build for beginners - uniform materials",
+      "Fastest timeline with pre-finished doors"
+    ],
+    "recommended_for": "Spacious rooms with walk-in closet space",
+    "created_at": "2025-11-07T11:11:03.393Z",
+    "updated_at": "2025-11-08T16:33:29.035Z"
+  },
+  {
+    "id": 5,
+    "name": "Compact Studio Solution",
+    "character": "Space-efficient design perfect for small apartments",
+    "image": "build_05_compact_studio_2025-11-07T11-16-16-486Z_1.png",
+    "furniture_type": "wardrobe",
+    "width": 2400,
+    "height": 2370,
+    "depth": 550,
+    "configuration": {
+      "depth": 550,
+      "doors": {
+        "style": "sliding",
+        "sectionConfigs": {
+          "0": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 0,
+                "startCarcass": 0
+              }
+            ]
+          },
+          "1": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 1,
+                "startCarcass": 0
+              }
+            ]
+          }
+        }
+      },
+      "width": 2400,
+      "height": 2370,
+      "sections": [
+        {
+          "id": 0,
+          "width": 1200,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1200,
+              "height": 2370,
+              "material": {
+                "sku": "3901289006312",
+                "price": 50.8,
+                "material": "Moisture Resistant MDF",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "rail",
+                  "height": 1182
+                },
+                {
+                  "id": 1,
+                  "type": "shelves",
+                  "height": 1152,
+                  "shelfCount": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "width": 1200,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1200,
+              "height": 1000,
+              "material": {
+                "sku": "3901289006312",
+                "price": 50.8,
+                "material": "Moisture Resistant MDF",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "drawers",
+                  "height": 964,
+                  "drawers": 5,
+                  "isExternal": true
+                }
+              ]
+            },
+            {
+              "id": 1,
+              "width": 1200,
+              "height": 1370,
+              "material": {
+                "sku": "3901289006312",
+                "price": 50.8,
+                "material": "Moisture Resistant MDF",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "shelves",
+                  "height": 1334,
+                  "shelfCount": 6
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "cost": 100,
+          "name": "Basic edge banding",
+          "notes": "edging"
+        },
+        {
+          "cost": 60,
+          "name": "Standard handles",
+          "notes": "basicHardware"
+        }
+      ],
+      "hardware": {
+        "hinges": {
+          "qty": 12,
+          "name": "Soft-close hinges (Blum/Häfele)",
+          "total": 96,
+          "unitPrice": 8
+        },
+        "ledLights": {
+          "qty": 3,
+          "name": "LED strip lights with power",
+          "total": 75,
+          "unitPrice": 25
+        },
+        "shelfPins": {
+          "qty": 48,
+          "name": "Adjustable shelf pins",
+          "total": 24,
+          "unitPrice": 0.5
+        },
+        "glueFixings": {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 50,
+          "unitPrice": 50
+        },
+        "wallAnchors": {
+          "qty": 1,
+          "name": "Wall mounting hardware",
+          "total": 15,
+          "unitPrice": 15
+        },
+        "clothingRails": {
+          "qty": 3,
+          "name": "Chrome oval clothing rails",
+          "total": 45,
+          "unitPrice": 15
+        },
+        "drawerRunners": {
+          "qty": 7,
+          "name": "Soft-close drawer runners 500mm",
+          "total": 245,
+          "unitPrice": 35
+        }
+      },
+      "materials": [
+        {
+          "sku": "3901289006312",
+          "sheets": 12,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 609.6,
+          "component": "Main Carcass",
+          "thickness": "18mm",
+          "pricePerSheet": 50.8
+        },
+        {
+          "sku": "3901289006308",
+          "sheets": 3,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 108.75,
+          "component": "Back Panel",
+          "thickness": "6mm",
+          "pricePerSheet": 36.25
+        },
+        {
+          "sku": "3901289006310",
+          "sheets": 2,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 89.64,
+          "component": "Drawer Boxes",
+          "thickness": "12mm",
+          "pricePerSheet": 44.82
+        }
+      ],
+      "grandTotal": 2397.99,
+      "extrasTotal": 160,
+      "hardwareTotal": 550,
+      "materialTotal": 807.99,
+      "savingsPercent": "52.0",
+      "savingsVsBudget": 1602.0100000000002,
+      "professionalDoorsDrawers": {
+        "largeDoors": {
+          "qty": 4,
+          "total": 500,
+          "unitPrice": 125
+        },
+        "mediumDoors": {
+          "qty": 2,
+          "total": 170,
+          "unitPrice": 85
+        },
+        "drawerFronts": {
+          "qty": 6,
+          "total": 210,
+          "unitPrice": 35
+        }
+      },
+      "professionalDoorsDrawersTotal": 880
+    },
+    "hardware_json": [],
+    "extras_json": [
+      {
+        "cost": 100,
+        "name": "Basic edge banding",
+        "notes": "edging"
+      },
+      {
+        "cost": 60,
+        "name": "Standard handles",
+        "notes": "basicHardware"
+      }
+    ],
+    "generated_image": "build_05_compact_studio_2025-11-07T11-16-16-486Z_1.png",
+    "generated_prompt": "Professional product photography of a compact wardrobe, optimized for small spaces. 2-section wardrobe with sliding doors, featuring hanging rail visible, organized shelving, integrated drawer units. Built from eco-friendly MDF, painted finish ready, smooth painted surface, premium hardware. small apartment or studio interior, bright lighting to emphasize spaciousness. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+    "image_gallery": [
+      {
+        "url": "build_05_compact_studio_2025-11-07T11-16-16-486Z_1.png",
+        "prompt": "Professional product photography of a compact wardrobe, optimized for small spaces. 2-section wardrobe with sliding doors, featuring hanging rail visible, organized shelving, integrated drawer units. Built from eco-friendly MDF, painted finish ready, smooth painted surface, premium hardware. small apartment or studio interior, bright lighting to emphasize spaciousness. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+        "created_at": "2025-11-07T13:19:41.176344+00:00",
+        "is_primary": true
+      }
+    ],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [
+        "Section 0, Carcass 0: Shelf spacing (192mm) may be too tight",
+        "Section 1, Carcass 1: Shelf spacing (190.57142857142858mm) may be too tight"
+      ],
+      "calculations": [
+        {
+          "carcass": 0,
+          "section": 0,
+          "external": {
+            "depth": 600,
+            "width": 1200,
+            "height": 2370
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1164,
+            "height": 2334
+          },
+          "material": "Moisture Resistant MDF",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 0,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1200,
+            "height": 1000
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1164,
+            "height": 964
+          },
+          "material": "Moisture Resistant MDF",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 1,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1200,
+            "height": 1370
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1164,
+            "height": 1334
+          },
+          "material": "Moisture Resistant MDF",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        }
+      ]
+    },
+    "special_tools": [],
+    "considerations": [
+      "Professional painted doors and drawer fronts included in price",
+      "Most beginner-friendly build",
+      "All MR MDF - consistent material throughout",
+      "Basic hardware reduces complexity",
+      "Perfect first project for learning techniques",
+      "Minimal special tools required",
+      "Fastest build time of all options"
+    ],
+    "recommended_for": "Studio apartments and compact bedrooms",
+    "created_at": "2025-11-07T11:11:03.394Z",
+    "updated_at": "2025-11-08T16:33:29.032Z"
+  },
+  {
+    "id": 6,
+    "name": "Industrial Chic",
+    "character": "Black melamine with metal accents and bold design",
+    "image": "build_06_industrial_chic_2025-11-07T11-16-29-464Z_1.png",
+    "furniture_type": "wardrobe",
+    "width": 3100,
+    "height": 2370,
+    "depth": 600,
+    "configuration": {
+      "depth": 600,
+      "doors": {
+        "style": "hinged",
+        "sectionConfigs": {
+          "0": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 0,
+                "startCarcass": 0
+              }
+            ]
+          },
+          "1": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 1,
+                "startCarcass": 0
+              }
+            ]
+          }
+        }
+      },
+      "width": 3100,
+      "height": 2370,
+      "sections": [
+        {
+          "id": 0,
+          "width": 1550,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1550,
+              "height": 2370,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "double_rail",
+                  "height": 2334
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "width": 1550,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1550,
+              "height": 1200,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "drawers",
+                  "height": 1164,
+                  "drawers": 6,
+                  "isExternal": true
+                }
+              ]
+            },
+            {
+              "id": 1,
+              "width": 1550,
+              "height": 1170,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "rail",
+                  "height": 1134
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "cost": 150,
+          "name": "FSC certification premium",
+          "notes": "fscPremium"
+        }
+      ],
+      "hardware": {
+        "hinges": {
+          "qty": 12,
+          "name": "Soft-close hinges (Blum/Häfele)",
+          "total": 96,
+          "unitPrice": 8
+        },
+        "ledLights": {
+          "qty": 3,
+          "name": "LED strip lights with power",
+          "total": 75,
+          "unitPrice": 25
+        },
+        "shelfPins": {
+          "qty": 48,
+          "name": "Adjustable shelf pins",
+          "total": 24,
+          "unitPrice": 0.5
+        },
+        "glueFixings": {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 50,
+          "unitPrice": 50
+        },
+        "wallAnchors": {
+          "qty": 1,
+          "name": "Wall mounting hardware",
+          "total": 15,
+          "unitPrice": 15
+        },
+        "clothingRails": {
+          "qty": 3,
+          "name": "Chrome oval clothing rails",
+          "total": 45,
+          "unitPrice": 15
+        },
+        "drawerRunners": {
+          "qty": 7,
+          "name": "Soft-close drawer runners 500mm",
+          "total": 245,
+          "unitPrice": 35
+        }
+      },
+      "materials": [
+        {
+          "sku": "3901289006119",
+          "sheets": 12,
+          "material": "WBP Birch Plywood BB/BB",
+          "subtotal": 2233.56,
+          "component": "Main Carcass",
+          "thickness": "18mm",
+          "pricePerSheet": 186.13
+        },
+        {
+          "sku": "3901289006308",
+          "sheets": 3,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 108.75,
+          "component": "Back Panel",
+          "thickness": "6mm",
+          "pricePerSheet": 36.25
+        },
+        {
+          "sku": "3901289006118",
+          "sheets": 2,
+          "material": "WBP Birch Plywood BB/BB",
+          "subtotal": 332.74,
+          "component": "Drawer Boxes",
+          "thickness": "15mm",
+          "pricePerSheet": 166.37
+        }
+      ],
+      "grandTotal": 4255.05,
+      "extrasTotal": 150,
+      "hardwareTotal": 550,
+      "materialTotal": 2675.05,
+      "savingsPercent": "14.9",
+      "savingsVsBudget": 1744.9499999999998,
+      "professionalDoorsDrawers": {
+        "largeDoors": {
+          "qty": 4,
+          "total": 500,
+          "unitPrice": 125
+        },
+        "mediumDoors": {
+          "qty": 2,
+          "total": 170,
+          "unitPrice": 85
+        },
+        "drawerFronts": {
+          "qty": 6,
+          "total": 210,
+          "unitPrice": 35
+        }
+      },
+      "professionalDoorsDrawersTotal": 880
+    },
+    "hardware_json": [],
+    "extras_json": [
+      {
+        "cost": 150,
+        "name": "FSC certification premium",
+        "notes": "fscPremium"
+      }
+    ],
+    "generated_image": "build_06_industrial_chic_2025-11-07T11-16-29-464Z_1.png",
+    "generated_prompt": "Professional product photography of a industrial modern wardrobe, urban loft aesthetic. 2-section wardrobe with hinged doors, featuring double hanging rails visible through open doors, integrated drawer units, hanging rail visible. Built from premium birch plywood, natural wood grain finish, visible plywood edges showcasing quality. industrial loft interior, exposed brick or concrete, dramatic lighting with strong contrast. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+    "image_gallery": [
+      {
+        "url": "build_06_industrial_chic_2025-11-07T11-16-29-464Z_1.png",
+        "prompt": "Professional product photography of a industrial modern wardrobe, urban loft aesthetic. 2-section wardrobe with hinged doors, featuring double hanging rails visible through open doors, integrated drawer units, hanging rail visible. Built from premium birch plywood, natural wood grain finish, visible plywood edges showcasing quality. industrial loft interior, exposed brick or concrete, dramatic lighting with strong contrast. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+        "created_at": "2025-11-07T13:19:41.176344+00:00",
+        "is_primary": true
+      }
+    ],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "calculations": [
+        {
+          "carcass": 0,
+          "section": 0,
+          "external": {
+            "depth": 600,
+            "width": 1550,
+            "height": 2370
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1514,
+            "height": 2334
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 0,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1550,
+            "height": 1200
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1514,
+            "height": 1164
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 1,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1550,
+            "height": 1170
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1514,
+            "height": 1134
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        }
+      ]
+    },
+    "special_tools": [],
+    "considerations": [
+      "Professional painted doors and drawer fronts included in price",
+      "FSC certified birch plywood carcass for eco-credentials",
+      "Simple build focusing on sustainable material sourcing",
+      "All materials sourced with environmental credentials",
+      "Premium birch throughout with pre-finished doors",
+      "Simplified timeline with professional doors"
+    ],
+    "recommended_for": "Modern industrial-style interiors",
+    "created_at": "2025-11-07T11:11:03.395Z",
+    "updated_at": "2025-11-08T16:33:29.029Z"
+  },
+  {
+    "id": 7,
+    "name": "Kids Room Special",
+    "character": "Lower hanging rails and accessible storage for children",
+    "image": "build_07_kids_room_2025-11-07T11-16-36-095Z_1.png",
+    "furniture_type": "wardrobe",
+    "width": 3100,
+    "height": 2200,
+    "depth": 550,
+    "configuration": {
+      "depth": 550,
+      "doors": {
+        "style": "hinged",
+        "sectionConfigs": {
+          "0": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 1,
+                "startCarcass": 0
+              }
+            ]
+          },
+          "1": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 0,
+                "startCarcass": 0
+              }
+            ]
+          }
+        }
+      },
+      "width": 3100,
+      "height": 2200,
+      "sections": [
+        {
+          "id": 0,
+          "width": 1550,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1550,
+              "height": 1100,
+              "material": {
+                "sku": "3901289007105",
+                "price": 95.41,
+                "material": "Ash MDF Veneered",
+                "thickness": "19mm",
+                "thicknessNum": 19
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "rail",
+                  "height": 1062
+                }
+              ]
+            },
+            {
+              "id": 1,
+              "width": 1550,
+              "height": 1100,
+              "material": {
+                "sku": "3901289007105",
+                "price": 95.41,
+                "material": "Ash MDF Veneered",
+                "thickness": "19mm",
+                "thicknessNum": 19
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "shelves",
+                  "height": 1062,
+                  "shelfCount": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "width": 1550,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1550,
+              "height": 2200,
+              "material": {
+                "sku": "3901289007105",
+                "price": 95.41,
+                "material": "Ash MDF Veneered",
+                "thickness": "19mm",
+                "thicknessNum": 19
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "drawers",
+                  "height": 786,
+                  "drawers": 4,
+                  "isExternal": true
+                },
+                {
+                  "id": 1,
+                  "type": "shelves",
+                  "height": 1376,
+                  "shelfCount": 7
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "cost": 200,
+          "name": "Champagne gold handles",
+          "notes": "champagneHardware"
+        },
+        {
+          "cost": 120,
+          "name": "Matte lacquer for ash veneer",
+          "notes": "lacquer"
+        }
+      ],
+      "hardware": {
+        "hinges": {
+          "qty": 12,
+          "name": "Soft-close hinges (Blum/Häfele)",
+          "total": 96,
+          "unitPrice": 8
+        },
+        "ledLights": {
+          "qty": 3,
+          "name": "LED strip lights with power",
+          "total": 75,
+          "unitPrice": 25
+        },
+        "shelfPins": {
+          "qty": 48,
+          "name": "Adjustable shelf pins",
+          "total": 24,
+          "unitPrice": 0.5
+        },
+        "glueFixings": {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 50,
+          "unitPrice": 50
+        },
+        "wallAnchors": {
+          "qty": 1,
+          "name": "Wall mounting hardware",
+          "total": 15,
+          "unitPrice": 15
+        },
+        "clothingRails": {
+          "qty": 3,
+          "name": "Chrome oval clothing rails",
+          "total": 45,
+          "unitPrice": 15
+        },
+        "drawerRunners": {
+          "qty": 7,
+          "name": "Soft-close drawer runners 500mm",
+          "total": 245,
+          "unitPrice": 35
+        }
+      },
+      "materials": [
+        {
+          "sku": "3901289007105",
+          "sheets": 12,
+          "material": "Ash MDF Veneered",
+          "subtotal": 1144.92,
+          "component": "Main Carcass",
+          "thickness": "19mm",
+          "pricePerSheet": 95.41
+        },
+        {
+          "sku": "3901289006308",
+          "sheets": 3,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 108.75,
+          "component": "Back Panel",
+          "thickness": "6mm",
+          "pricePerSheet": 36.25
+        },
+        {
+          "sku": "3901289006118",
+          "sheets": 2,
+          "material": "WBP Birch Plywood BB/BB",
+          "subtotal": 332.74,
+          "component": "Drawer Boxes",
+          "thickness": "15mm",
+          "pricePerSheet": 166.37
+        }
+      ],
+      "grandTotal": 3336.41,
+      "extrasTotal": 320,
+      "hardwareTotal": 550,
+      "materialTotal": 1586.41,
+      "savingsPercent": "33.3",
+      "savingsVsBudget": 2663.59,
+      "professionalDoorsDrawers": {
+        "largeDoors": {
+          "qty": 4,
+          "total": 500,
+          "unitPrice": 125
+        },
+        "mediumDoors": {
+          "qty": 2,
+          "total": 170,
+          "unitPrice": 85
+        },
+        "drawerFronts": {
+          "qty": 6,
+          "total": 210,
+          "unitPrice": 35
+        }
+      },
+      "professionalDoorsDrawersTotal": 880
+    },
+    "hardware_json": [],
+    "extras_json": [
+      {
+        "cost": 200,
+        "name": "Champagne gold handles",
+        "notes": "champagneHardware"
+      },
+      {
+        "cost": 120,
+        "name": "Matte lacquer for ash veneer",
+        "notes": "lacquer"
+      }
+    ],
+    "generated_image": "build_07_kids_room_2025-11-07T11-16-36-095Z_1.png",
+    "generated_prompt": "Professional product photography of a child-friendly wardrobe with playful design. 2-section wardrobe with hinged doors, featuring hanging rail visible, integrated drawer units, organized shelving. Built from colorful accents, durable finish, rounded edges. colorful children's bedroom, bright cheerful lighting. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+    "image_gallery": [
+      {
+        "url": "build_07_kids_room_2025-11-07T11-16-36-095Z_1.png",
+        "prompt": "Professional product photography of a child-friendly wardrobe with playful design. 2-section wardrobe with hinged doors, featuring hanging rail visible, integrated drawer units, organized shelving. Built from colorful accents, durable finish, rounded edges. colorful children's bedroom, bright cheerful lighting. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+        "created_at": "2025-11-07T13:19:41.176344+00:00",
+        "is_primary": true
+      }
+    ],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [
+        "Section 0, Carcass 1: Shelf spacing (177mm) may be too tight",
+        "Section 1, Carcass 0: Shelf spacing (172mm) may be too tight"
+      ],
+      "calculations": [
+        {
+          "carcass": 0,
+          "section": 0,
+          "external": {
+            "depth": 600,
+            "width": 1550,
+            "height": 1100
+          },
+          "internal": {
+            "depth": 581,
+            "width": 1512,
+            "height": 1062
+          },
+          "material": "Ash MDF Veneered",
+          "thickness": "19mm",
+          "panelThickness": {
+            "back": 19,
+            "sides": 38,
+            "topBottom": 38
+          }
+        },
+        {
+          "carcass": 1,
+          "section": 0,
+          "external": {
+            "depth": 600,
+            "width": 1550,
+            "height": 1100
+          },
+          "internal": {
+            "depth": 581,
+            "width": 1512,
+            "height": 1062
+          },
+          "material": "Ash MDF Veneered",
+          "thickness": "19mm",
+          "panelThickness": {
+            "back": 19,
+            "sides": 38,
+            "topBottom": 38
+          }
+        },
+        {
+          "carcass": 0,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1550,
+            "height": 2200
+          },
+          "internal": {
+            "depth": 581,
+            "width": 1512,
+            "height": 2162
+          },
+          "material": "Ash MDF Veneered",
+          "thickness": "19mm",
+          "panelThickness": {
+            "back": 19,
+            "sides": 38,
+            "topBottom": 38
+          }
+        }
+      ]
+    },
+    "special_tools": [],
+    "considerations": [
+      "Professional painted doors and drawer fronts included in price",
+      "Ash veneer carcass provides light, gallery aesthetic",
+      "Champagne hardware elevates overall appearance",
+      "Ash veneer must be handled carefully to avoid damage",
+      "Lacquer finish enhances ash grain subtly",
+      "Sophisticated look with pre-finished doors",
+      "Simplified build focusing on premium carcass"
+    ],
+    "recommended_for": "Children's bedrooms with safety considerations",
+    "created_at": "2025-11-07T11:11:03.397Z",
+    "updated_at": "2025-11-08T16:33:29.027Z"
+  },
+  {
+    "id": 8,
+    "name": "Master Bedroom Suite",
+    "character": "Traditional wardrobe with balanced storage and elegant details",
+    "image": "build_08_master_bedroom_2025-11-07T11-17-01-540Z_1.png",
+    "furniture_type": "wardrobe",
+    "width": 3100,
+    "height": 2370,
+    "depth": 600,
+    "configuration": {
+      "depth": 600,
+      "doors": {
+        "style": "hinged",
+        "sectionConfigs": {
+          "0": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 0,
+                "startCarcass": 0
+              }
+            ]
+          },
+          "1": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 1,
+                "startCarcass": 0
+              }
+            ]
+          },
+          "2": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 0,
+                "startCarcass": 0
+              }
+            ]
+          }
+        }
+      },
+      "width": 3100,
+      "height": 2370,
+      "sections": [
+        {
+          "id": 0,
+          "width": 1033,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1033,
+              "height": 2370,
+              "material": {
+                "sku": "3901289007125",
+                "price": 118.33,
+                "material": "Cherry MDF Veneered",
+                "thickness": "19mm",
+                "thicknessNum": 19
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "rail",
+                  "height": 1181
+                },
+                {
+                  "id": 1,
+                  "type": "shelves",
+                  "height": 1151,
+                  "shelfCount": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "width": 1034,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1034,
+              "height": 1200,
+              "material": {
+                "sku": "3901289007125",
+                "price": 118.33,
+                "material": "Cherry MDF Veneered",
+                "thickness": "19mm",
+                "thicknessNum": 19
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "drawers",
+                  "height": 1162,
+                  "drawers": 6,
+                  "isExternal": true
+                }
+              ]
+            },
+            {
+              "id": 1,
+              "width": 1034,
+              "height": 1170,
+              "material": {
+                "sku": "3901289007125",
+                "price": 118.33,
+                "material": "Cherry MDF Veneered",
+                "thickness": "19mm",
+                "thicknessNum": 19
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "rail",
+                  "height": 1132
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "width": 1033,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1033,
+              "height": 2370,
+              "material": {
+                "sku": "3901289007125",
+                "price": 118.33,
+                "material": "Cherry MDF Veneered",
+                "thickness": "19mm",
+                "thicknessNum": 19
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "double_rail",
+                  "height": 2332
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "cost": 250,
+          "name": "Solid walnut for external drawers",
+          "notes": "solidWalnut"
+        },
+        {
+          "cost": 160,
+          "name": "Vintage brass handles",
+          "notes": "brassHardware"
+        },
+        {
+          "cost": 100,
+          "name": "Hand-oiled finish for cherry veneer",
+          "notes": "handOil"
+        }
+      ],
+      "hardware": {
+        "hinges": {
+          "qty": 12,
+          "name": "Soft-close hinges (Blum/Häfele)",
+          "total": 96,
+          "unitPrice": 8
+        },
+        "ledLights": {
+          "qty": 3,
+          "name": "LED strip lights with power",
+          "total": 75,
+          "unitPrice": 25
+        },
+        "shelfPins": {
+          "qty": 48,
+          "name": "Adjustable shelf pins",
+          "total": 24,
+          "unitPrice": 0.5
+        },
+        "glueFixings": {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 50,
+          "unitPrice": 50
+        },
+        "wallAnchors": {
+          "qty": 1,
+          "name": "Wall mounting hardware",
+          "total": 15,
+          "unitPrice": 15
+        },
+        "clothingRails": {
+          "qty": 3,
+          "name": "Chrome oval clothing rails",
+          "total": 45,
+          "unitPrice": 15
+        },
+        "drawerRunners": {
+          "qty": 7,
+          "name": "Soft-close drawer runners 500mm",
+          "total": 245,
+          "unitPrice": 35
+        }
+      },
+      "materials": [
+        {
+          "sku": "3901289007125",
+          "sheets": 12,
+          "material": "Cherry MDF Veneered",
+          "subtotal": 1419.96,
+          "component": "Main Carcass",
+          "thickness": "19mm",
+          "pricePerSheet": 118.33
+        },
+        {
+          "sku": "3901289006308",
+          "sheets": 3,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 108.75,
+          "component": "Back Panel",
+          "thickness": "6mm",
+          "pricePerSheet": 36.25
+        },
+        {
+          "sku": "3901289006118",
+          "sheets": 2,
+          "material": "WBP Birch Plywood BB/BB",
+          "subtotal": 332.74,
+          "component": "Drawer Boxes",
+          "thickness": "15mm",
+          "pricePerSheet": 166.37
+        }
+      ],
+      "grandTotal": 3801.45,
+      "extrasTotal": 510,
+      "hardwareTotal": 550,
+      "materialTotal": 1861.45,
+      "savingsPercent": "24.0",
+      "savingsVsBudget": 2198.55,
+      "professionalDoorsDrawers": {
+        "largeDoors": {
+          "qty": 4,
+          "total": 500,
+          "unitPrice": 125
+        },
+        "mediumDoors": {
+          "qty": 2,
+          "total": 170,
+          "unitPrice": 85
+        },
+        "drawerFronts": {
+          "qty": 6,
+          "total": 210,
+          "unitPrice": 35
+        }
+      },
+      "professionalDoorsDrawersTotal": 880
+    },
+    "hardware_json": [],
+    "extras_json": [
+      {
+        "cost": 250,
+        "name": "Solid walnut for external drawers",
+        "notes": "solidWalnut"
+      },
+      {
+        "cost": 160,
+        "name": "Vintage brass handles",
+        "notes": "brassHardware"
+      },
+      {
+        "cost": 100,
+        "name": "Hand-oiled finish for cherry veneer",
+        "notes": "handOil"
+      }
+    ],
+    "generated_image": "build_08_master_bedroom_2025-11-07T11-17-01-540Z_1.png",
+    "generated_prompt": "Professional product photography of a traditional wardrobe with elegant details. 3-section wardrobe with hinged doors, featuring double hanging rails visible through open doors, integrated drawer units, organized shelving. Built from cherry wood, hand-oiled wood finish, visible wood grain. classic bedroom interior, traditional decor, warm ambient lighting. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+    "image_gallery": [
+      {
+        "url": "build_08_master_bedroom_2025-11-07T11-17-01-540Z_1.png",
+        "prompt": "Professional product photography of a traditional wardrobe with elegant details. 3-section wardrobe with hinged doors, featuring double hanging rails visible through open doors, integrated drawer units, organized shelving. Built from cherry wood, hand-oiled wood finish, visible wood grain. classic bedroom interior, traditional decor, warm ambient lighting. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+        "created_at": "2025-11-07T13:19:41.176344+00:00",
+        "is_primary": true
+      }
+    ],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [
+        "Section 0, Carcass 0: Shelf spacing (191.83333333333334mm) may be too tight"
+      ],
+      "calculations": [
+        {
+          "carcass": 0,
+          "section": 0,
+          "external": {
+            "depth": 600,
+            "width": 1033,
+            "height": 2370
+          },
+          "internal": {
+            "depth": 581,
+            "width": 995,
+            "height": 2332
+          },
+          "material": "Cherry MDF Veneered",
+          "thickness": "19mm",
+          "panelThickness": {
+            "back": 19,
+            "sides": 38,
+            "topBottom": 38
+          }
+        },
+        {
+          "carcass": 0,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1034,
+            "height": 1200
+          },
+          "internal": {
+            "depth": 581,
+            "width": 996,
+            "height": 1162
+          },
+          "material": "Cherry MDF Veneered",
+          "thickness": "19mm",
+          "panelThickness": {
+            "back": 19,
+            "sides": 38,
+            "topBottom": 38
+          }
+        },
+        {
+          "carcass": 1,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1034,
+            "height": 1170
+          },
+          "internal": {
+            "depth": 581,
+            "width": 996,
+            "height": 1132
+          },
+          "material": "Cherry MDF Veneered",
+          "thickness": "19mm",
+          "panelThickness": {
+            "back": 19,
+            "sides": 38,
+            "topBottom": 38
+          }
+        },
+        {
+          "carcass": 0,
+          "section": 2,
+          "external": {
+            "depth": 600,
+            "width": 1033,
+            "height": 2370
+          },
+          "internal": {
+            "depth": 581,
+            "width": 995,
+            "height": 2332
+          },
+          "material": "Cherry MDF Veneered",
+          "thickness": "19mm",
+          "panelThickness": {
+            "back": 19,
+            "sides": 38,
+            "topBottom": 38
+          }
+        }
+      ]
+    },
+    "special_tools": [],
+    "considerations": [
+      "Professional painted doors and drawer fronts included in price",
+      "Cherry veneer carcass provides rich warm foundation",
+      "Solid walnut drawer construction requires milling skills",
+      "Hand-oiled finish for cherry veneer carcass",
+      "Vintage brass hardware adds authentic period feel",
+      "Premium carcass with pre-finished doors",
+      "Simplified timeline with professional doors"
+    ],
+    "recommended_for": "Traditional master bedrooms requiring premium finishes",
+    "created_at": "2025-11-07T11:11:03.398Z",
+    "updated_at": "2025-11-08T16:33:29.023Z"
+  },
+  {
+    "id": 9,
+    "name": "Narrow Hallway Solution",
+    "character": "Slim depth design for tight spaces without compromising storage",
+    "image": "build_09_narrow_hallway_2025-11-07T11-17-11-245Z_1.png",
+    "furniture_type": "wardrobe",
+    "width": 2400,
+    "height": 2370,
+    "depth": 500,
+    "configuration": {
+      "depth": 500,
+      "doors": {
+        "style": "sliding",
+        "sectionConfigs": {
+          "0": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 0,
+                "startCarcass": 0
+              }
+            ]
+          },
+          "1": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 1,
+                "startCarcass": 0
+              }
+            ]
+          }
+        }
+      },
+      "width": 2400,
+      "height": 2370,
+      "sections": [
+        {
+          "id": 0,
+          "width": 1200,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1200,
+              "height": 2370,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "rail",
+                  "height": 2334
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "width": 1200,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1200,
+              "height": 1200,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "shelves",
+                  "height": 1164,
+                  "shelfCount": 6
+                }
+              ]
+            },
+            {
+              "id": 1,
+              "width": 1200,
+              "height": 1170,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "drawers",
+                  "height": 1134,
+                  "drawers": 5,
+                  "isExternal": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "cost": 140,
+          "name": "Minimalist steel handles",
+          "notes": "steelHardware"
+        },
+        {
+          "cost": 150,
+          "name": "Matte lacquer for birch",
+          "notes": "matteLacquer"
+        }
+      ],
+      "hardware": {
+        "hinges": {
+          "qty": 12,
+          "name": "Soft-close hinges (Blum/Häfele)",
+          "total": 96,
+          "unitPrice": 8
+        },
+        "ledLights": {
+          "qty": 3,
+          "name": "LED strip lights with power",
+          "total": 75,
+          "unitPrice": 25
+        },
+        "shelfPins": {
+          "qty": 48,
+          "name": "Adjustable shelf pins",
+          "total": 24,
+          "unitPrice": 0.5
+        },
+        "glueFixings": {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 50,
+          "unitPrice": 50
+        },
+        "wallAnchors": {
+          "qty": 1,
+          "name": "Wall mounting hardware",
+          "total": 15,
+          "unitPrice": 15
+        },
+        "clothingRails": {
+          "qty": 3,
+          "name": "Chrome oval clothing rails",
+          "total": 45,
+          "unitPrice": 15
+        },
+        "drawerRunners": {
+          "qty": 7,
+          "name": "Soft-close drawer runners 500mm",
+          "total": 245,
+          "unitPrice": 35
+        }
+      },
+      "materials": [
+        {
+          "sku": "3901289006119",
+          "sheets": 12,
+          "material": "WBP Birch Plywood BB/BB",
+          "subtotal": 2233.56,
+          "component": "Main Carcass",
+          "thickness": "18mm",
+          "pricePerSheet": 186.13
+        },
+        {
+          "sku": "3901289006308",
+          "sheets": 3,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 108.75,
+          "component": "Back Panel",
+          "thickness": "6mm",
+          "pricePerSheet": 36.25
+        },
+        {
+          "sku": "3901289006118",
+          "sheets": 2,
+          "material": "WBP Birch Plywood BB/BB",
+          "subtotal": 332.74,
+          "component": "Drawer Boxes",
+          "thickness": "15mm",
+          "pricePerSheet": 166.37
+        }
+      ],
+      "grandTotal": 4395.05,
+      "extrasTotal": 290,
+      "hardwareTotal": 550,
+      "materialTotal": 2675.05,
+      "savingsPercent": "12.1",
+      "savingsVsBudget": 1604.9499999999998,
+      "professionalDoorsDrawers": {
+        "largeDoors": {
+          "qty": 4,
+          "total": 500,
+          "unitPrice": 125
+        },
+        "mediumDoors": {
+          "qty": 2,
+          "total": 170,
+          "unitPrice": 85
+        },
+        "drawerFronts": {
+          "qty": 6,
+          "total": 210,
+          "unitPrice": 35
+        }
+      },
+      "professionalDoorsDrawersTotal": 880
+    },
+    "hardware_json": [],
+    "extras_json": [
+      {
+        "cost": 140,
+        "name": "Minimalist steel handles",
+        "notes": "steelHardware"
+      },
+      {
+        "cost": 150,
+        "name": "Matte lacquer for birch",
+        "notes": "matteLacquer"
+      }
+    ],
+    "generated_image": "build_09_narrow_hallway_2025-11-07T11-17-11-245Z_1.png",
+    "generated_prompt": "Professional product photography of a compact wardrobe optimized for small spaces. 2-section wardrobe with sliding doors, featuring hanging rail visible, integrated drawer units, organized shelving. Built from efficient materials, clean finish, maximizing visual space. small apartment or studio interior, bright lighting to emphasize spaciousness. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+    "image_gallery": [
+      {
+        "url": "build_09_narrow_hallway_2025-11-07T11-17-11-245Z_1.png",
+        "prompt": "Professional product photography of a compact wardrobe optimized for small spaces. 2-section wardrobe with sliding doors, featuring hanging rail visible, integrated drawer units, organized shelving. Built from efficient materials, clean finish, maximizing visual space. small apartment or studio interior, bright lighting to emphasize spaciousness. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+        "created_at": "2025-11-07T13:19:41.176344+00:00",
+        "is_primary": true
+      }
+    ],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [
+        "Section 1, Carcass 0: Shelf spacing (166.28571428571428mm) may be too tight"
+      ],
+      "calculations": [
+        {
+          "carcass": 0,
+          "section": 0,
+          "external": {
+            "depth": 600,
+            "width": 1200,
+            "height": 2370
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1164,
+            "height": 2334
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 0,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1200,
+            "height": 1200
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1164,
+            "height": 1164
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 1,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1200,
+            "height": 1170
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1164,
+            "height": 1134
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        }
+      ]
+    },
+    "special_tools": [],
+    "considerations": [
+      "Professional painted doors and drawer fronts included in price",
+      "Birch plywood edges intentionally exposed - must be perfect",
+      "Exposed plywood edges require careful sanding (no tearout)",
+      "Matte lacquer preserves natural birch character",
+      "Industrial aesthetic with pre-finished black doors",
+      "Steel hardware must be properly aligned for clean look",
+      "Simplified build with professional doors"
+    ],
+    "recommended_for": "Hallways and narrow spaces",
+    "created_at": "2025-11-07T11:11:03.399Z",
+    "updated_at": "2025-11-08T16:33:29.019Z"
+  },
+  {
+    "id": 10,
+    "name": "Guest Room Classic",
+    "character": "Spacious premium storage with plywood construction",
+    "image": "build_10_guest_room_2025-11-07T11-17-23-600Z_1.png",
+    "furniture_type": "wardrobe",
+    "width": 2600,
+    "height": 2370,
+    "depth": 600,
+    "configuration": {
+      "depth": 600,
+      "doors": {
+        "style": "hinged",
+        "sectionConfigs": {
+          "0": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 0,
+                "startCarcass": 0
+              }
+            ]
+          },
+          "1": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 1,
+                "startCarcass": 0
+              }
+            ]
+          }
+        }
+      },
+      "width": 2600,
+      "height": 2370,
+      "sections": [
+        {
+          "id": 0,
+          "width": 1300,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1300,
+              "height": 2370,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "rail",
+                  "height": 1182
+                },
+                {
+                  "id": 1,
+                  "type": "shelves",
+                  "height": 1152,
+                  "shelfCount": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "width": 1300,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1300,
+              "height": 1200,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "rail",
+                  "height": 1164
+                }
+              ]
+            },
+            {
+              "id": 1,
+              "width": 1300,
+              "height": 1170,
+              "material": {
+                "sku": "3901289006119",
+                "price": 186.13,
+                "material": "WBP Birch Plywood BB/BB",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "shelves",
+                  "height": 1134,
+                  "shelfCount": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "cost": 90,
+          "name": "Minimalist wooden handles",
+          "notes": "woodenHandles"
+        },
+        {
+          "cost": 100,
+          "name": "Clear matte lacquer for ash",
+          "notes": "lacquer"
+        }
+      ],
+      "hardware": {
+        "hinges": {
+          "qty": 12,
+          "name": "Soft-close hinges (Blum/Häfele)",
+          "total": 96,
+          "unitPrice": 8
+        },
+        "ledLights": {
+          "qty": 3,
+          "name": "LED strip lights with power",
+          "total": 75,
+          "unitPrice": 25
+        },
+        "shelfPins": {
+          "qty": 48,
+          "name": "Adjustable shelf pins",
+          "total": 24,
+          "unitPrice": 0.5
+        },
+        "glueFixings": {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 50,
+          "unitPrice": 50
+        },
+        "wallAnchors": {
+          "qty": 1,
+          "name": "Wall mounting hardware",
+          "total": 15,
+          "unitPrice": 15
+        },
+        "clothingRails": {
+          "qty": 3,
+          "name": "Chrome oval clothing rails",
+          "total": 45,
+          "unitPrice": 15
+        },
+        "drawerRunners": {
+          "qty": 7,
+          "name": "Soft-close drawer runners 500mm",
+          "total": 245,
+          "unitPrice": 35
+        }
+      },
+      "materials": [
+        {
+          "sku": "3901289006119",
+          "sheets": 12,
+          "material": "WBP Birch Plywood BB/BB",
+          "subtotal": 2233.56,
+          "component": "Main Carcass",
+          "thickness": "18mm",
+          "pricePerSheet": 186.13
+        },
+        {
+          "sku": "3901289006308",
+          "sheets": 3,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 108.75,
+          "component": "Back Panel",
+          "thickness": "6mm",
+          "pricePerSheet": 36.25
+        }
+      ],
+      "grandTotal": 3962.31,
+      "extrasTotal": 190,
+      "hardwareTotal": 550,
+      "materialTotal": 2342.31,
+      "savingsPercent": "20.8",
+      "savingsVsBudget": 2037.69,
+      "professionalDoorsDrawers": {
+        "largeDoors": {
+          "qty": 4,
+          "total": 500,
+          "unitPrice": 125
+        },
+        "mediumDoors": {
+          "qty": 2,
+          "total": 170,
+          "unitPrice": 85
+        },
+        "drawerFronts": {
+          "qty": 6,
+          "total": 210,
+          "unitPrice": 35
+        }
+      },
+      "professionalDoorsDrawersTotal": 880
+    },
+    "hardware_json": [],
+    "extras_json": [
+      {
+        "cost": 90,
+        "name": "Minimalist wooden handles",
+        "notes": "woodenHandles"
+      },
+      {
+        "cost": 100,
+        "name": "Clear matte lacquer for ash",
+        "notes": "lacquer"
+      }
+    ],
+    "generated_image": "build_10_guest_room_2025-11-07T11-17-23-600Z_1.png",
+    "generated_prompt": "Professional product photography of a modern minimalist wardrobe, contemporary furniture design. 2-section wardrobe with hinged doors, featuring hanging rail visible, organized shelving. Built from white melamine, matte white finish, seamless edges. modern bedroom with white walls, scandinavian interior, bright even lighting, clean aesthetic. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+    "image_gallery": [
+      {
+        "url": "build_10_guest_room_2025-11-07T11-17-23-600Z_1.png",
+        "prompt": "Professional product photography of a modern minimalist wardrobe, contemporary furniture design. 2-section wardrobe with hinged doors, featuring hanging rail visible, organized shelving. Built from white melamine, matte white finish, seamless edges. modern bedroom with white walls, scandinavian interior, bright even lighting, clean aesthetic. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.",
+        "created_at": "2025-11-07T13:19:41.176344+00:00",
+        "is_primary": true
+      }
+    ],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [
+        "Section 0, Carcass 0: Shelf spacing (192mm) may be too tight",
+        "Section 1, Carcass 1: Shelf spacing (189mm) may be too tight"
+      ],
+      "calculations": [
+        {
+          "carcass": 0,
+          "section": 0,
+          "external": {
+            "depth": 600,
+            "width": 1300,
+            "height": 2370
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1264,
+            "height": 2334
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 0,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1300,
+            "height": 1200
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1264,
+            "height": 1164
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 1,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1300,
+            "height": 1170
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1264,
+            "height": 1134
+          },
+          "material": "WBP Birch Plywood BB/BB",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        }
+      ]
+    },
+    "special_tools": [],
+    "considerations": [
+      "Professional pale painted doors and drawer fronts included",
+      "Birch plywood provides Scandinavian warmth",
+      "Ash veneer drawers complement birch naturally",
+      "Wooden handles reinforce natural aesthetic",
+      "Light materials work harmoniously together",
+      "Simplified build with pre-finished doors",
+      "Peaceful aesthetic with moderate difficulty"
+    ],
+    "recommended_for": "Guest rooms requiring durable storage",
+    "created_at": "2025-11-07T11:11:03.400Z",
+    "updated_at": "2025-11-08T16:33:29.014Z"
+  },
+  {
+    "id": 11,
+    "name": "Eco-Friendly Sustainable",
+    "character": "Sustainable MDF with efficient use of materials",
+    "image": "build_11_eco_sustainable_2025-11-07T11-17-31-801Z_1.png",
+    "furniture_type": "wardrobe",
+    "width": 3100,
+    "height": 2370,
+    "depth": 600,
+    "configuration": {
+      "depth": 600,
+      "doors": {
+        "style": "hinged",
+        "sectionConfigs": {
+          "0": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 1,
+                "startCarcass": 0
+              }
+            ]
+          },
+          "1": {
+            "zones": [
+              {
+                "id": 0,
+                "doorCount": 2,
+                "endCarcass": 0,
+                "startCarcass": 0
+              }
+            ]
+          }
+        }
+      },
+      "width": 3100,
+      "height": 2370,
+      "sections": [
+        {
+          "id": 0,
+          "width": 1550,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1550,
+              "height": 1200,
+              "material": {
+                "sku": "3901289006312",
+                "price": 50.8,
+                "material": "Moisture Resistant MDF",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "rail",
+                  "height": 1164
+                }
+              ]
+            },
+            {
+              "id": 1,
+              "width": 1550,
+              "height": 1170,
+              "material": {
+                "sku": "3901289006312",
+                "price": 50.8,
+                "material": "Moisture Resistant MDF",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "drawers",
+                  "height": 1134,
+                  "drawers": 5,
+                  "isExternal": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "width": 1550,
+          "carcasses": [
+            {
+              "id": 0,
+              "width": 1550,
+              "height": 2370,
+              "material": {
+                "sku": "3901289006312",
+                "price": 50.8,
+                "material": "Moisture Resistant MDF",
+                "thickness": "18mm",
+                "thicknessNum": 18
+              },
+              "interiorSections": [
+                {
+                  "id": 0,
+                  "type": "rail",
+                  "height": 1182
+                },
+                {
+                  "id": 1,
+                  "type": "shelves",
+                  "height": 1152,
+                  "shelfCount": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "cost": 130,
+          "name": "Edge banding for MR MDF",
+          "notes": "edging"
+        },
+        {
+          "cost": 140,
+          "name": "Brushed brass drawer pulls",
+          "notes": "brassHardware"
+        }
+      ],
+      "hardware": {
+        "hinges": {
+          "qty": 12,
+          "name": "Soft-close hinges (Blum/Häfele)",
+          "total": 96,
+          "unitPrice": 8
+        },
+        "ledLights": {
+          "qty": 3,
+          "name": "LED strip lights with power",
+          "total": 75,
+          "unitPrice": 25
+        },
+        "shelfPins": {
+          "qty": 48,
+          "name": "Adjustable shelf pins",
+          "total": 24,
+          "unitPrice": 0.5
+        },
+        "glueFixings": {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 50,
+          "unitPrice": 50
+        },
+        "wallAnchors": {
+          "qty": 1,
+          "name": "Wall mounting hardware",
+          "total": 15,
+          "unitPrice": 15
+        },
+        "clothingRails": {
+          "qty": 3,
+          "name": "Chrome oval clothing rails",
+          "total": 45,
+          "unitPrice": 15
+        },
+        "drawerRunners": {
+          "qty": 7,
+          "name": "Soft-close drawer runners 500mm",
+          "total": 245,
+          "unitPrice": 35
+        }
+      },
+      "materials": [
+        {
+          "sku": "3901289006312",
+          "sheets": 12,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 609.6,
+          "component": "Main Carcass",
+          "thickness": "18mm",
+          "pricePerSheet": 50.8
+        },
+        {
+          "sku": "3901289006308",
+          "sheets": 3,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 108.75,
+          "component": "Back Panel",
+          "thickness": "6mm",
+          "pricePerSheet": 36.25
+        },
+        {
+          "sku": "3901289006118",
+          "sheets": 2,
+          "material": "WBP Birch Plywood BB/BB",
+          "subtotal": 332.74,
+          "component": "Drawer Boxes",
+          "thickness": "15mm",
+          "pricePerSheet": 166.37
+        }
+      ],
+      "grandTotal": 2751.09,
+      "extrasTotal": 270,
+      "hardwareTotal": 550,
+      "materialTotal": 1051.0900000000001,
+      "savingsPercent": "45.0",
+      "savingsVsBudget": 1248.9099999999999,
+      "professionalDoorsDrawers": {
+        "largeDoors": {
+          "qty": 4,
+          "total": 500,
+          "unitPrice": 125
+        },
+        "mediumDoors": {
+          "qty": 2,
+          "total": 170,
+          "unitPrice": 85
+        },
+        "drawerFronts": {
+          "qty": 6,
+          "total": 210,
+          "unitPrice": 35
+        }
+      },
+      "professionalDoorsDrawersTotal": 880
+    },
+    "hardware_json": [],
+    "extras_json": [
+      {
+        "cost": 130,
+        "name": "Edge banding for MR MDF",
+        "notes": "edging"
+      },
+      {
+        "cost": 140,
+        "name": "Brushed brass drawer pulls",
+        "notes": "brassHardware"
+      }
+    ],
+    "generated_image": "/generated-images/build-11-1762521441949.png",
+    "generated_prompt": "Here's a professional prompt for the sustainable wardrobe:\n\n\"Modern built-in wardrobe with clean lines, featuring natural MDF panels and birch plywood drawers, photographed in soft natural daylight from a 45-degree angle. Minimalist Scandinavian-inspired design with 12 handleless push-to-open doors and drawers, showcasing subtle wood grain textures and a matte eco-friendly finish. Architectural interior photography style with shallow depth of field, warm ambient lighting highlighting the organic materials, 8k resolution, photorealistic.\"",
+    "image_gallery": "[{\"url\":\"/generated-images/build-11-1762521441949.png\",\"prompt\":\"Here's a professional prompt for the sustainable wardrobe:\\n\\n\\\"Modern built-in wardrobe with clean lines, featuring natural MDF panels and birch plywood drawers, photographed in soft natural daylight from a 45-degree angle. Minimalist Scandinavian-inspired design with 12 handleless push-to-open doors and drawers, showcasing subtle wood grain textures and a matte eco-friendly finish. Architectural interior photography style with shallow depth of field, warm ambient lighting highlighting the organic materials, 8k resolution, photorealistic.\\\"\",\"created_at\":\"2025-11-07T13:19:41.176344+00:00\",\"is_primary\":true},{\"url\":\"/generated-images/build-11-1762527735254.png\",\"prompt\":\"Here's a professional image generation prompt:\\n\\n\\\"Modern minimalist wardrobe interior featuring light bamboo-textured MDF panels and natural birch plywood drawers, photographed in a bright contemporary bedroom setting with soft natural daylight streaming from the left. Wide-angle architectural perspective showing 12 clean-lined cabinet doors and drawers with sleek brushed steel handles, captured with photorealistic materials and professional interior photography style, 8k resolution. Subtle shadows and ambient occlusion emphasize the sustainable material choices and refined craftsmanship.\\\"\\n\\nThis prompt combines the key materials while emphasizing the sustainable and contemporary aspects, with specific lighting and composition details that should help generate a realistic visualization.\",\"created_at\":\"2025-11-07T15:02:15.262Z\",\"is_primary\":false}]",
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": [
+        "Section 1, Carcass 0: Shelf spacing (192mm) may be too tight"
+      ],
+      "calculations": [
+        {
+          "carcass": 0,
+          "section": 0,
+          "external": {
+            "depth": 600,
+            "width": 1550,
+            "height": 1200
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1514,
+            "height": 1164
+          },
+          "material": "Moisture Resistant MDF",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 1,
+          "section": 0,
+          "external": {
+            "depth": 600,
+            "width": 1550,
+            "height": 1170
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1514,
+            "height": 1134
+          },
+          "material": "Moisture Resistant MDF",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        },
+        {
+          "carcass": 0,
+          "section": 1,
+          "external": {
+            "depth": 600,
+            "width": 1550,
+            "height": 2370
+          },
+          "internal": {
+            "depth": 582,
+            "width": 1514,
+            "height": 2334
+          },
+          "material": "Moisture Resistant MDF",
+          "thickness": "18mm",
+          "panelThickness": {
+            "back": 18,
+            "sides": 36,
+            "topBottom": 36
+          }
+        }
+      ]
+    },
+    "special_tools": [],
+    "considerations": [
+      "Professional painted doors and drawer fronts included in price",
+      "Smart material allocation - premium birch drawers",
+      "MR MDF carcass provides durability",
+      "Birch plywood drawers ensure long-lasting performance",
+      "Edge banding MR MDF carcass - simple finishing",
+      "Excellent value proposition with pre-finished doors",
+      "Fastest build time with quality materials"
+    ],
+    "recommended_for": "Environmentally conscious builds",
+    "created_at": "2025-11-07T11:11:03.401Z",
+    "updated_at": "2025-11-08T16:33:29.010Z"
+  },
+  {
+    "id": 20,
+    "name": "Executive L-Shaped Desk",
+    "character": "Premium L-shaped desk with dual pedestals and overhead hutch for executive offices",
+    "image": null,
+    "furniture_type": "desk",
+    "width": 1800,
+    "height": 750,
+    "depth": 800,
+    "configuration": {
+      "base": {
+        "left": {
+          "width": 450,
+          "enabled": true
+        },
+        "type": "pedestals",
+        "right": {
+          "width": 450,
+          "enabled": true
+        }
+      },
+      "depth": 800,
+      "width": 1800,
+      "height": 750,
+      "overhead": {
+        "type": "hutch",
+        "height": 600,
+        "enabled": true
+      },
+      "deskShape": "l_shaped",
+      "accessories": {
+        "cpu_holder": true,
+        "monitor_arm": true,
+        "keyboard_tray": true,
+        "cable_management": true
+      },
+      "furnitureType": "desk"
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "qty": 1,
+          "name": "Keyboard Tray",
+          "total": 45,
+          "unitPrice": 45
+        },
+        {
+          "qty": 1,
+          "name": "Cable Management",
+          "total": 25,
+          "unitPrice": 25
+        },
+        {
+          "qty": 1,
+          "name": "Monitor Arm",
+          "total": 85,
+          "unitPrice": 85
+        },
+        {
+          "qty": 1,
+          "name": "Cpu Holder",
+          "total": 35,
+          "unitPrice": 35
+        }
+      ],
+      "hardware": [
+        {
+          "qty": 18,
+          "name": "Soft-close drawer slides 500mm",
+          "total": 630,
+          "unitPrice": 35
+        },
+        {
+          "qty": 8,
+          "name": "Soft-close hinges (Blum/Häfele)",
+          "total": 64,
+          "unitPrice": 8
+        },
+        {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 40,
+          "unitPrice": 40
+        }
+      ],
+      "materials": [
+        {
+          "sheets": 1,
+          "material": "Oak Veneered MDF",
+          "subtotal": 60,
+          "component": "Desktop",
+          "thickness": "25mm",
+          "pricePerSheet": 60
+        },
+        {
+          "sheets": 4,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 203.2,
+          "component": "Pedestal Carcasses",
+          "thickness": "18mm",
+          "pricePerSheet": 50.8
+        },
+        {
+          "sheets": 3,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 152.39999999999998,
+          "component": "Overhead Storage",
+          "thickness": "18mm",
+          "pricePerSheet": 50.8
+        }
+      ],
+      "grandTotal": 1339.6,
+      "extrasTotal": 190,
+      "hardwareTotal": 734,
+      "materialTotal": 415.59999999999997,
+      "savingsPercent": "73.2",
+      "savingsVsBudget": 2660.4,
+      "professionalDoorsDrawers": {},
+      "professionalDoorsDrawersTotal": 0
+    },
+    "hardware_json": [
+      {
+        "qty": 18,
+        "name": "Soft-close drawer slides 500mm",
+        "total": 630,
+        "unitPrice": 35
+      },
+      {
+        "qty": 8,
+        "name": "Soft-close hinges (Blum/Häfele)",
+        "total": 64,
+        "unitPrice": 8
+      },
+      {
+        "qty": 1,
+        "name": "Wood glue, screws, fixings",
+        "total": 40,
+        "unitPrice": 40
+      }
+    ],
+    "extras_json": [
+      {
+        "qty": 1,
+        "name": "Keyboard Tray",
+        "total": 45,
+        "unitPrice": 45
+      },
+      {
+        "qty": 1,
+        "name": "Cable Management",
+        "total": 25,
+        "unitPrice": 25
+      },
+      {
+        "qty": 1,
+        "name": "Monitor Arm",
+        "total": 85,
+        "unitPrice": 85
+      },
+      {
+        "qty": 1,
+        "name": "Cpu Holder",
+        "total": 35,
+        "unitPrice": 35
+      }
+    ],
+    "generated_image": null,
+    "generated_prompt": null,
+    "image_gallery": [],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": null,
+    "special_tools": [],
+    "considerations": [],
+    "recommended_for": null,
+    "created_at": "2025-11-08T14:52:17.313Z",
+    "updated_at": "2025-11-08T16:33:29.007Z"
+  },
+  {
+    "id": 21,
+    "name": "Compact Home Office",
+    "character": "Simple straight desk with adjustable legs, perfect for small home offices and apartments",
+    "image": null,
+    "furniture_type": "desk",
+    "width": 1200,
+    "height": 740,
+    "depth": 600,
+    "configuration": {
+      "base": {
+        "left": {
+          "width": 0,
+          "enabled": false
+        },
+        "type": "legs",
+        "right": {
+          "width": 0,
+          "enabled": false
+        }
+      },
+      "depth": 600,
+      "width": 1200,
+      "height": 740,
+      "overhead": {
+        "type": "hutch",
+        "height": 0,
+        "enabled": false
+      },
+      "deskShape": "straight",
+      "accessories": {
+        "desk_lamp": true,
+        "cable_management": true
+      },
+      "furnitureType": "desk"
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "qty": 1,
+          "name": "Cable Management",
+          "total": 25,
+          "unitPrice": 25
+        },
+        {
+          "qty": 1,
+          "name": "Desk Lamp",
+          "total": 65,
+          "unitPrice": 65
+        }
+      ],
+      "hardware": [
+        {
+          "qty": 4,
+          "name": "Adjustable desk legs",
+          "total": 100,
+          "unitPrice": 25
+        },
+        {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 40,
+          "unitPrice": 40
+        }
+      ],
+      "materials": [
+        {
+          "sheets": 1,
+          "material": "Oak Veneered MDF",
+          "subtotal": 60,
+          "component": "Desktop",
+          "thickness": "25mm",
+          "pricePerSheet": 60
+        }
+      ],
+      "grandTotal": 290,
+      "extrasTotal": 90,
+      "hardwareTotal": 140,
+      "materialTotal": 60,
+      "savingsPercent": "94.2",
+      "savingsVsBudget": 3710,
+      "professionalDoorsDrawers": {},
+      "professionalDoorsDrawersTotal": 0
+    },
+    "hardware_json": [
+      {
+        "qty": 4,
+        "name": "Adjustable desk legs",
+        "total": 100,
+        "unitPrice": 25
+      },
+      {
+        "qty": 1,
+        "name": "Wood glue, screws, fixings",
+        "total": 40,
+        "unitPrice": 40
+      }
+    ],
+    "extras_json": [
+      {
+        "qty": 1,
+        "name": "Cable Management",
+        "total": 25,
+        "unitPrice": 25
+      },
+      {
+        "qty": 1,
+        "name": "Desk Lamp",
+        "total": 65,
+        "unitPrice": 65
+      }
+    ],
+    "generated_image": null,
+    "generated_prompt": null,
+    "image_gallery": [],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": null,
+    "special_tools": [],
+    "considerations": [],
+    "recommended_for": null,
+    "created_at": "2025-11-08T14:52:17.315Z",
+    "updated_at": "2025-11-08T16:33:29.004Z"
+  },
+  {
+    "id": 22,
+    "name": "Creative U-Shaped Studio",
+    "character": "Spacious U-shaped desk with panel sides and open shelving for creative professionals",
+    "image": null,
+    "furniture_type": "desk",
+    "width": 2400,
+    "height": 760,
+    "depth": 750,
+    "configuration": {
+      "base": {
+        "left": {
+          "width": 600,
+          "enabled": true
+        },
+        "type": "panel_sides",
+        "right": {
+          "width": 600,
+          "enabled": true
+        }
+      },
+      "depth": 750,
+      "width": 2400,
+      "height": 760,
+      "overhead": {
+        "type": "open_shelving",
+        "height": 500,
+        "enabled": true
+      },
+      "deskShape": "u_shaped",
+      "accessories": {
+        "desk_lamp": true,
+        "cable_tray": true,
+        "monitor_arm": true,
+        "cable_management": true
+      },
+      "furnitureType": "desk"
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "qty": 1,
+          "name": "Cable Management",
+          "total": 25,
+          "unitPrice": 25
+        },
+        {
+          "qty": 1,
+          "name": "Cable Tray",
+          "total": 30,
+          "unitPrice": 30
+        },
+        {
+          "qty": 1,
+          "name": "Monitor Arm",
+          "total": 85,
+          "unitPrice": 85
+        },
+        {
+          "qty": 1,
+          "name": "Desk Lamp",
+          "total": 65,
+          "unitPrice": 65
+        }
+      ],
+      "hardware": [
+        {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 40,
+          "unitPrice": 40
+        }
+      ],
+      "materials": [
+        {
+          "sheets": 2,
+          "material": "Oak Veneered MDF",
+          "subtotal": 120,
+          "component": "Desktop",
+          "thickness": "25mm",
+          "pricePerSheet": 60
+        },
+        {
+          "sheets": 4,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 203.2,
+          "component": "Panel Sides",
+          "thickness": "18mm",
+          "pricePerSheet": 50.8
+        },
+        {
+          "sheets": 2,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 101.6,
+          "component": "Overhead Storage",
+          "thickness": "18mm",
+          "pricePerSheet": 50.8
+        }
+      ],
+      "grandTotal": 669.8,
+      "extrasTotal": 205,
+      "hardwareTotal": 40,
+      "materialTotal": 424.79999999999995,
+      "savingsPercent": "86.6",
+      "savingsVsBudget": 3330.2,
+      "professionalDoorsDrawers": {},
+      "professionalDoorsDrawersTotal": 0
+    },
+    "hardware_json": [
+      {
+        "qty": 1,
+        "name": "Wood glue, screws, fixings",
+        "total": 40,
+        "unitPrice": 40
+      }
+    ],
+    "extras_json": [
+      {
+        "qty": 1,
+        "name": "Cable Management",
+        "total": 25,
+        "unitPrice": 25
+      },
+      {
+        "qty": 1,
+        "name": "Cable Tray",
+        "total": 30,
+        "unitPrice": 30
+      },
+      {
+        "qty": 1,
+        "name": "Monitor Arm",
+        "total": 85,
+        "unitPrice": 85
+      },
+      {
+        "qty": 1,
+        "name": "Desk Lamp",
+        "total": 65,
+        "unitPrice": 65
+      }
+    ],
+    "generated_image": null,
+    "generated_prompt": null,
+    "image_gallery": [],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": null,
+    "special_tools": [],
+    "considerations": [],
+    "recommended_for": null,
+    "created_at": "2025-11-08T14:52:17.318Z",
+    "updated_at": "2025-11-08T16:33:29.001Z"
+  },
+  {
+    "id": 23,
+    "name": "Standing Desk Pro",
+    "character": "Modern straight desk with trestle base, ideal for standing desk conversion",
+    "image": null,
+    "furniture_type": "desk",
+    "width": 1600,
+    "height": 1100,
+    "depth": 700,
+    "configuration": {
+      "base": {
+        "left": {
+          "width": 0,
+          "enabled": false
+        },
+        "type": "trestle",
+        "right": {
+          "width": 0,
+          "enabled": false
+        }
+      },
+      "depth": 700,
+      "width": 1600,
+      "height": 1100,
+      "overhead": {
+        "type": "hutch",
+        "height": 0,
+        "enabled": false
+      },
+      "deskShape": "straight",
+      "accessories": {
+        "monitor_arm": true,
+        "cable_management": true
+      },
+      "furnitureType": "desk"
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "qty": 1,
+          "name": "Cable Management",
+          "total": 25,
+          "unitPrice": 25
+        },
+        {
+          "qty": 1,
+          "name": "Monitor Arm",
+          "total": 85,
+          "unitPrice": 85
+        }
+      ],
+      "hardware": [
+        {
+          "qty": 2,
+          "name": "Trestle legs",
+          "total": 90,
+          "unitPrice": 45
+        },
+        {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 40,
+          "unitPrice": 40
+        }
+      ],
+      "materials": [
+        {
+          "sheets": 1,
+          "material": "Oak Veneered MDF",
+          "subtotal": 60,
+          "component": "Desktop",
+          "thickness": "25mm",
+          "pricePerSheet": 60
+        }
+      ],
+      "grandTotal": 300,
+      "extrasTotal": 110,
+      "hardwareTotal": 130,
+      "materialTotal": 60,
+      "savingsPercent": "94.0",
+      "savingsVsBudget": 3700,
+      "professionalDoorsDrawers": {},
+      "professionalDoorsDrawersTotal": 0
+    },
+    "hardware_json": [
+      {
+        "qty": 2,
+        "name": "Trestle legs",
+        "total": 90,
+        "unitPrice": 45
+      },
+      {
+        "qty": 1,
+        "name": "Wood glue, screws, fixings",
+        "total": 40,
+        "unitPrice": 40
+      }
+    ],
+    "extras_json": [
+      {
+        "qty": 1,
+        "name": "Cable Management",
+        "total": 25,
+        "unitPrice": 25
+      },
+      {
+        "qty": 1,
+        "name": "Monitor Arm",
+        "total": 85,
+        "unitPrice": 85
+      }
+    ],
+    "generated_image": null,
+    "generated_prompt": null,
+    "image_gallery": [],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": null,
+    "special_tools": [],
+    "considerations": [],
+    "recommended_for": null,
+    "created_at": "2025-11-08T14:52:17.320Z",
+    "updated_at": "2025-11-08T16:33:28.998Z"
+  },
+  {
+    "id": 24,
+    "name": "Gaming Command Center",
+    "character": "L-shaped gaming desk with left pedestal, open shelving, and extensive cable management",
+    "image": null,
+    "furniture_type": "desk",
+    "width": 2000,
+    "height": 750,
+    "depth": 800,
+    "configuration": {
+      "base": {
+        "left": {
+          "width": 400,
+          "enabled": true
+        },
+        "type": "pedestals",
+        "right": {
+          "width": 0,
+          "enabled": false
+        }
+      },
+      "depth": 800,
+      "width": 2000,
+      "height": 750,
+      "overhead": {
+        "type": "open_shelving",
+        "height": 450,
+        "enabled": true
+      },
+      "deskShape": "l_shaped",
+      "accessories": {
+        "desk_lamp": true,
+        "cable_tray": true,
+        "cpu_holder": true,
+        "monitor_arm": true,
+        "cable_management": true
+      },
+      "furnitureType": "desk"
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "qty": 1,
+          "name": "Cable Management",
+          "total": 25,
+          "unitPrice": 25
+        },
+        {
+          "qty": 1,
+          "name": "Cable Tray",
+          "total": 30,
+          "unitPrice": 30
+        },
+        {
+          "qty": 1,
+          "name": "Monitor Arm",
+          "total": 85,
+          "unitPrice": 85
+        },
+        {
+          "qty": 1,
+          "name": "Cpu Holder",
+          "total": 35,
+          "unitPrice": 35
+        },
+        {
+          "qty": 1,
+          "name": "Desk Lamp",
+          "total": 65,
+          "unitPrice": 65
+        }
+      ],
+      "hardware": [
+        {
+          "qty": 9,
+          "name": "Soft-close drawer slides 500mm",
+          "total": 315,
+          "unitPrice": 35
+        },
+        {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 40,
+          "unitPrice": 40
+        }
+      ],
+      "materials": [
+        {
+          "sheets": 1,
+          "material": "Oak Veneered MDF",
+          "subtotal": 60,
+          "component": "Desktop",
+          "thickness": "25mm",
+          "pricePerSheet": 60
+        },
+        {
+          "sheets": 2,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 101.6,
+          "component": "Pedestal Carcasses",
+          "thickness": "18mm",
+          "pricePerSheet": 50.8
+        },
+        {
+          "sheets": 2,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 101.6,
+          "component": "Overhead Storage",
+          "thickness": "18mm",
+          "pricePerSheet": 50.8
+        }
+      ],
+      "grandTotal": 858.2,
+      "extrasTotal": 240,
+      "hardwareTotal": 355,
+      "materialTotal": 263.2,
+      "savingsPercent": "82.8",
+      "savingsVsBudget": 3141.8,
+      "professionalDoorsDrawers": {},
+      "professionalDoorsDrawersTotal": 0
+    },
+    "hardware_json": [
+      {
+        "qty": 9,
+        "name": "Soft-close drawer slides 500mm",
+        "total": 315,
+        "unitPrice": 35
+      },
+      {
+        "qty": 1,
+        "name": "Wood glue, screws, fixings",
+        "total": 40,
+        "unitPrice": 40
+      }
+    ],
+    "extras_json": [
+      {
+        "qty": 1,
+        "name": "Cable Management",
+        "total": 25,
+        "unitPrice": 25
+      },
+      {
+        "qty": 1,
+        "name": "Cable Tray",
+        "total": 30,
+        "unitPrice": 30
+      },
+      {
+        "qty": 1,
+        "name": "Monitor Arm",
+        "total": 85,
+        "unitPrice": 85
+      },
+      {
+        "qty": 1,
+        "name": "Cpu Holder",
+        "total": 35,
+        "unitPrice": 35
+      },
+      {
+        "qty": 1,
+        "name": "Desk Lamp",
+        "total": 65,
+        "unitPrice": 65
+      }
+    ],
+    "generated_image": null,
+    "generated_prompt": null,
+    "image_gallery": "[{\"url\":\"/generated-images/build-24-1762615443744.png\",\"prompt\":\"Here's an optimized image generation prompt:\\n\\n\\\"Modern l-shaped gaming battlestation in dark oak veneer, photographed from a 3/4 angle in a moody home office setting with ambient RGB backlighting. The desk features sleek black pedestals, floating monitor displays on articulating arms, integrated cable management with hidden trays, and minimalist open shelving above displaying gaming collectibles. Dramatic evening lighting emphasizes the clean lines and professional cable management, with subtle accent lighting illuminating the workspace and peripherals.\\\"\\n\\nThis prompt combines key elements:\\n- Professional photography style (3/4 angle, moody lighting)\\n- Material specifics (dark oak veneer, black pedestals)\\n- Lighting ambiance (RGB, evening, accent lighting)\\n- Organization elements (cable management, monitor arms)\\n- Gaming aesthetic while maintaining professional appeal\",\"created_at\":\"2025-11-08T15:24:03.759Z\",\"is_primary\":true}]",
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": null,
+    "special_tools": [],
+    "considerations": [],
+    "recommended_for": null,
+    "created_at": "2025-11-08T14:52:17.322Z",
+    "updated_at": "2025-11-08T16:33:28.995Z"
+  },
+  {
+    "id": 25,
+    "name": "Minimalist Workspace",
+    "character": "Clean straight desk with panel sides for a minimalist aesthetic",
+    "image": null,
+    "furniture_type": "desk",
+    "width": 1400,
+    "height": 740,
+    "depth": 650,
+    "configuration": {
+      "base": {
+        "left": {
+          "width": 650,
+          "enabled": true
+        },
+        "type": "panel_sides",
+        "right": {
+          "width": 650,
+          "enabled": true
+        }
+      },
+      "depth": 650,
+      "width": 1400,
+      "height": 740,
+      "overhead": {
+        "type": "hutch",
+        "height": 0,
+        "enabled": false
+      },
+      "deskShape": "straight",
+      "accessories": {
+        "cable_management": true
+      },
+      "furnitureType": "desk"
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "qty": 1,
+          "name": "Cable Management",
+          "total": 25,
+          "unitPrice": 25
+        }
+      ],
+      "hardware": [
+        {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 40,
+          "unitPrice": 40
+        }
+      ],
+      "materials": [
+        {
+          "sheets": 1,
+          "material": "Oak Veneered MDF",
+          "subtotal": 60,
+          "component": "Desktop",
+          "thickness": "25mm",
+          "pricePerSheet": 60
+        },
+        {
+          "sheets": 4,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 203.2,
+          "component": "Panel Sides",
+          "thickness": "18mm",
+          "pricePerSheet": 50.8
+        }
+      ],
+      "grandTotal": 328.2,
+      "extrasTotal": 25,
+      "hardwareTotal": 40,
+      "materialTotal": 263.2,
+      "savingsPercent": "93.4",
+      "savingsVsBudget": 3671.8,
+      "professionalDoorsDrawers": {},
+      "professionalDoorsDrawersTotal": 0
+    },
+    "hardware_json": [
+      {
+        "qty": 1,
+        "name": "Wood glue, screws, fixings",
+        "total": 40,
+        "unitPrice": 40
+      }
+    ],
+    "extras_json": [
+      {
+        "qty": 1,
+        "name": "Cable Management",
+        "total": 25,
+        "unitPrice": 25
+      }
+    ],
+    "generated_image": null,
+    "generated_prompt": null,
+    "image_gallery": [],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": null,
+    "special_tools": [],
+    "considerations": [],
+    "recommended_for": null,
+    "created_at": "2025-11-08T14:52:17.325Z",
+    "updated_at": "2025-11-08T16:33:28.992Z"
+  },
+  {
+    "id": 26,
+    "name": "Professional Corner Desk",
+    "character": "L-shaped desk with dual pedestals and closed overhead cabinets for privacy",
+    "image": null,
+    "furniture_type": "desk",
+    "width": 1600,
+    "height": 750,
+    "depth": 700,
+    "configuration": {
+      "base": {
+        "left": {
+          "width": 400,
+          "enabled": true
+        },
+        "type": "pedestals",
+        "right": {
+          "width": 400,
+          "enabled": true
+        }
+      },
+      "depth": 700,
+      "width": 1600,
+      "height": 750,
+      "overhead": {
+        "type": "closed_cabinets",
+        "height": 550,
+        "enabled": true
+      },
+      "deskShape": "l_shaped",
+      "accessories": {
+        "monitor_arm": true,
+        "keyboard_tray": true,
+        "cable_management": true
+      },
+      "furnitureType": "desk"
+    },
+    "costs_json": {
+      "extras": [
+        {
+          "qty": 1,
+          "name": "Keyboard Tray",
+          "total": 45,
+          "unitPrice": 45
+        },
+        {
+          "qty": 1,
+          "name": "Cable Management",
+          "total": 25,
+          "unitPrice": 25
+        },
+        {
+          "qty": 1,
+          "name": "Monitor Arm",
+          "total": 85,
+          "unitPrice": 85
+        }
+      ],
+      "hardware": [
+        {
+          "qty": 18,
+          "name": "Soft-close drawer slides 500mm",
+          "total": 630,
+          "unitPrice": 35
+        },
+        {
+          "qty": 8,
+          "name": "Soft-close hinges (Blum/Häfele)",
+          "total": 64,
+          "unitPrice": 8
+        },
+        {
+          "qty": 1,
+          "name": "Wood glue, screws, fixings",
+          "total": 40,
+          "unitPrice": 40
+        }
+      ],
+      "materials": [
+        {
+          "sheets": 1,
+          "material": "Oak Veneered MDF",
+          "subtotal": 60,
+          "component": "Desktop",
+          "thickness": "25mm",
+          "pricePerSheet": 60
+        },
+        {
+          "sheets": 4,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 203.2,
+          "component": "Pedestal Carcasses",
+          "thickness": "18mm",
+          "pricePerSheet": 50.8
+        },
+        {
+          "sheets": 2,
+          "material": "Moisture Resistant MDF",
+          "subtotal": 101.6,
+          "component": "Overhead Storage",
+          "thickness": "18mm",
+          "pricePerSheet": 50.8
+        }
+      ],
+      "grandTotal": 1253.8,
+      "extrasTotal": 155,
+      "hardwareTotal": 734,
+      "materialTotal": 364.79999999999995,
+      "savingsPercent": "74.9",
+      "savingsVsBudget": 2746.2,
+      "professionalDoorsDrawers": {},
+      "professionalDoorsDrawersTotal": 0
+    },
+    "hardware_json": [
+      {
+        "qty": 18,
+        "name": "Soft-close drawer slides 500mm",
+        "total": 630,
+        "unitPrice": 35
+      },
+      {
+        "qty": 8,
+        "name": "Soft-close hinges (Blum/Häfele)",
+        "total": 64,
+        "unitPrice": 8
+      },
+      {
+        "qty": 1,
+        "name": "Wood glue, screws, fixings",
+        "total": 40,
+        "unitPrice": 40
+      }
+    ],
+    "extras_json": [
+      {
+        "qty": 1,
+        "name": "Keyboard Tray",
+        "total": 45,
+        "unitPrice": 45
+      },
+      {
+        "qty": 1,
+        "name": "Cable Management",
+        "total": 25,
+        "unitPrice": 25
+      },
+      {
+        "qty": 1,
+        "name": "Monitor Arm",
+        "total": 85,
+        "unitPrice": 85
+      }
+    ],
+    "generated_image": null,
+    "generated_prompt": null,
+    "image_gallery": [],
+    "plinth_config": {
+      "depth": 50,
+      "height": 100,
+      "enabled": false,
+      "hasLeft": true,
+      "hasRight": true,
+      "hasScribing": false,
+      "scribingHeight": 150
+    },
+    "dimension_validation": null,
+    "special_tools": [],
+    "considerations": [],
+    "recommended_for": null,
+    "created_at": "2025-11-08T14:52:17.327Z",
+    "updated_at": "2025-11-08T16:43:32.970Z"
+  }
+]

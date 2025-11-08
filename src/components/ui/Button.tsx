@@ -21,13 +21,13 @@ const buttonVariants = cva(
         success:
           'bg-green-600 text-white border-2 border-green-700 hover:bg-green-700 hover:border-green-800 focus:ring-green-500 active:bg-green-800',
         outline:
-          'bg-white text-gray-700 border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 focus:ring-gray-500 active:bg-gray-100',
+          'bg-white text-text-primary border-2 border-gray-400 hover:border-primary-600 hover:bg-primary-50 focus:ring-primary-500 active:bg-primary-100',
         ghost:
-          'bg-transparent text-gray-700 border-2 border-transparent hover:bg-gray-100 hover:text-gray-900 focus:ring-gray-500 active:bg-gray-200',
+          'bg-transparent text-text-primary border-2 border-transparent hover:bg-gray-100 hover:text-text-primary focus:ring-primary-500 active:bg-gray-200',
         icon:
-          'bg-white text-gray-700 border-2 border-gray-200 hover:bg-gray-50 hover:border-gray-300 focus:ring-gray-500 active:bg-gray-100',
+          'bg-white text-text-primary border-2 border-gray-400 hover:bg-primary-50 hover:border-primary-600 focus:ring-primary-500 active:bg-primary-100',
         wizard:
-          'bg-primary-600 text-white border-2 border-primary-700 hover:bg-primary-700 hover:border-primary-800 focus:ring-primary-500 active:bg-primary-800 disabled:bg-gray-200 disabled:text-gray-700 disabled:border-gray-300',
+          'bg-primary-600 text-white border-2 border-primary-700 hover:bg-primary-700 hover:border-primary-800 focus:ring-primary-500 active:bg-primary-800 disabled:bg-gray-100 disabled:text-text-secondary disabled:border-gray-300',
         premium:
           'bg-gradient-to-r from-primary-600 to-secondary-600 text-white border-2 border-primary-700 hover:from-primary-700 hover:to-secondary-700 hover:shadow-premium focus:ring-primary-500 active:shadow-premium-lg',
       },

@@ -94,20 +94,21 @@ interface GalleryImage {
 }
 
 // Professional doors/drawers structure
-interface ProfessionalDoorsDrawers {
+interface ProfessionalDoorsDrawersItem {
   desc: string;
   qty: number;
-  unitPrice: number;
+  unitPrice?: number;
+  estimate: number;
   total: number;
 }
 
-// Costs structure
+// Costs structure (EditPanel specific - hardware is always Record here)
 interface BuildCosts {
   materials: BuildMaterial[];
   materialTotal: number;
-  professionalDoorsDrawers?: ProfessionalDoorsDrawers[];
+  professionalDoorsDrawers?: Record<string, ProfessionalDoorsDrawersItem>;
   professionalDoorsDrawersTotal: number;
-  hardware: Record<string, HardwareItem>;
+  hardware?: Record<string, HardwareItem>;
   hardwareTotal: number;
   extras: ExtraItem[];
   extrasTotal: number;
@@ -219,7 +220,7 @@ function getPriceForMaterial(
 // ===========================
 
 export function EditPanel() {
-  const { builds, isEditing, editingBuildId, stopEditing, updateBuild, pricingData } = useBuildsStore();
+  const { builds, isEditing, editingBuildId, stopEditing, updateBuild } = useBuildsStore();
 
   // State management
   const [editedBuild, setEditedBuild] = useState<Build | null>(null);
@@ -237,6 +238,7 @@ export function EditPanel() {
   const [generatedImageUrl, setGeneratedImageUrl] = useState<string | null>(null);
   const [isSaving, setIsSaving] = useState<boolean>(false);
   const [saveError, setSaveError] = useState<string | null>(null);
+  const [pricingData, setPricingData] = useState<PricingDataItem[] | null>(null);
 
   // Get available dimensions based on selection
   const getAvailableDimensions = (): string[] => {
@@ -335,7 +337,21 @@ export function EditPanel() {
       const build = builds.find((b: any) => b.id === editingBuildId);
       if (build) {
         // Create a deep copy for editing
-        setEditedBuild(JSON.parse(JSON.stringify(build)) as Build);
+        const editBuild = JSON.parse(JSON.stringify(build)) as Build;
+        // Ensure hardware is a Record, not an array
+        if (Array.isArray(editBuild.costs.hardware)) {
+          const hardwareRecord: Record<string, HardwareItem> = {};
+          editBuild.costs.hardware.forEach((hw, idx) => {
+            hardwareRecord[`hw_${idx}`] = {
+              desc: hw.item || hw.description || '',
+              qty: hw.qty,
+              unitPrice: hw.unitPrice,
+              total: hw.total
+            };
+          });
+          editBuild.costs.hardware = hardwareRecord;
+        }
+        setEditedBuild(editBuild);
       }
     } else {
       setEditedBuild(null);
@@ -348,6 +364,14 @@ export function EditPanel() {
       .then(res => res.json())
       .then((data: MaterialsMetadata) => setMaterialsMetadata(data))
       .catch(err => console.error('Failed to load materials metadata:', err));
+  }, []);
+
+  // Load pricing data
+  useEffect(() => {
+    fetch('/data/pricing-data.json')
+      .then(res => res.json())
+      .then((data: PricingDataItem[]) => setPricingData(data))
+      .catch(err => console.error('Failed to load pricing data:', err));
   }, []);
 
   // Debug: Log build structure when editing starts
@@ -594,7 +618,7 @@ export function EditPanel() {
 
   const handleRemoveHardware = (key: string) => {
     setEditedBuild(prev => {
-      if (!prev) return prev;
+      if (!prev || !prev.costs.hardware) return prev;
       const updated = { ...prev };
       updated.costs = { ...prev.costs };
       const { [key]: removed, ...remainingHardware } = prev.costs.hardware;
@@ -629,7 +653,7 @@ export function EditPanel() {
 
   const handleHardwareUpdate = (key: string, field: keyof HardwareItem, value: string | number) => {
     setEditedBuild(prev => {
-      if (!prev) return prev;
+      if (!prev || !prev.costs.hardware) return prev;
       const updated = { ...prev };
       updated.costs = { ...prev.costs };
       updated.costs.hardware = { ...prev.costs.hardware };
@@ -755,7 +779,7 @@ export function EditPanel() {
 
     try {
       // First update in-memory state
-      updateBuild(editedBuild.id, editedBuild);
+      updateBuild(editedBuild.id, editedBuild as any);
 
       // Then save to database
       const buildData = {
@@ -806,8 +830,8 @@ export function EditPanel() {
       {/* Header */}
       <DrawerHeader className="sticky top-0 bg-gradient-to-b from-white to-gray-50/50 border-b border-gray-200 px-6 py-5 z-10 backdrop-blur-sm shadow-sm">
         <div className="flex-1">
-          <DrawerTitle className="text-2xl font-bold text-gray-900 mb-1">Edit Build</DrawerTitle>
-          <p className="text-sm text-gray-600 font-medium">{editedBuild.name}</p>
+          <DrawerTitle className="text-2xl font-bold text-text-primary mb-1">Edit Build</DrawerTitle>
+          <p className="text-sm text-text-secondary font-medium">{editedBuild.name}</p>
         </div>
       </DrawerHeader>
 
@@ -860,7 +884,7 @@ export function EditPanel() {
             <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
               {/* 1. Item Type */}
               <div>
-                <label className="text-sm font-medium text-gray-700 block mb-1">Type:</label>
+                <label className="text-sm font-medium text-text-primary block mb-1">Type:</label>
                 <Select
                   value={selectedItemType}
                   onChange={(e) => {
@@ -879,7 +903,7 @@ export function EditPanel() {
 
               {/* 2. Category */}
               <div>
-                <label className="text-sm font-medium text-gray-700 block mb-1">Category:</label>
+                <label className="text-sm font-medium text-text-primary block mb-1">Category:</label>
                 <Select
                   value={selectedCategory}
                   onChange={(e) => {
@@ -901,7 +925,7 @@ export function EditPanel() {
               {/* 3. Item/Material (only for materials) */}
               {selectedItemType === 'MATERIAL' && (
                 <div>
-                  <label className="text-sm font-medium text-gray-700 block mb-1">Material:</label>
+                  <label className="text-sm font-medium text-text-primary block mb-1">Material:</label>
                   <Select
                     value={selectedItem}
                     onChange={(e) => {
@@ -924,7 +948,7 @@ export function EditPanel() {
               {/* 4. Dimension (Thickness/Width - only for materials) */}
               {selectedItemType === 'MATERIAL' && availableThicknesses.length > 0 && (
                 <div>
-                  <label className="text-sm font-medium text-gray-700 block mb-1">{dimensionLabel}:</label>
+                  <label className="text-sm font-medium text-text-primary block mb-1">{dimensionLabel}:</label>
                   <Select
                     value={selectedThickness}
                     onChange={(e) => setSelectedThickness(e.target.value)}
@@ -968,7 +992,7 @@ export function EditPanel() {
                     />
                   )}
                   <div className="flex-1">
-                    <p className="text-sm text-gray-600">{getMaterialMetadata(selectedItem)?.description}</p>
+                    <p className="text-sm text-text-secondary">{getMaterialMetadata(selectedItem)?.description}</p>
                     <p className="text-xs text-blue-600 mt-1">{getMaterialMetadata(selectedItem)?.usage}</p>
                   </div>
                 </div>
@@ -995,7 +1019,7 @@ export function EditPanel() {
                 <div className={`p-4 ${isActuallyRequired ? 'bg-orange-50 border-b-2 border-orange-200' : 'bg-gray-50 border-b-2 border-gray-200'}`}>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <h3 className="font-bold text-gray-900">{category.name}</h3>
+                      <h3 className="font-bold text-text-primary">{category.name}</h3>
                       {isActuallyRequired ? (
                         <Badge variant="orange" size="sm">Required</Badge>
                       ) : isConditionallyRequired ? (
@@ -1007,20 +1031,20 @@ export function EditPanel() {
                         <CheckCircle2 className="w-5 h-5 text-green-600" />
                       )}
                     </div>
-                    <span className="text-sm text-gray-600">{categoryMaterials.length} item(s)</span>
+                    <span className="text-sm text-text-secondary">{categoryMaterials.length} item(s)</span>
                   </div>
-                  <p className="text-sm text-gray-600 mt-1">{category.description}</p>
+                  <p className="text-sm text-text-secondary mt-1">{category.description}</p>
                   {isConditionallyRequired && !hasDrawers && (
                     <p className="text-xs text-blue-600 mt-1 italic">{category.conditionallyRequired}</p>
                   )}
                   {category.recommendedThickness && (
-                    <p className="text-xs text-gray-500 mt-1">Recommended: {category.recommendedThickness}</p>
+                    <p className="text-xs text-text-secondary mt-1">Recommended: {category.recommendedThickness}</p>
                   )}
                 </div>
 
                 <div className="p-4 space-y-3">
                   {categoryMaterials.length === 0 ? (
-                    <p className="text-sm text-gray-500 italic text-center py-4">
+                    <p className="text-sm text-text-secondary italic text-center py-4">
                       No materials added yet. {category.note}
                     </p>
                   ) : (
@@ -1041,10 +1065,10 @@ export function EditPanel() {
                             <div className="flex-1">
                               <div className="flex justify-between items-start mb-2">
                                 <div>
-                                  <h4 className="font-semibold text-gray-900">{mat.material}</h4>
-                                  <p className="text-sm text-gray-600">{mat.thickness} • {formatCurrency(mat.pricePerSheet)}/sheet</p>
+                                  <h4 className="font-semibold text-text-primary">{mat.material}</h4>
+                                  <p className="text-sm text-text-secondary">{mat.thickness} • {formatCurrency(mat.pricePerSheet)}/sheet</p>
                                   {metadata?.description && (
-                                    <p className="text-xs text-gray-500 mt-1">{metadata.description}</p>
+                                    <p className="text-xs text-text-secondary mt-1">{metadata.description}</p>
                                   )}
                                 </div>
                                 <Button
@@ -1058,7 +1082,7 @@ export function EditPanel() {
                               </div>
 
                               <div className="flex items-center gap-4">
-                                <label className="text-sm font-medium text-gray-700 w-16">Sheets:</label>
+                                <label className="text-sm font-medium text-text-primary w-16">Sheets:</label>
                                 <Input
                                   type="number"
                                   value={mat.sheets}
@@ -1070,7 +1094,7 @@ export function EditPanel() {
                                   min={0}
                                   step={0.5}
                                 />
-                                <span className="text-sm font-bold text-gray-900 w-24 text-right">
+                                <span className="text-sm font-bold text-text-primary w-24 text-right">
                                   {formatCurrency(mat.subtotal)}
                                 </span>
                               </div>
@@ -1206,8 +1230,8 @@ export function EditPanel() {
               {editedBuild.image_gallery && editedBuild.image_gallery.length > 0 && (
                 <Card variant="default" padding="md" className="mt-6 border-gray-200">
                   <ImageGallery
-                    buildId={editedBuild.id}
-                    gallery={editedBuild.image_gallery}
+                    buildId={typeof editedBuild.id === 'number' ? editedBuild.id : parseInt(String(editedBuild.id), 10)}
+                    gallery={editedBuild.image_gallery as Array<GalleryImage & { created_at: string; is_primary: boolean }>}
                     onGalleryUpdate={handleGalleryUpdate}
                   />
                 </Card>
@@ -1217,15 +1241,15 @@ export function EditPanel() {
 
           {/* Hardware Items */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+            <h3 className="text-lg font-semibold text-text-primary mb-3 flex items-center gap-2">
               🔧 Hardware
             </h3>
 
-            {Object.entries(editedBuild.costs.hardware).map(([key, hw]) => (
+            {editedBuild.costs.hardware && !Array.isArray(editedBuild.costs.hardware) && Object.entries(editedBuild.costs.hardware).map(([key, hw]) => (
               <Card key={key} variant="default" padding="md" className="bg-gray-50 mb-3">
                 <div className="flex justify-between items-start">
                   <div className="flex-1">
-                    <label className="text-sm font-medium text-gray-700 block mb-1">Description:</label>
+                    <label className="text-sm font-medium text-text-primary block mb-1">Description:</label>
                     <Input
                       type="text"
                       value={hw.desc}
@@ -1244,7 +1268,7 @@ export function EditPanel() {
 
                 <div className="grid grid-cols-2 gap-4 mt-3">
                   <div>
-                    <label className="text-sm font-medium text-gray-700 block mb-1">Quantity:</label>
+                    <label className="text-sm font-medium text-text-primary block mb-1">Quantity:</label>
                     <Input
                       type="number"
                       value={hw.qty}
@@ -1253,7 +1277,7 @@ export function EditPanel() {
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-gray-700 block mb-1">Unit Price (£):</label>
+                    <label className="text-sm font-medium text-text-primary block mb-1">Unit Price (£):</label>
                     <Input
                       type="number"
                       value={hw.unitPrice}
@@ -1265,8 +1289,8 @@ export function EditPanel() {
                 </div>
 
                 <div className="text-right mt-3">
-                  <span className="text-sm text-gray-600">Subtotal: </span>
-                  <span className="text-lg font-bold text-gray-900">{formatCurrency(hw.total)}</span>
+                  <span className="text-sm text-text-secondary">Subtotal: </span>
+                  <span className="text-lg font-bold text-text-primary">{formatCurrency(hw.total)}</span>
                 </div>
               </Card>
             ))}
@@ -1283,12 +1307,12 @@ export function EditPanel() {
 
           {/* Extras Items */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+            <h3 className="text-lg font-semibold text-text-primary mb-3 flex items-center gap-2">
               ✨ Extras & Finishing
             </h3>
 
             {editedBuild.costs.extras.length === 0 ? (
-              <Card variant="default" padding="lg" className="bg-gray-50 text-center text-gray-500">
+              <Card variant="default" padding="lg" className="bg-gray-50 text-center text-text-secondary">
                 No extras added yet. Use "Add Build Item" above to add extras.
               </Card>
             ) : (
@@ -1297,7 +1321,7 @@ export function EditPanel() {
                   <div className="flex justify-between items-start">
                     <div className="flex-1 space-y-3">
                       <div>
-                        <label className="text-sm font-medium text-gray-700 block mb-1">Item Name:</label>
+                        <label className="text-sm font-medium text-text-primary block mb-1">Item Name:</label>
                         <Input
                           type="text"
                           value={extra.item}
@@ -1306,7 +1330,7 @@ export function EditPanel() {
                       </div>
 
                       <div>
-                        <label className="text-sm font-medium text-gray-700 block mb-1">Description:</label>
+                        <label className="text-sm font-medium text-text-primary block mb-1">Description:</label>
                         <Input
                           type="text"
                           value={extra.desc}
@@ -1315,7 +1339,7 @@ export function EditPanel() {
                       </div>
 
                       <div>
-                        <label className="text-sm font-medium text-gray-700 block mb-1">Cost (£):</label>
+                        <label className="text-sm font-medium text-text-primary block mb-1">Cost (£):</label>
                         <Input
                           type="number"
                           value={extra.estimate}

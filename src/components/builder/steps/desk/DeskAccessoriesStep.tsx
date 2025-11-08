@@ -55,8 +55,8 @@ export function DeskAccessoriesStep({
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Accessories & Hardware</h2>
-        <p className="text-gray-600">Select desk accessories and hardware options</p>
+        <h2 className="text-2xl font-bold text-text-primary mb-2">Accessories & Hardware</h2>
+        <p className="text-text-secondary">Select desk accessories and hardware options</p>
       </div>
 
       {/* Accessories Checkbox Grid */}
@@ -126,15 +126,15 @@ export function DeskAccessoriesStep({
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="text-gray-700">
-                      {accessory.name} <span className="text-gray-500">× {accessory.defaultQty}</span>
+                    <span className="text-text-primary">
+                      {accessory.name} <span className="text-text-secondary">× {accessory.defaultQty}</span>
                     </span>
                   </li>
                 )
               })}
             </ul>
           ) : (
-            <p className="text-sm text-gray-500 italic">No accessories selected</p>
+            <p className="text-sm text-text-secondary italic">No accessories selected</p>
           )}
         </CardContent>
       </Card>

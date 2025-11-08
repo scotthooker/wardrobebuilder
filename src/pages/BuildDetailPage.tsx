@@ -48,7 +48,7 @@ interface ExtraRow {
 
 export function BuildDetailPage() {
   const { id } = useParams<{ id: string }>();
-  const { build, isLoading }: { build: Build | undefined; isLoading: boolean } = useBuild(id);
+  const { build, isLoading }: { build: Build | undefined; isLoading: boolean } = useBuild(id || '');
   const { startEditing } = useBuildsStore();
 
   if (isLoading) {

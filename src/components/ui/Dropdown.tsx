@@ -33,7 +33,7 @@ const dropdownItemVariants = cva(
   {
     variants: {
       variant: {
-        default: 'text-gray-700 hover:bg-gray-100 hover:text-gray-900',
+        default: 'text-text-primary hover:bg-gray-100 hover:text-text-primary',
         danger: 'text-red-600 hover:bg-red-50 hover:text-red-700',
       },
     },

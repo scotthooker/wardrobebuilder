@@ -61,8 +61,8 @@ export function DimensionsStep({ configuration, updateConfiguration }: Dimension
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Wardrobe Dimensions</h2>
-        <p className="text-gray-600">
+        <h2 className="text-2xl font-bold text-text-primary mb-2">Wardrobe Dimensions</h2>
+        <p className="text-text-secondary">
           Select the overall dimensions of your wardrobe. You can choose from common sizes or enter custom measurements.
         </p>
       </div>
@@ -82,10 +82,10 @@ export function DimensionsStep({ configuration, updateConfiguration }: Dimension
               >
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-800">
+                    <div className="text-2xl font-bold text-text-primary">
                       {configuration.width} × {configuration.height}
                     </div>
-                    <div className="text-sm text-gray-600 mt-1">
+                    <div className="text-sm text-text-secondary mt-1">
                       Depth: {configuration.depth}mm
                     </div>
                   </div>
@@ -93,11 +93,11 @@ export function DimensionsStep({ configuration, updateConfiguration }: Dimension
               </div>
 
               {/* Dimension labels */}
-              <div className="absolute -bottom-8 left-0 right-0 flex justify-center items-center gap-2 text-sm text-gray-600">
+              <div className="absolute -bottom-8 left-0 right-0 flex justify-center items-center gap-2 text-sm text-text-secondary">
                 <Ruler className="w-4 h-4" />
                 <span>Width: {configuration.width}mm</span>
               </div>
-              <div className="absolute -right-20 top-0 bottom-0 flex flex-col justify-center items-center gap-2 text-sm text-gray-600">
+              <div className="absolute -right-20 top-0 bottom-0 flex flex-col justify-center items-center gap-2 text-sm text-text-secondary">
                 <Ruler className="w-4 h-4 transform rotate-90" />
                 <span className="writing-mode-vertical-rl">Height: {configuration.height}mm</span>
               </div>
@@ -171,11 +171,11 @@ export function DimensionsStep({ configuration, updateConfiguration }: Dimension
 
       {/* Budget Selection */}
       <div>
-        <label className="block text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
+        <label className="block text-sm font-semibold text-text-primary mb-3 flex items-center gap-2">
           <PoundSterling className="w-5 h-5 text-green-600" />
           Target Budget
         </label>
-        <p className="text-sm text-gray-600 mb-4">
+        <p className="text-sm text-text-secondary mb-4">
           Set your target budget for this build. This will be used to calculate savings and compare costs.
         </p>
         <div className="space-y-4">

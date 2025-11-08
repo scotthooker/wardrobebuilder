@@ -4,8 +4,116 @@
  */
 import { DESK_DEFAULTS, DESK_ACCESSORIES } from '../constants/deskSectionTypes';
 
+// Type definitions for DeskModel
+
+interface MaterialCost {
+  component: string;
+  material: string;
+  thickness: string;
+  sheets: number;
+  area: string;
+  pricePerSheet: number;
+  subtotal: number;
+  note: string;
+  category?: string;
+  sku?: string;
+}
+
+interface HardwareItem {
+  item: string;
+  description: string;
+  qty: number;
+  unitPrice: number;
+  total: number;
+}
+
+interface AccessoryItem {
+  item: string;
+  description: string;
+  qty: number;
+  unitPrice: number;
+  total: number;
+}
+
+interface Costs {
+  materials: MaterialCost[];
+  materialTotal: number;
+  hardware: HardwareItem[];
+  hardwareTotal: number;
+  accessories: AccessoryItem[];
+  accessoriesTotal: number;
+  grandTotal: number;
+}
+
+interface PedestalConfig {
+  enabled: boolean;
+  width: number;
+}
+
+interface BaseConfig {
+  type: 'pedestals' | 'panel_sides' | 'legs' | 'trestle';
+  left?: PedestalConfig;
+  right?: PedestalConfig;
+}
+
+interface OverheadConfig {
+  enabled: boolean;
+  type: 'hutch' | 'open_shelving' | 'closed_cabinets' | 'wall_mounted';
+  height?: number;
+}
+
+interface AccessoriesConfig {
+  [key: string]: boolean;
+}
+
+export interface DeskConfiguration {
+  width: number;
+  depth: number;
+  height?: number;
+  deskShape?: string;
+  base?: BaseConfig;
+  overhead?: OverheadConfig;
+  accessories?: AccessoriesConfig;
+  [key: string]: unknown;
+}
+
+interface DeskSummary {
+  furnitureType: string;
+  shape: string;
+  dimensions: {
+    width: number;
+    depth: number;
+    height?: number;
+  };
+  base?: BaseConfig;
+  overhead?: OverheadConfig;
+  accessories?: AccessoriesConfig;
+  costs: Costs;
+}
+
+interface AccessoryPricing {
+  name: string;
+  price: number;
+}
+
+interface AccessoryPricingMap {
+  [key: string]: AccessoryPricing;
+}
+
+interface DeskAccessory {
+  description?: string;
+  defaultQty?: number;
+}
+
+interface DeskAccessoriesMap {
+  [key: string]: DeskAccessory;
+}
+
 export class DeskModel {
-  constructor(configuration) {
+  configuration: DeskConfiguration;
+  costs: Costs;
+
+  constructor(configuration: DeskConfiguration) {
     this.configuration = configuration;
     this.costs = this._calculateCosts();
   }
@@ -13,8 +121,8 @@ export class DeskModel {
   /**
    * Calculate all costs for this desk build
    */
-  _calculateCosts() {
-    const costs = {
+  _calculateCosts(): Costs {
+    const costs: Costs = {
       materials: [],
       materialTotal: 0,
       hardware: [],
@@ -62,7 +170,7 @@ export class DeskModel {
   /**
    * Calculate desktop material requirements
    */
-  _calculateDesktopMaterial() {
+  _calculateDesktopMaterial(): MaterialCost | null {
     const width = this.configuration.width || DESK_DEFAULTS.DEFAULT_DESKTOP_WIDTH;
     const depth = this.configuration.depth || DESK_DEFAULTS.DEFAULT_DESKTOP_DEPTH;
     const shape = this.configuration.deskShape || 'straight';
@@ -98,8 +206,8 @@ export class DeskModel {
   /**
    * Calculate base/pedestal material requirements
    */
-  _calculateBaseMaterial() {
-    const materials = [];
+  _calculateBaseMaterial(): MaterialCost[] {
+    const materials: MaterialCost[] = [];
     const baseType = this.configuration.base?.type;
 
     if (baseType === 'pedestals' || baseType === 'panel_sides') {
@@ -128,10 +236,9 @@ export class DeskModel {
   /**
    * Calculate material for a single pedestal
    */
-  _calculatePedestalMaterial(side, width) {
+  _calculatePedestalMaterial(side: string, width: number): MaterialCost {
     const depth = this.configuration.depth || DESK_DEFAULTS.DEFAULT_DESKTOP_DEPTH;
     const height = this.configuration.height || DESK_DEFAULTS.DEFAULT_DESKTOP_HEIGHT;
-    const thickness = DESK_DEFAULTS.DEFAULT_CARCASS_THICKNESS;
 
     // Pedestal panels needed:
     // - 2 sides (height × depth)
@@ -164,8 +271,8 @@ export class DeskModel {
   /**
    * Calculate overhead storage material
    */
-  _calculateOverheadMaterial() {
-    const materials = [];
+  _calculateOverheadMaterial(): MaterialCost[] {
+    const materials: MaterialCost[] = [];
     const overhead = this.configuration.overhead;
 
     if (!overhead?.enabled) return materials;
@@ -204,8 +311,8 @@ export class DeskModel {
   /**
    * Calculate hardware costs
    */
-  _calculateHardware() {
-    const hardware = [];
+  _calculateHardware(): HardwareItem[] {
+    const hardware: HardwareItem[] = [];
     const baseType = this.configuration.base?.type;
 
     // Hardware for pedestals
@@ -261,12 +368,12 @@ export class DeskModel {
   /**
    * Calculate accessories costs
    */
-  _calculateAccessories() {
-    const accessories = [];
+  _calculateAccessories(): AccessoryItem[] {
+    const accessories: AccessoryItem[] = [];
     const selectedAccessories = this.configuration.accessories || {};
 
     // Accessory pricing map (from hardware database)
-    const accessoryPricing = {
+    const accessoryPricing: AccessoryPricingMap = {
       keyboard_tray: { name: 'Keyboard Tray Slides', price: 15.00 },
       cable_management: { name: 'Cable Management Grommets', price: 5.00 },
       monitor_arm: { name: 'Monitor Arm Mount', price: 45.00 },
@@ -277,7 +384,7 @@ export class DeskModel {
 
     Object.entries(selectedAccessories).forEach(([key, isSelected]) => {
       if (isSelected && accessoryPricing[key]) {
-        const accessory = DESK_ACCESSORIES[key.toUpperCase()];
+        const accessory: DeskAccessory | undefined = (DESK_ACCESSORIES as DeskAccessoriesMap)[key.toUpperCase()];
         const pricing = accessoryPricing[key];
         const qty = accessory?.defaultQty || 1;
 
@@ -297,10 +404,10 @@ export class DeskModel {
   /**
    * Get a summary of the desk configuration
    */
-  getSummary() {
+  getSummary(): DeskSummary {
     return {
       furnitureType: 'desk',
-      shape: this.configuration.deskShape,
+      shape: this.configuration.deskShape || 'straight',
       dimensions: {
         width: this.configuration.width,
         depth: this.configuration.depth,

@@ -13,7 +13,7 @@ const buttonGroupVariants = cva(
     variants: {
       variant: {
         default:
-          'border-2 border-gray-300 bg-white text-gray-700 hover:border-gray-400 hover:bg-gray-50',
+          'border-2 border-gray-300 bg-white text-text-primary hover:border-gray-400 hover:bg-gray-50',
         selected:
           'border-2 border-primary-600 bg-primary-50 text-primary-700',
         success:

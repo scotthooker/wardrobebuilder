@@ -124,7 +124,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
                       <div className="absolute right-4 top-4 z-10">
                         <button
                           type="button"
-                          className="rounded-lg p-2 text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                          className="rounded-lg p-2 text-text-tertiary transition-colors hover:bg-gray-100 hover:text-text-secondary focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
                           onClick={onClose}
                           aria-label="Close drawer"
                         >
@@ -171,7 +171,7 @@ export const DrawerTitle = forwardRef<
   <Dialog.Title
     ref={ref}
     as="h3"
-    className={cn('text-xl font-bold text-gray-900', className)}
+    className={cn('text-xl font-bold text-text-primary', className)}
     {...props}
   >
     {children}

@@ -79,13 +79,13 @@ export function DeskLayoutStep({ configuration, updateConfiguration }: DeskLayou
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Desk Layout</h2>
-        <p className="text-gray-600">Configure the base and support structure of your desk</p>
+        <h2 className="text-2xl font-bold text-text-primary mb-2">Desk Layout</h2>
+        <p className="text-text-secondary">Configure the base and support structure of your desk</p>
       </div>
 
       {/* Base Type Selection */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-3">
+        <label className="block text-sm font-medium text-text-primary mb-3">
           Base Type
         </label>
         <ButtonGroup
@@ -95,7 +95,7 @@ export function DeskLayoutStep({ configuration, updateConfiguration }: DeskLayou
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
           size="lg"
         />
-        <p className="text-sm text-gray-500 mt-2">
+        <p className="text-sm text-text-secondary mt-2">
           {DESK_BASE_TYPES[baseType.toUpperCase() as keyof typeof DESK_BASE_TYPES]?.description}
         </p>
       </div>
@@ -104,7 +104,7 @@ export function DeskLayoutStep({ configuration, updateConfiguration }: DeskLayou
       {requiresCarcass && (
         <div className="space-y-6">
           <div className="border-t border-gray-200 pt-6">
-            <h3 className="text-lg font-medium text-gray-900 mb-4">
+            <h3 className="text-lg font-medium text-text-primary mb-4">
               {baseType === 'pedestals' ? 'Pedestal Configuration' : 'Panel Configuration'}
             </h3>
 
@@ -118,7 +118,7 @@ export function DeskLayoutStep({ configuration, updateConfiguration }: DeskLayou
                 />
                 {leftPedestal.enabled && (
                   <div className="flex items-center gap-2">
-                    <label className="text-sm text-gray-600">Width (mm):</label>
+                    <label className="text-sm text-text-secondary">Width (mm):</label>
                     <Input
                       type="number"
                       value={leftPedestal.width}
@@ -132,7 +132,7 @@ export function DeskLayoutStep({ configuration, updateConfiguration }: DeskLayou
                 )}
               </div>
               {leftPedestal.enabled && (
-                <div className="ml-6 text-xs text-gray-500">
+                <div className="ml-6 text-xs text-text-secondary">
                   {DESK_DEFAULTS.PEDESTAL_MIN_WIDTH}mm - {DESK_DEFAULTS.PEDESTAL_MAX_WIDTH}mm
                 </div>
               )}
@@ -148,7 +148,7 @@ export function DeskLayoutStep({ configuration, updateConfiguration }: DeskLayou
                 />
                 {rightPedestal.enabled && (
                   <div className="flex items-center gap-2">
-                    <label className="text-sm text-gray-600">Width (mm):</label>
+                    <label className="text-sm text-text-secondary">Width (mm):</label>
                     <Input
                       type="number"
                       value={rightPedestal.width}
@@ -162,7 +162,7 @@ export function DeskLayoutStep({ configuration, updateConfiguration }: DeskLayou
                 )}
               </div>
               {rightPedestal.enabled && (
-                <div className="ml-6 text-xs text-gray-500">
+                <div className="ml-6 text-xs text-text-secondary">
                   {DESK_DEFAULTS.PEDESTAL_MIN_WIDTH}mm - {DESK_DEFAULTS.PEDESTAL_MAX_WIDTH}mm
                 </div>
               )}
@@ -178,19 +178,19 @@ export function DeskLayoutStep({ configuration, updateConfiguration }: DeskLayou
         </CardHeader>
         <CardContent className="space-y-2 text-sm">
           <div className="flex justify-between">
-            <span className="text-gray-600">Base Type:</span>
+            <span className="text-text-secondary">Base Type:</span>
             <span className="font-medium">{DESK_BASE_TYPES[baseType.toUpperCase() as keyof typeof DESK_BASE_TYPES]?.name}</span>
           </div>
           {requiresCarcass && (
             <>
               <div className="flex justify-between">
-                <span className="text-gray-600">Left Side:</span>
+                <span className="text-text-secondary">Left Side:</span>
                 <span className="font-medium">
                   {leftPedestal.enabled ? `${leftPedestal.width}mm` : 'None'}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Right Side:</span>
+                <span className="text-text-secondary">Right Side:</span>
                 <span className="font-medium">
                   {rightPedestal.enabled ? `${rightPedestal.width}mm` : 'None'}
                 </span>

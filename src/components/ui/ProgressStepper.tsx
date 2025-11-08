@@ -28,7 +28,7 @@ const stepVariants = cva(
       status: {
         completed: 'text-primary-600',
         current: 'text-primary-600',
-        upcoming: 'text-gray-400',
+        upcoming: 'text-text-tertiary',
       },
       orientation: {
         horizontal: 'flex-1',
@@ -49,7 +49,7 @@ const stepCircleVariants = cva(
       status: {
         completed: 'border-primary-600 bg-primary-600 text-white',
         current: 'border-primary-600 bg-white text-primary-600 ring-4 ring-primary-100',
-        upcoming: 'border-gray-300 bg-white text-gray-400',
+        upcoming: 'border-gray-300 bg-white text-text-tertiary',
       },
       clickable: {
         true: 'cursor-pointer hover:border-primary-500',
@@ -197,7 +197,7 @@ export const ProgressStepper = forwardRef<HTMLDivElement, ProgressStepperProps>(
                     className={cn(
                       'text-sm font-medium',
                       status === 'current' && 'font-semibold',
-                      status === 'upcoming' && 'text-gray-500'
+                      status === 'upcoming' && 'text-text-secondary'
                     )}
                   >
                     {step.label}
@@ -206,7 +206,7 @@ export const ProgressStepper = forwardRef<HTMLDivElement, ProgressStepperProps>(
                     <span
                       className={cn(
                         'mt-0.5 text-xs',
-                        status === 'current' ? 'text-gray-600' : 'text-gray-500'
+                        status === 'current' ? 'text-text-secondary' : 'text-text-secondary'
                       )}
                     >
                       {step.description}

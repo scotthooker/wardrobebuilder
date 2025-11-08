@@ -57,9 +57,9 @@ export function DeskReviewStep({ configuration }: DeskReviewStepProps) {
       <div>
         <div className="flex items-center gap-3 mb-2">
           <CheckCircle2 className="w-8 h-8 text-green-600" />
-          <h2 className="text-2xl font-bold text-gray-900">Review Your Desk Configuration</h2>
+          <h2 className="text-2xl font-bold text-text-primary">Review Your Desk Configuration</h2>
         </div>
-        <p className="text-gray-600">
+        <p className="text-text-secondary">
           Review all the details of your desk configuration before saving.
         </p>
       </div>
@@ -76,25 +76,25 @@ export function DeskReviewStep({ configuration }: DeskReviewStepProps) {
           <CardContent>
             <dl className="space-y-3">
               <div>
-                <dt className="text-sm text-gray-600">Desk Shape:</dt>
-                <dd className="text-base font-medium text-gray-900 mt-1 flex items-center gap-2">
+                <dt className="text-sm text-text-secondary">Desk Shape:</dt>
+                <dd className="text-base font-medium text-text-primary mt-1 flex items-center gap-2">
                   <span className="text-xl">{shape.icon}</span>
                   {shape.name}
                 </dd>
               </div>
               <div>
-                <dt className="text-sm text-gray-600">Desktop Size:</dt>
-                <dd className="text-base font-medium text-gray-900 mt-1">
+                <dt className="text-sm text-text-secondary">Desktop Size:</dt>
+                <dd className="text-base font-medium text-text-primary mt-1">
                   {configuration.width}mm W × {configuration.depth}mm D
                 </dd>
               </div>
               <div>
-                <dt className="text-sm text-gray-600">Desktop Height:</dt>
-                <dd className="text-base font-medium text-gray-900 mt-1">{configuration.height}mm</dd>
+                <dt className="text-sm text-text-secondary">Desktop Height:</dt>
+                <dd className="text-base font-medium text-text-primary mt-1">{configuration.height}mm</dd>
               </div>
               <div>
-                <dt className="text-sm text-gray-600">Total Height:</dt>
-                <dd className="text-base font-medium text-gray-900 mt-1">
+                <dt className="text-sm text-text-secondary">Total Height:</dt>
+                <dd className="text-base font-medium text-text-primary mt-1">
                   {totalHeight}mm
                   {configuration.overhead?.enabled && (
                     <Badge variant="blue" size="sm" className="ml-2">
@@ -118,31 +118,31 @@ export function DeskReviewStep({ configuration }: DeskReviewStepProps) {
           <CardContent>
             <dl className="space-y-3">
               <div>
-                <dt className="text-sm text-gray-600">Base Type:</dt>
-                <dd className="text-base font-medium text-gray-900 mt-1 flex items-center gap-2">
+                <dt className="text-sm text-text-secondary">Base Type:</dt>
+                <dd className="text-base font-medium text-text-primary mt-1 flex items-center gap-2">
                   <span className="text-xl">{baseType.icon}</span>
                   {baseType.name}
                 </dd>
               </div>
               {configuration.base?.left?.enabled && (
                 <div>
-                  <dt className="text-sm text-gray-600">Left Pedestal:</dt>
-                  <dd className="text-base font-medium text-gray-900 mt-1">
+                  <dt className="text-sm text-text-secondary">Left Pedestal:</dt>
+                  <dd className="text-base font-medium text-text-primary mt-1">
                     {configuration.base.left.width}mm wide
                   </dd>
                 </div>
               )}
               {configuration.base?.right?.enabled && (
                 <div>
-                  <dt className="text-sm text-gray-600">Right Pedestal:</dt>
-                  <dd className="text-base font-medium text-gray-900 mt-1">
+                  <dt className="text-sm text-text-secondary">Right Pedestal:</dt>
+                  <dd className="text-base font-medium text-text-primary mt-1">
                     {configuration.base.right.width}mm wide
                   </dd>
                 </div>
               )}
               {!configuration.base?.left?.enabled && !configuration.base?.right?.enabled && (
                 <div>
-                  <dd className="text-sm text-gray-500 italic mt-1">
+                  <dd className="text-sm text-text-secondary italic mt-1">
                     No pedestals configured
                   </dd>
                 </div>
@@ -163,21 +163,21 @@ export function DeskReviewStep({ configuration }: DeskReviewStepProps) {
             {configuration.overhead?.enabled ? (
               <dl className="space-y-3">
                 <div>
-                  <dt className="text-sm text-gray-600">Type:</dt>
-                  <dd className="text-base font-medium text-gray-900 mt-1 flex items-center gap-2">
+                  <dt className="text-sm text-text-secondary">Type:</dt>
+                  <dd className="text-base font-medium text-text-primary mt-1 flex items-center gap-2">
                     <span className="text-xl">{overheadType?.icon}</span>
                     {overheadType?.name || 'Unknown'}
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-sm text-gray-600">Height:</dt>
-                  <dd className="text-base font-medium text-gray-900 mt-1">
+                  <dt className="text-sm text-text-secondary">Height:</dt>
+                  <dd className="text-base font-medium text-text-primary mt-1">
                     {configuration.overhead.height}mm
                   </dd>
                 </div>
               </dl>
             ) : (
-              <p className="text-gray-500 italic">No overhead storage</p>
+              <p className="text-text-secondary italic">No overhead storage</p>
             )}
           </CardContent>
         </Card>
@@ -201,7 +201,7 @@ export function DeskReviewStep({ configuration }: DeskReviewStepProps) {
                 {selectedAccessories.map((accessory) => (
                   <li key={accessory.id} className="flex items-center gap-2 text-sm">
                     <span className="text-2xl">{accessory.icon}</span>
-                    <span className="text-gray-900">{accessory.name}</span>
+                    <span className="text-text-primary">{accessory.name}</span>
                     <Badge variant="default" size="sm">
                       × {accessory.defaultQty}
                     </Badge>
@@ -209,7 +209,7 @@ export function DeskReviewStep({ configuration }: DeskReviewStepProps) {
                 ))}
               </ul>
             ) : (
-              <p className="text-gray-500 italic">No accessories selected</p>
+              <p className="text-text-secondary italic">No accessories selected</p>
             )}
           </CardContent>
         </Card>
@@ -217,7 +217,7 @@ export function DeskReviewStep({ configuration }: DeskReviewStepProps) {
 
       {/* Configuration Data (for debugging) */}
       <details className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-        <summary className="cursor-pointer text-sm font-medium text-gray-700">
+        <summary className="cursor-pointer text-sm font-medium text-text-primary">
           View Full Configuration Data
         </summary>
         <pre className="mt-4 text-xs bg-white p-4 rounded border border-gray-200 overflow-auto max-h-96">

@@ -15,22 +15,22 @@ import { Card, CardContent } from '../../ui/Card';
 
 // Types and Interfaces
 export interface MaterialOption {
-  material: string;
+  material?: string;
   thickness: string;
-  thicknessNum: number;
+  thicknessNum?: number;
   price: number;
-  sku: string;
+  sku?: string;
 }
 
 export interface Material {
-  id: number;
+  id?: number;
   name: string;
-  category: string;
-  type: string;
-  recommended: boolean;
-  description: string;
-  usage: string;
-  image: string | null;
+  category?: string;
+  type?: string;
+  recommended?: boolean;
+  description?: string;
+  usage?: string;
+  image?: string | null;
   options: MaterialOption[];
 }
 
@@ -310,15 +310,15 @@ export function CarcassLayoutStep({ configuration, updateConfiguration }: Carcas
             <span>Columns</span>
           </div>
           <div className="flex-1 h-0.5 bg-gray-300 mx-4" />
-          <div className={`flex items-center gap-2 ${wizardStep === 'SET_CARCASS_HEIGHT' || wizardStep === 'CONFIGURE_CARCASS' || wizardStep === 'REVIEW' ? 'text-primary-600 font-semibold' : 'text-gray-400'}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${wizardStep === 'REVIEW' ? 'bg-green-600 text-white' : wizardStep === 'SET_CARCASS_HEIGHT' || wizardStep === 'CONFIGURE_CARCASS' ? 'bg-primary-600 text-white' : 'bg-gray-300 text-gray-500'}`}>
+          <div className={`flex items-center gap-2 ${wizardStep === 'SET_CARCASS_HEIGHT' || wizardStep === 'CONFIGURE_CARCASS' || wizardStep === 'REVIEW' ? 'text-primary-600 font-semibold' : 'text-text-tertiary'}`}>
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${wizardStep === 'REVIEW' ? 'bg-green-600 text-white' : wizardStep === 'SET_CARCASS_HEIGHT' || wizardStep === 'CONFIGURE_CARCASS' ? 'bg-primary-600 text-white' : 'bg-gray-300 text-text-secondary'}`}>
               {wizardStep === 'REVIEW' ? '✓' : '2'}
             </div>
             <span>Configure Carcasses</span>
           </div>
           <div className="flex-1 h-0.5 bg-gray-300 mx-4" />
-          <div className={`flex items-center gap-2 ${wizardStep === 'REVIEW' ? 'text-primary-600 font-semibold' : 'text-gray-400'}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${wizardStep === 'REVIEW' ? 'bg-primary-600 text-white' : 'bg-gray-300 text-gray-500'}`}>
+          <div className={`flex items-center gap-2 ${wizardStep === 'REVIEW' ? 'text-primary-600 font-semibold' : 'text-text-tertiary'}`}>
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${wizardStep === 'REVIEW' ? 'bg-primary-600 text-white' : 'bg-gray-300 text-text-secondary'}`}>
               3
             </div>
             <span>Review</span>
@@ -326,7 +326,7 @@ export function CarcassLayoutStep({ configuration, updateConfiguration }: Carcas
         </div>
 
         {(wizardStep === 'SET_CARCASS_HEIGHT' || wizardStep === 'CONFIGURE_CARCASS') && (
-          <div className="mt-4 text-center text-sm text-gray-600">
+          <div className="mt-4 text-center text-sm text-text-secondary">
             Section {currentColumnIndex + 1} of {numberOfColumns} • Carcass {currentCarcassIndex + 1}
           </div>
         )}
@@ -351,14 +351,14 @@ function SelectColumnsView({ numberOfColumns, setNumberOfColumns, onNext, wardro
 
   return (
     <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg p-8">
-      <h2 className="text-2xl font-bold text-gray-900 mb-2">How many vertical sections?</h2>
-      <p className="text-gray-600 mb-6">
+      <h2 className="text-2xl font-bold text-text-primary mb-2">How many vertical sections?</h2>
+      <p className="text-text-secondary mb-6">
         Divide your {wardrobeWidth}mm wide wardrobe into vertical sections (columns). Each section must be at least 400mm wide.
       </p>
 
       <Card className="mb-6">
         <CardContent className="p-6">
-          <label className="block text-lg font-semibold text-gray-900 mb-4">
+          <label className="block text-lg font-semibold text-text-primary mb-4">
             Number of Sections: {numberOfColumns}
           </label>
           <input
@@ -369,7 +369,7 @@ function SelectColumnsView({ numberOfColumns, setNumberOfColumns, onNext, wardro
             onChange={(e) => setNumberOfColumns(parseInt(e.target.value))}
             className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary-600"
           />
-          <div className="flex justify-between text-sm text-gray-600 mt-2">
+          <div className="flex justify-between text-sm text-text-secondary mt-2">
             <span>1 section</span>
             <span>{maxColumns} sections</span>
           </div>
@@ -458,27 +458,27 @@ function SetCarcassHeightView({
 
   return (
     <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-lg p-8">
-      <h2 className="text-2xl font-bold text-gray-900 mb-2">
+      <h2 className="text-2xl font-bold text-text-primary mb-2">
         Section {columnIndex + 1}, Carcass {carcassIndex + 1}: Set Height & Material
       </h2>
-      <p className="text-gray-600 mb-6">
+      <p className="text-text-secondary mb-6">
         Choose the carcass material and set the height. Minimum 300mm required.
       </p>
 
       {/* Material Selection */}
       <Card className="mb-6">
         <CardContent className="p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Carcass Material</h3>
+          <h3 className="text-lg font-semibold text-text-primary mb-4">Carcass Material</h3>
 
           {materialsLoading ? (
-            <p className="text-gray-500">Loading materials...</p>
+            <p className="text-text-secondary">Loading materials...</p>
           ) : (
             <div className="space-y-4">
               {Object.values(materialsByName).map((material) => (
                 <div key={material.name} className="border-2 border-gray-200 rounded-lg p-4 hover:border-primary-500 transition">
                   <div className="flex items-start justify-between mb-2">
                     <div>
-                      <h4 className="font-semibold text-gray-900">{material.name}</h4>
+                      <h4 className="font-semibold text-text-primary">{material.name}</h4>
                       {material.recommended && (
                         <span className="inline-block px-2 py-0.5 bg-green-100 text-green-800 text-xs font-semibold rounded mt-1">
                           Recommended
@@ -486,15 +486,15 @@ function SetCarcassHeightView({
                       )}
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600 mb-3">{material.description}</p>
+                  <p className="text-sm text-text-secondary mb-3">{material.description}</p>
 
                   {/* Thickness Options */}
                   <ButtonGroup
                     options={material.options.map((option) => ({
-                      value: option.sku,
+                      value: option.sku || '',
                       label: `${option.thickness}\n£${option.price}`,
                     }))}
-                    value={selectedMaterial?.sku}
+                    value={selectedMaterial?.sku || ''}
                     onChange={(sku) => {
                       const option = material.options.find(o => o.sku === sku);
                       if (option) handleMaterialSelect(material.name, option);
@@ -511,7 +511,7 @@ function SetCarcassHeightView({
       {/* Height Selection */}
       <Card className="mb-6">
         <CardContent className="p-6">
-          <label className="block text-lg font-semibold text-gray-900 mb-4">
+          <label className="block text-lg font-semibold text-text-primary mb-4">
             Carcass Height: {carcassHeight}mm (External)
           </label>
           <input
@@ -523,12 +523,12 @@ function SetCarcassHeightView({
             step="50"
             className="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary-600"
           />
-          <div className="flex justify-between text-sm text-gray-600 mt-2">
+          <div className="flex justify-between text-sm text-text-secondary mt-2">
             <span>300mm (minimum)</span>
             <span>{remainingHeight}mm (maximum)</span>
           </div>
 
-          {selectedMaterial && (
+          {selectedMaterial && selectedMaterial.thicknessNum && (
             <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded">
               <p className="text-sm text-amber-900">
                 <strong>Material thickness:</strong> {selectedMaterial.thicknessNum}mm (×2 = {selectedMaterial.thicknessNum * 2}mm for top + bottom)
@@ -547,7 +547,7 @@ function SetCarcassHeightView({
             <div className="p-4 bg-green-50 border border-green-200 rounded">
               <p className="text-sm text-green-800">
                 <strong>External height:</strong> {carcassHeight}mm
-                {selectedMaterial && (
+                {selectedMaterial && selectedMaterial.thicknessNum && (
                   <>
                     <br/>
                     <strong>Internal height:</strong> {carcassHeight - (selectedMaterial.thicknessNum * 2)}mm
@@ -566,12 +566,12 @@ function SetCarcassHeightView({
             className="bg-green-400 rounded flex flex-col border-2 border-green-600"
             style={{ height: `${(carcassHeight / wardrobeHeight) * 100}%` }}
           >
-            {selectedMaterial && (
+            {selectedMaterial && selectedMaterial.thicknessNum && (
               <>
                 <div className="bg-amber-600 text-white text-xs font-semibold text-center py-1" style={{ height: `${(selectedMaterial.thicknessNum / carcassHeight) * 100}%` }}>
                   Top Panel ({selectedMaterial.thicknessNum}mm)
                 </div>
-                <div className="flex-1 flex items-center justify-center text-gray-900 font-semibold">
+                <div className="flex-1 flex items-center justify-center text-text-primary font-semibold">
                   Internal Space<br/>{carcassHeight - (selectedMaterial.thicknessNum * 2)}mm
                 </div>
                 <div className="bg-amber-600 text-white text-xs font-semibold text-center py-1" style={{ height: `${(selectedMaterial.thicknessNum / carcassHeight) * 100}%` }}>
@@ -580,7 +580,7 @@ function SetCarcassHeightView({
               </>
             )}
             {!selectedMaterial && (
-              <div className="flex items-center justify-center text-gray-900 font-semibold h-full">
+              <div className="flex items-center justify-center text-text-primary font-semibold h-full">
                 This Carcass<br/>{carcassHeight}mm
               </div>
             )}
@@ -696,14 +696,14 @@ function ConfigureCarcassView({
   return (
     <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-8">
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">
+        <h2 className="text-2xl font-bold text-text-primary mb-2">
           Section {columnIndex + 1}, Carcass {carcassIndex + 1}: Configure Interior
         </h2>
-        <p className="text-gray-600">
+        <p className="text-text-secondary">
           Configure the interior of this carcass ({carcassHeight}mm tall).
           Section {columnIndex + 1} of {totalColumns}.
         </p>
-        <div className="mt-2 text-sm text-gray-600">
+        <div className="mt-2 text-sm text-text-secondary">
           Unused interior height: <span className="font-semibold">{remainingHeight}mm</span>
         </div>
       </div>
@@ -713,7 +713,7 @@ function ConfigureCarcassView({
         <div className="space-y-4">
           <Card>
             <CardContent className="p-6">
-              <h3 className="font-semibold text-gray-900 mb-4">Add Interior Components</h3>
+              <h3 className="font-semibold text-text-primary mb-4">Add Interior Components</h3>
               <div className="grid grid-cols-2 gap-3">
                 {Object.values(SECTION_TYPES).map((type) => (
                   <Button
@@ -724,8 +724,8 @@ function ConfigureCarcassView({
                     className="h-auto flex-col py-4"
                   >
                     <div className="text-3xl mb-2">{type.icon}</div>
-                    <div className="text-sm font-medium text-gray-900">{type.name}</div>
-                    <div className="text-xs text-gray-500 mt-1">Min: {type.minHeight}mm</div>
+                    <div className="text-sm font-medium text-text-primary">{type.name}</div>
+                    <div className="text-xs text-text-secondary mt-1">Min: {type.minHeight}mm</div>
                   </Button>
                 ))}
               </div>
@@ -735,9 +735,9 @@ function ConfigureCarcassView({
           {/* Interior sections list */}
           <Card>
             <CardContent className="p-6">
-              <h3 className="font-semibold text-gray-900 mb-4">Interior Configuration</h3>
+              <h3 className="font-semibold text-text-primary mb-4">Interior Configuration</h3>
               {interiorSections.length === 0 ? (
-                <p className="text-gray-500 text-sm">No components added yet. Add components above.</p>
+                <p className="text-text-secondary text-sm">No components added yet. Add components above.</p>
               ) : (
                 <div className="space-y-3">
                   {interiorSections.map((section, idx) => (
@@ -761,7 +761,7 @@ function ConfigureCarcassView({
                         <div className="space-y-2">
                           <div className="grid grid-cols-2 gap-2 text-sm">
                             <div>
-                              <label className="block text-gray-600 mb-1">Height (mm)</label>
+                              <label className="block text-text-secondary mb-1">Height (mm)</label>
                               <Input
                                 type="number"
                                 value={section.height}
@@ -773,7 +773,7 @@ function ConfigureCarcassView({
 
                             {section.type === 'drawers' && (
                               <div>
-                                <label className="block text-gray-600 mb-1">Drawer Count</label>
+                                <label className="block text-text-secondary mb-1">Drawer Count</label>
                                 <Input
                                   type="number"
                                   value={section.drawers || 1}
@@ -787,7 +787,7 @@ function ConfigureCarcassView({
 
                             {section.type === 'shelves' && (
                               <div>
-                                <label className="block text-gray-600 mb-1">Shelf Count</label>
+                                <label className="block text-text-secondary mb-1">Shelf Count</label>
                                 <Input
                                   type="number"
                                   value={section.shelfCount || 1}
@@ -809,9 +809,9 @@ function ConfigureCarcassView({
                                   onChange={(e) => updateInteriorCount(idx, 'isExternal', e.target.checked)}
                                   className="w-4 h-4 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
                                 />
-                                <span className="text-sm font-medium text-gray-900">External Drawers</span>
+                                <span className="text-sm font-medium text-text-primary">External Drawers</span>
                               </label>
-                              <p className="text-xs text-gray-600 mt-1 ml-6">
+                              <p className="text-xs text-text-secondary mt-1 ml-6">
                                 External drawers show on the wardrobe front and affect door sizing
                               </p>
                             </div>
@@ -829,11 +829,11 @@ function ConfigureCarcassView({
         {/* Right: Preview */}
         <Card>
           <CardContent className="p-6">
-            <h3 className="font-semibold text-gray-900 mb-4">Preview</h3>
+            <h3 className="font-semibold text-text-primary mb-4">Preview</h3>
             <div className="bg-gray-800 rounded-lg p-4" style={{ height: '500px' }}>
               <div className="bg-gray-700 rounded h-full flex flex-col gap-1 p-2">
                 {interiorSections.length === 0 ? (
-                  <div className="flex-1 bg-gray-600 rounded flex items-center justify-center text-gray-400">
+                  <div className="flex-1 bg-gray-600 rounded flex items-center justify-center text-text-tertiary">
                     Empty Carcass
                   </div>
                 ) : (
@@ -858,10 +858,10 @@ function ConfigureCarcassView({
                         </div>
                       )}
                       <span className="text-2xl mb-1">{SECTION_TYPES[section.type.toUpperCase()].icon}</span>
-                      <span className="text-gray-700">{section.height}mm</span>
-                      {section.drawers && <span className="text-xs text-gray-600">{section.drawers} drawers</span>}
+                      <span className="text-text-primary">{section.height}mm</span>
+                      {section.drawers && <span className="text-xs text-text-secondary">{section.drawers} drawers</span>}
                       {section.isExternal && <span className="text-xs text-amber-700 font-semibold">External</span>}
-                      {section.shelfCount && <span className="text-xs text-gray-600">{section.shelfCount} shelves</span>}
+                      {section.shelfCount && <span className="text-xs text-text-secondary">{section.shelfCount} shelves</span>}
                     </div>
                   ))
                 )}
@@ -927,8 +927,8 @@ interface ReviewViewProps {
 function ReviewView({ sections, wardrobeWidth, wardrobeHeight, onEdit, onBack }: ReviewViewProps) {
   return (
     <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-lg p-8">
-      <h2 className="text-2xl font-bold text-gray-900 mb-2">Review Your Configuration</h2>
-      <p className="text-gray-600 mb-6">
+      <h2 className="text-2xl font-bold text-text-primary mb-2">Review Your Configuration</h2>
+      <p className="text-text-secondary mb-6">
         Review your wardrobe layout. Click any carcass to edit its interior configuration.
       </p>
 
@@ -979,7 +979,7 @@ function ReviewView({ sections, wardrobeWidth, wardrobeHeight, onEdit, onBack }:
                     </div>
                   ) : (
                     <div className="h-full bg-white flex items-center justify-center">
-                      <span className="text-gray-400 text-xs">Empty</span>
+                      <span className="text-text-tertiary text-xs">Empty</span>
                     </div>
                   )}
                 </div>
@@ -992,7 +992,7 @@ function ReviewView({ sections, wardrobeWidth, wardrobeHeight, onEdit, onBack }:
       {/* Summary */}
       <Card className="mb-6">
         <CardContent className="p-6">
-          <h3 className="font-semibold text-gray-900 mb-4">Configuration Summary</h3>
+          <h3 className="font-semibold text-text-primary mb-4">Configuration Summary</h3>
           <div className="grid grid-cols-3 gap-4 text-sm">
             <div className="text-center p-4 bg-blue-50 rounded-lg">
               <div className="text-2xl font-bold text-blue-900">{sections.length}</div>
@@ -1019,18 +1019,18 @@ function ReviewView({ sections, wardrobeWidth, wardrobeHeight, onEdit, onBack }:
       {/* Detailed Carcass List with Materials */}
       <Card className="mb-6">
         <CardContent className="p-6">
-          <h3 className="font-semibold text-gray-900 mb-4">Carcass Details</h3>
+          <h3 className="font-semibold text-text-primary mb-4">Carcass Details</h3>
           <div className="space-y-4">
             {sections.map((section, sectionIdx) => (
               <div key={section.id} className="border-2 border-gray-200 rounded-lg p-4">
-                <h4 className="font-medium text-gray-900 mb-3">
+                <h4 className="font-medium text-text-primary mb-3">
                   Section {sectionIdx + 1} ({section.width}mm wide)
                 </h4>
                 <div className="space-y-3">
                   {section.carcasses.map((carcass, carcassIdx) => (
                     <div key={carcass.id} className="pl-4 border-l-2 border-primary-300 bg-gray-50 p-3 rounded">
                       <div className="flex items-center justify-between mb-2">
-                        <span className="font-medium text-sm text-gray-900">
+                        <span className="font-medium text-sm text-text-primary">
                           Carcass {carcassIdx + 1}
                         </span>
                         <Button
@@ -1042,11 +1042,11 @@ function ReviewView({ sections, wardrobeWidth, wardrobeHeight, onEdit, onBack }:
                           Edit
                         </Button>
                       </div>
-                      <div className="grid grid-cols-2 gap-2 text-xs text-gray-700 mb-2">
+                      <div className="grid grid-cols-2 gap-2 text-xs text-text-primary mb-2">
                         <div>
                           <strong>External Height:</strong> {carcass.height}mm
                         </div>
-                        {carcass.material && (
+                        {carcass.material && carcass.material.thicknessNum && (
                           <>
                             <div>
                               <strong>Internal Height:</strong> {carcass.height - (carcass.material.thicknessNum * 2)}mm
@@ -1059,7 +1059,7 @@ function ReviewView({ sections, wardrobeWidth, wardrobeHeight, onEdit, onBack }:
                         )}
                       </div>
                       {carcass.interiorSections && carcass.interiorSections.length > 0 && (
-                        <div className="mt-2 text-xs text-gray-600">
+                        <div className="mt-2 text-xs text-text-secondary">
                           <strong>Interior:</strong>{' '}
                           {carcass.interiorSections.map((interior, idx) => (
                             <span key={interior.id}>

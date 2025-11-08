@@ -1,0 +1,26 @@
+[
+  {
+    "id": 3,
+    "name": "SL Hardwoods",
+    "type": "SHEET_GOODS",
+    "website": "https://www.slhardwoods.co.uk",
+    "contact_email": null,
+    "contact_phone": null,
+    "notes": null,
+    "is_active": true,
+    "created_at": "2025-11-06T12:50:27.301Z",
+    "updated_at": "2025-11-06T12:50:27.301Z"
+  },
+  {
+    "id": 4,
+    "name": "Made to Measure (MTM)",
+    "type": "DOORS_DRAWERS",
+    "website": null,
+    "contact_email": null,
+    "contact_phone": null,
+    "notes": null,
+    "is_active": true,
+    "created_at": "2025-11-06T12:50:27.301Z",
+    "updated_at": "2025-11-06T12:50:27.301Z"
+  }
+]

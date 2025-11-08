@@ -143,7 +143,7 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
             className
           )}
         >
-          <p className="text-gray-500">No items to display</p>
+          <p className="text-text-secondary">No items to display</p>
         </div>
       )
     }
@@ -182,7 +182,7 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
             <button
               type="button"
               onClick={goToPrevious}
-              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-gray-800 shadow-lg transition-all hover:bg-white hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 opacity-0 group-hover:opacity-100"
+              className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-text-primary shadow-lg transition-all hover:bg-white hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 opacity-0 group-hover:opacity-100"
               aria-label="Previous slide"
             >
               <ChevronLeft className="h-6 w-6" />
@@ -190,7 +190,7 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
             <button
               type="button"
               onClick={goToNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-gray-800 shadow-lg transition-all hover:bg-white hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 opacity-0 group-hover:opacity-100"
+              className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-text-primary shadow-lg transition-all hover:bg-white hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 opacity-0 group-hover:opacity-100"
               aria-label="Next slide"
             >
               <ChevronRight className="h-6 w-6" />

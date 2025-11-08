@@ -12,17 +12,17 @@ export function Footer() {
     <footer className="glass-effect border-t border-gray-200/50 mt-16">
       <div className="container mx-auto px-4 py-8">
         <div className="text-center space-y-4">
-          <div className="flex items-center justify-center gap-2 text-gray-700">
-            <span className="font-bold text-gray-900">
+          <div className="flex items-center justify-center gap-2 text-text-primary">
+            <span className="font-bold text-text-primary">
               Wardrobe Builder
             </span>
-            <span className="text-gray-400">•</span>
+            <span className="text-text-tertiary">•</span>
             <Badge variant="default" size="sm">
               © 2025
             </Badge>
           </div>
 
-          <p className="text-sm text-gray-600 max-w-md mx-auto leading-relaxed">
+          <p className="text-sm text-text-secondary max-w-md mx-auto leading-relaxed">
             Premium custom wardrobe designs crafted with precision
             <br />
             <Badge variant="primary" size="sm" className="mt-2">
@@ -51,7 +51,7 @@ export function Footer() {
             </Button>
           </div>
 
-          <div className="text-xs text-gray-500 flex items-center justify-center gap-1">
+          <div className="text-xs text-text-secondary flex items-center justify-center gap-1">
             Made with <Heart className="w-3 h-3 text-red-500 fill-red-500 animate-pulse-subtle" /> for woodworking enthusiasts
           </div>
         </div>

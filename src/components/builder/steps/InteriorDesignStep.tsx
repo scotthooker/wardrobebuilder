@@ -70,7 +70,7 @@ export function InteriorDesignStep({ configuration }: InteriorDesignStepProps) {
   if (!configuration.sections || configuration.sections.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-gray-500">
+        <p className="text-text-secondary">
           Please complete the Carcass Layout step first.
         </p>
       </div>
@@ -103,15 +103,15 @@ export function InteriorDesignStep({ configuration }: InteriorDesignStepProps) {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Interior Design Summary</h2>
-        <p className="text-gray-600">
+        <h2 className="text-2xl font-bold text-text-primary mb-2">Interior Design Summary</h2>
+        <p className="text-text-secondary">
           All interior configurations were completed in the previous step. Review your setup below.
         </p>
       </div>
 
       {/* Visual Summary */}
       <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-lg p-8">
-        <h3 className="font-semibold text-gray-900 mb-4">Wardrobe Layout with Interiors</h3>
+        <h3 className="font-semibold text-text-primary mb-4">Wardrobe Layout with Interiors</h3>
 
         {/* Visual Grid */}
         <div className="bg-gray-800 rounded-lg p-4 mb-6" style={{ minHeight: '500px' }}>
@@ -159,7 +159,7 @@ export function InteriorDesignStep({ configuration }: InteriorDesignStepProps) {
                       </div>
                     ) : (
                       <div className="h-full bg-white flex items-center justify-center">
-                        <span className="text-gray-400 text-xs">Empty</span>
+                        <span className="text-text-tertiary text-xs">Empty</span>
                       </div>
                     )}
                   </div>
@@ -171,36 +171,36 @@ export function InteriorDesignStep({ configuration }: InteriorDesignStepProps) {
 
         {/* Detail Summary */}
         <div className="bg-white rounded-lg p-6">
-          <h4 className="font-semibold text-gray-900 mb-4">Interior Components by Section</h4>
+          <h4 className="font-semibold text-text-primary mb-4">Interior Components by Section</h4>
           <div className="space-y-4">
             {configuration.sections.map((section, sectionIdx) => (
               <Card key={section.id} variant="outline" padding="md" className="border-2 border-gray-200">
-                <h5 className="font-medium text-gray-900 mb-3">
+                <h5 className="font-medium text-text-primary mb-3">
                   Section {sectionIdx + 1} ({section.width}mm wide)
                 </h5>
                 <div className="space-y-2">
                   {section.carcasses.map((carcass, carcassIdx) => (
                     <div key={carcass.id} className="pl-4 border-l-2 border-gray-300">
-                      <div className="font-medium text-sm text-gray-700 mb-1">
+                      <div className="font-medium text-sm text-text-primary mb-1">
                         Carcass {carcassIdx + 1} ({carcass.height}mm tall)
                         {carcass.material && (
-                          <span className="ml-2 text-xs text-gray-600">
+                          <span className="ml-2 text-xs text-text-secondary">
                             - {carcass.material.material} ({carcass.material.thickness})
                           </span>
                         )}
                       </div>
                       {carcass.interiorSections && carcass.interiorSections.length > 0 ? (
-                        <div className="space-y-1 text-sm text-gray-600">
+                        <div className="space-y-1 text-sm text-text-secondary">
                           {carcass.interiorSections.map((interior) => (
                             <div key={interior.id} className="flex items-center gap-2">
                               <span>{SECTION_TYPES[interior.type.toUpperCase()]?.icon}</span>
                               <span>{SECTION_TYPES[interior.type.toUpperCase()]?.name}</span>
-                              <span className="text-gray-500">- {interior.height}mm</span>
+                              <span className="text-text-secondary">- {interior.height}mm</span>
                               {interior.drawers && (
-                                <span className="text-gray-500">({interior.drawers} drawers)</span>
+                                <span className="text-text-secondary">({interior.drawers} drawers)</span>
                               )}
                               {interior.shelfCount && (
-                                <span className="text-gray-500">({interior.shelfCount} shelves)</span>
+                                <span className="text-text-secondary">({interior.shelfCount} shelves)</span>
                               )}
                               {interior.isExternal && (
                                 <span className="px-2 py-0.5 bg-amber-500 text-white text-xs rounded-full font-semibold">
@@ -211,7 +211,7 @@ export function InteriorDesignStep({ configuration }: InteriorDesignStepProps) {
                           ))}
                         </div>
                       ) : (
-                        <div className="text-sm text-gray-400">Empty carcass</div>
+                        <div className="text-sm text-text-tertiary">Empty carcass</div>
                       )}
                     </div>
                   ))}

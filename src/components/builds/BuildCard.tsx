@@ -72,7 +72,7 @@ export interface Build {
   id: string | number
   name: string
   character: string
-  image?: string
+  image?: string | null
   image_gallery?: GalleryImage[] | string
   furnitureType?: typeof FURNITURE_TYPES.WARDROBE.id | typeof FURNITURE_TYPES.DESK.id
   costs: BuildCosts
@@ -195,10 +195,10 @@ export function BuildCard({
         <div className="flex-1 p-6 flex flex-col">
           {/* Title and Description */}
           <div className="mb-4">
-            <h3 className="text-2xl font-bold mb-2 text-gray-900">
+            <h3 className="text-2xl font-bold mb-2 text-text-primary">
               {build.name}
             </h3>
-            <p className="text-gray-700 text-sm leading-relaxed">
+            <p className="text-text-secondary text-sm leading-relaxed">
               {build.character}
             </p>
           </div>
@@ -207,13 +207,13 @@ export function BuildCard({
           <div className="bg-gradient-to-br from-gray-50 to-primary-50 rounded-xl p-5 mb-4 border border-gray-200 shadow-sm">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-1">
-                <p className="text-xs font-medium text-gray-600 uppercase tracking-wide">Total Cost</p>
-                <p className="text-2xl font-bold text-gray-900">
+                <p className="text-xs font-medium text-text-secondary uppercase tracking-wide">Total Cost</p>
+                <p className="text-2xl font-bold text-text-primary">
                   {formatCurrency(build.costs.grandTotal)}
                 </p>
               </div>
               <div className="space-y-1">
-                <p className="text-xs font-medium text-gray-600 uppercase tracking-wide">vs Budget</p>
+                <p className="text-xs font-medium text-text-secondary uppercase tracking-wide">vs Budget</p>
                 <p className={`text-2xl font-bold ${savingsColor}`}>
                   {formatCurrency(Math.abs(build.costs.savingsVsBudget))}
                   <span className="text-sm ml-1 font-medium">{build.costs.savingsVsBudget >= 0 ? 'under' : 'over'}</span>

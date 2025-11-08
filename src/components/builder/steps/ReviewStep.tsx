@@ -83,9 +83,9 @@ export function ReviewStep({ configuration }: ReviewStepProps) {
       <div>
         <div className="flex items-center gap-3 mb-2">
           <CheckCircle2 className="w-8 h-8 text-green-600" />
-          <h2 className="text-2xl font-bold text-gray-900">Review Your Configuration</h2>
+          <h2 className="text-2xl font-bold text-text-primary">Review Your Configuration</h2>
         </div>
-        <p className="text-gray-600">
+        <p className="text-text-secondary">
           Review all the details of your wardrobe configuration before proceeding to material selection.
         </p>
       </div>
@@ -96,22 +96,22 @@ export function ReviewStep({ configuration }: ReviewStepProps) {
           <CardHeader>
             <div className="flex items-center gap-2 mb-4">
               <Ruler className="w-5 h-5 text-primary-600" />
-              <CardTitle className="text-base font-semibold text-gray-900">Dimensions</CardTitle>
+              <CardTitle className="text-base font-semibold text-text-primary">Dimensions</CardTitle>
             </div>
           </CardHeader>
           <CardContent>
             <dl className="space-y-2">
               <div className="flex justify-between">
-                <dt className="text-gray-600">Width:</dt>
-                <dd className="font-semibold text-gray-900">{configuration.width}mm</dd>
+                <dt className="text-text-secondary">Width:</dt>
+                <dd className="font-semibold text-text-primary">{configuration.width}mm</dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-gray-600">Height:</dt>
-                <dd className="font-semibold text-gray-900">{configuration.height}mm</dd>
+                <dt className="text-text-secondary">Height:</dt>
+                <dd className="font-semibold text-text-primary">{configuration.height}mm</dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-gray-600">Depth:</dt>
-                <dd className="font-semibold text-gray-900">{configuration.depth}mm</dd>
+                <dt className="text-text-secondary">Depth:</dt>
+                <dd className="font-semibold text-text-primary">{configuration.depth}mm</dd>
               </div>
             </dl>
           </CardContent>
@@ -122,19 +122,19 @@ export function ReviewStep({ configuration }: ReviewStepProps) {
           <CardHeader>
             <div className="flex items-center gap-2 mb-4">
               <Grid3x3 className="w-5 h-5 text-primary-600" />
-              <CardTitle className="text-base font-semibold text-gray-900">Carcass Layout</CardTitle>
+              <CardTitle className="text-base font-semibold text-text-primary">Carcass Layout</CardTitle>
             </div>
           </CardHeader>
           <CardContent>
             <dl className="space-y-2">
               <div className="flex justify-between">
-                <dt className="text-gray-600">Number of Carcasses:</dt>
-                <dd className="font-semibold text-gray-900">{configuration.numCarcasses}</dd>
+                <dt className="text-text-secondary">Number of Carcasses:</dt>
+                <dd className="font-semibold text-text-primary">{configuration.numCarcasses}</dd>
               </div>
               {configuration.carcassWidths?.map((width, index) => (
                 <div key={index} className="flex justify-between text-sm">
-                  <dt className="text-gray-500">Carcass {index + 1}:</dt>
-                  <dd className="text-gray-700">{width}mm</dd>
+                  <dt className="text-text-secondary">Carcass {index + 1}:</dt>
+                  <dd className="text-text-primary">{width}mm</dd>
                 </div>
               ))}
             </dl>
@@ -146,32 +146,32 @@ export function ReviewStep({ configuration }: ReviewStepProps) {
           <CardHeader>
             <div className="flex items-center gap-2 mb-4">
               <Package className="w-5 h-5 text-primary-600" />
-              <CardTitle className="text-base font-semibold text-gray-900">Interior Components</CardTitle>
+              <CardTitle className="text-base font-semibold text-text-primary">Interior Components</CardTitle>
             </div>
           </CardHeader>
           <CardContent>
             <dl className="space-y-2">
               <div className="flex justify-between">
-                <dt className="text-gray-600">Total Sections:</dt>
-                <dd className="font-semibold text-gray-900">
+                <dt className="text-text-secondary">Total Sections:</dt>
+                <dd className="font-semibold text-text-primary">
                   <Badge variant="primary" size="sm">{totalSections}</Badge>
                 </dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-gray-600">Internal Drawers:</dt>
-                <dd className="font-semibold text-gray-900">
+                <dt className="text-text-secondary">Internal Drawers:</dt>
+                <dd className="font-semibold text-text-primary">
                   <Badge variant="blue" size="sm">{totalDrawers}</Badge>
                 </dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-gray-600">Hanging Rails:</dt>
-                <dd className="font-semibold text-gray-900">
+                <dt className="text-text-secondary">Hanging Rails:</dt>
+                <dd className="font-semibold text-text-primary">
                   <Badge variant="green" size="sm">{railCount}</Badge>
                 </dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-gray-600">Shelves:</dt>
-                <dd className="font-semibold text-gray-900">
+                <dt className="text-text-secondary">Shelves:</dt>
+                <dd className="font-semibold text-text-primary">
                   <Badge variant="orange" size="sm">{shelfCount}</Badge>
                 </dd>
               </div>
@@ -184,26 +184,26 @@ export function ReviewStep({ configuration }: ReviewStepProps) {
           <CardHeader>
             <div className="flex items-center gap-2 mb-4">
               <DoorClosed className="w-5 h-5 text-primary-600" />
-              <CardTitle className="text-base font-semibold text-gray-900">External Appearance</CardTitle>
+              <CardTitle className="text-base font-semibold text-text-primary">External Appearance</CardTitle>
             </div>
           </CardHeader>
           <CardContent>
             <dl className="space-y-2">
               <div className="flex justify-between">
-                <dt className="text-gray-600">Door Style:</dt>
-                <dd className="font-semibold text-gray-900 capitalize">
+                <dt className="text-text-secondary">Door Style:</dt>
+                <dd className="font-semibold text-text-primary capitalize">
                   {configuration.doors?.style || 'None'}
                 </dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-gray-600">Number of Doors:</dt>
-                <dd className="font-semibold text-gray-900">
+                <dt className="text-text-secondary">Number of Doors:</dt>
+                <dd className="font-semibold text-text-primary">
                   <Badge variant="default" size="sm">{configuration.doors?.count || 0}</Badge>
                 </dd>
               </div>
               <div className="flex justify-between">
-                <dt className="text-gray-600">External Drawers:</dt>
-                <dd className="font-semibold text-gray-900">
+                <dt className="text-text-secondary">External Drawers:</dt>
+                <dd className="font-semibold text-text-primary">
                   <Badge variant="default" size="sm">{configuration.externalDrawers?.count || 0}</Badge>
                 </dd>
               </div>
@@ -215,7 +215,7 @@ export function ReviewStep({ configuration }: ReviewStepProps) {
       {/* Detailed Carcass Breakdown */}
       <Card variant="default" padding="md">
         <CardHeader>
-          <CardTitle className="text-base font-semibold text-gray-900 mb-4">
+          <CardTitle className="text-base font-semibold text-text-primary mb-4">
             Detailed Carcass Breakdown
           </CardTitle>
         </CardHeader>
@@ -223,12 +223,12 @@ export function ReviewStep({ configuration }: ReviewStepProps) {
           <div className="space-y-4">
             {configuration.carcasses?.map((carcass, index) => (
               <div key={index} className="border-l-4 border-primary-500 pl-4">
-                <h4 className="font-medium text-gray-900 mb-2">
+                <h4 className="font-medium text-text-primary mb-2">
                   Carcass {index + 1} ({configuration.carcassWidths?.[index]}mm wide)
                 </h4>
                 <div className="space-y-1">
                   {carcass.sections.map((section, sIndex) => (
-                    <div key={sIndex} className="text-sm text-gray-600 flex items-center gap-2">
+                    <div key={sIndex} className="text-sm text-text-secondary flex items-center gap-2">
                       <span className="w-6 text-center">{sIndex + 1}.</span>
                       <span className="flex-1">
                         {getSectionLabel(section)}

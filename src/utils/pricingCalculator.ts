@@ -3,10 +3,101 @@
  * Pure functions for cost calculations, comparisons, and forecasting
  */
 
+// Types and Interfaces
+
+interface BuildCosts {
+  materialTotal: number;
+  professionalDoorsDrawersTotal: number;
+  extrasTotal: number;
+  hardwareTotal: number;
+  grandTotal: number;
+  materials: Material[];
+}
+
+interface Material {
+  component?: string;
+  material: string;
+  thickness: string;
+  sheets: number;
+  pricePerSheet: number;
+  subtotal: number;
+  sku?: string;
+}
+
+interface Build {
+  id?: number;
+  name: string;
+  costs: BuildCosts;
+}
+
+interface CostBreakdownItem {
+  build1: number;
+  build2: number;
+  difference: number;
+  percentDiff: number;
+}
+
+interface BuildComparison {
+  costDifference: number;
+  materialDifference: number;
+  extrasDifference: number;
+  breakdown: {
+    materials: CostBreakdownItem;
+    doors: CostBreakdownItem;
+    extras: CostBreakdownItem;
+    total: CostBreakdownItem;
+  };
+  cheaper: string;
+}
+
+interface DiscountedBuild {
+  name: string;
+  originalCost: number;
+  discountedCost: number;
+}
+
+interface BulkDiscount {
+  originalTotal: number;
+  discountPercent: number;
+  discountAmount: number;
+  finalTotal: number;
+  savings: number;
+  breakdown: DiscountedBuild[];
+}
+
+interface MaterialUsage {
+  material: string;
+  thickness: string;
+  sku?: string;
+  pricePerSheet: number;
+  totalSheets: number;
+  totalCost: number;
+  usedInBuilds: string[];
+}
+
+interface AverageStats {
+  averageCost: number;
+  averageMaterialCost: number;
+  averageExtrasCost: number;
+  cheapest: Build;
+  mostExpensive: Build;
+}
+
+interface QualityROI {
+  qualityScore: number;
+  costPerQualityPoint: number;
+  roi: number;
+}
+
 /**
- * Compare two builds and return differences
+ * Compares two builds and returns detailed cost differences.
+ * Calculates differences across all cost categories and determines which build is cheaper.
+ *
+ * @param build1 - First build to compare
+ * @param build2 - Second build to compare
+ * @returns Comparison object with cost differences and percentage changes
  */
-export function compareBuilds(build1, build2) {
+export function compareBuilds(build1: Build, build2: Build): BuildComparison {
   return {
     costDifference: build1.costs.grandTotal - build2.costs.grandTotal,
     materialDifference: build1.costs.materialTotal - build2.costs.materialTotal,
@@ -48,9 +139,14 @@ export function compareBuilds(build1, build2) {
 }
 
 /**
- * Calculate bulk discount for multiple builds
+ * Calculates bulk discount for purchasing multiple builds together.
+ * Applies a percentage discount to the total cost and breaks down per-build savings.
+ *
+ * @param builds - Array of builds to calculate discount for
+ * @param discountPercent - Discount percentage to apply (default: 0)
+ * @returns Bulk discount details including original total, discount amount, and per-build breakdown
  */
-export function calculateBulkDiscount(builds, discountPercent = 0) {
+export function calculateBulkDiscount(builds: Build[], discountPercent: number = 0): BulkDiscount {
   const totalCost = builds.reduce((sum, build) => sum + build.costs.grandTotal, 0);
   const discountAmount = (totalCost * discountPercent) / 100;
 
@@ -69,10 +165,14 @@ export function calculateBulkDiscount(builds, discountPercent = 0) {
 }
 
 /**
- * Get material usage statistics across builds
+ * Aggregates material usage statistics across multiple builds.
+ * Groups materials by type and thickness, showing total sheets and costs.
+ *
+ * @param builds - Array of builds to analyze
+ * @returns Array of material usage statistics sorted by total cost (descending)
  */
-export function getMaterialStats(builds) {
-  const materialUsage = {};
+export function getMaterialStats(builds: Build[]): MaterialUsage[] {
+  const materialUsage: Record<string, MaterialUsage> = {};
 
   builds.forEach(build => {
     build.costs.materials.forEach(mat => {
@@ -100,18 +200,27 @@ export function getMaterialStats(builds) {
 }
 
 /**
- * Find builds within budget
+ * Filters builds that fit within a specified budget.
+ * Returns builds sorted by cost (ascending).
+ *
+ * @param builds - Array of builds to filter
+ * @param maxBudget - Maximum budget threshold
+ * @returns Array of builds under budget, sorted by cost
  */
-export function filterByBudget(builds, maxBudget) {
+export function filterByBudget(builds: Build[], maxBudget: number): Build[] {
   return builds
     .filter(build => build.costs.grandTotal <= maxBudget)
     .sort((a, b) => a.costs.grandTotal - b.costs.grandTotal);
 }
 
 /**
- * Calculate average build cost
+ * Calculates average cost statistics across multiple builds.
+ * Returns null if no builds are provided.
+ *
+ * @param builds - Array of builds to analyze
+ * @returns Average statistics including mean costs and extremes (cheapest/most expensive)
  */
-export function getAverageStats(builds) {
+export function getAverageStats(builds: Build[]): AverageStats | null {
   if (builds.length === 0) return null;
 
   const totalCosts = builds.reduce((sum, b) => sum + b.costs.grandTotal, 0);
@@ -128,9 +237,13 @@ export function getAverageStats(builds) {
 }
 
 /**
- * Format currency
+ * Formats a numeric amount as currency with locale-specific formatting.
+ *
+ * @param amount - The amount to format
+ * @param currency - Currency code (default: 'GBP')
+ * @returns Formatted currency string
  */
-export function formatCurrency(amount, currency = 'GBP') {
+export function formatCurrency(amount: number, currency: string = 'GBP'): string {
   return new Intl.NumberFormat('en-GB', {
     style: 'currency',
     currency: currency
@@ -138,9 +251,13 @@ export function formatCurrency(amount, currency = 'GBP') {
 }
 
 /**
- * Calculate ROI on quality vs cost
+ * Calculates ROI (Return on Investment) based on material quality versus cost.
+ * Uses a simple heuristic where quality is proportional to material cost ratio.
+ *
+ * @param build - The build to analyze
+ * @returns Quality ROI metrics including quality score, cost per quality point, and ROI ratio
  */
-export function calculateQualityROI(build) {
+export function calculateQualityROI(build: Build): QualityROI {
   // Simple heuristic: quality score based on materials
   const materialQuality = build.costs.materialTotal / build.costs.grandTotal;
   const qualityScore = materialQuality;

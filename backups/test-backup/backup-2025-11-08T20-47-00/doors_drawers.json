@@ -1,0 +1,114 @@
+{
+  "products": [
+    {
+      "id": 5,
+      "key": "largeDoors",
+      "name": "Large Dylan Reed Green shaker doors",
+      "description": "Large Dylan Reed Green shaker doors",
+      "category": "doors",
+      "product_type": "door",
+      "size_description": "1579mm H x 512mm W",
+      "default_width_mm": null,
+      "default_height_mm": null,
+      "is_active": true,
+      "created_at": "2025-11-06T12:50:27.301Z",
+      "updated_at": "2025-11-06T12:50:27.301Z"
+    },
+    {
+      "id": 6,
+      "key": "mediumDoors",
+      "name": "Medium Dylan Reed Green shaker doors",
+      "description": "Medium Dylan Reed Green shaker doors",
+      "category": "doors",
+      "product_type": "door",
+      "size_description": "1025mm W x 898mm H",
+      "default_width_mm": null,
+      "default_height_mm": null,
+      "is_active": true,
+      "created_at": "2025-11-06T12:50:27.301Z",
+      "updated_at": "2025-11-06T12:50:27.301Z"
+    },
+    {
+      "id": 7,
+      "key": "smallDoors",
+      "name": "Small Dylan Reed Green shaker doors",
+      "description": "Small Dylan Reed Green shaker doors",
+      "category": "doors",
+      "product_type": "door",
+      "size_description": "671mm H x 512mm W",
+      "default_width_mm": null,
+      "default_height_mm": null,
+      "is_active": true,
+      "created_at": "2025-11-06T12:50:27.301Z",
+      "updated_at": "2025-11-06T12:50:27.301Z"
+    },
+    {
+      "id": 8,
+      "key": "externalDrawerFronts",
+      "name": "External Dylan Reed Green drawer fronts (MTM)",
+      "description": "External Dylan Reed Green drawer fronts (MTM)",
+      "category": "doors",
+      "product_type": "drawer_front",
+      "size_description": "990mm W x 150mm H",
+      "default_width_mm": null,
+      "default_height_mm": null,
+      "is_active": true,
+      "created_at": "2025-11-06T12:50:27.301Z",
+      "updated_at": "2025-11-06T12:50:27.301Z"
+    }
+  ],
+  "pricing": [
+    {
+      "id": 5,
+      "product_id": 5,
+      "supplier_id": 4,
+      "unit_price": "123.84",
+      "lead_time_days": null,
+      "minimum_order_qty": 1,
+      "notes": null,
+      "is_preferred": true,
+      "is_active": true,
+      "created_at": "2025-11-06T12:50:27.301Z",
+      "updated_at": "2025-11-06T12:50:27.301Z"
+    },
+    {
+      "id": 6,
+      "product_id": 6,
+      "supplier_id": 4,
+      "unit_price": "90.81",
+      "lead_time_days": null,
+      "minimum_order_qty": 1,
+      "notes": null,
+      "is_preferred": true,
+      "is_active": true,
+      "created_at": "2025-11-06T12:50:27.301Z",
+      "updated_at": "2025-11-06T12:50:27.301Z"
+    },
+    {
+      "id": 7,
+      "product_id": 7,
+      "supplier_id": 4,
+      "unit_price": "47.56",
+      "lead_time_days": null,
+      "minimum_order_qty": 1,
+      "notes": null,
+      "is_preferred": true,
+      "is_active": true,
+      "created_at": "2025-11-06T12:50:27.301Z",
+      "updated_at": "2025-11-06T12:50:27.301Z"
+    },
+    {
+      "id": 8,
+      "product_id": 8,
+      "supplier_id": 4,
+      "unit_price": "15.00",
+      "lead_time_days": null,
+      "minimum_order_qty": 1,
+      "notes": null,
+      "is_preferred": true,
+      "is_active": true,
+      "created_at": "2025-11-06T12:50:27.301Z",
+      "updated_at": "2025-11-06T12:50:27.301Z"
+    }
+  ]
+}

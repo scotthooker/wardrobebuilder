@@ -1,0 +1,33 @@
+{
+  "timestamp": "2025-11-08T21:03:15.635Z",
+  "theme": "Nordic Timber",
+  "mode": "light",
+  "colors": {
+    "mode": "light",
+    "primary": "44 124 95",
+    "secondary": "196 154 108",
+    "accent": "76 119 161",
+    "background": "249 250 251",
+    "textPrimary": "23 31 38",
+    "textSecondary": "71 85 96"
+  },
+  "contrast": {
+    "primaryOnBg": "4.84",
+    "textPrimaryOnBg": "15.94",
+    "textSecondaryOnBg": "7.34",
+    "successOnBg": "5.01",
+    "errorOnBg": "4.62",
+    "warningOnBg": "4.81"
+  },
+  "screenshots": [
+    "01-home-light.png",
+    "02-button-hover-light.png",
+    "03-detail-light.png",
+    "04-forms-light.png",
+    "05-home-dark.png",
+    "06-button-hover-dark.png",
+    "07-detail-dark.png",
+    "08-components-overview.png",
+    "09-focus-state.png"
+  ]
+}

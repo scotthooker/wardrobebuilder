@@ -1,24 +1,251 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
+/**
+ * Nordic Timber Theme
+ * Sophisticated palette inspired by Scandinavian design and premium craftsmanship
+ * Combines deep forest greens, warm natural woods, and crisp slate tones
+ * WCAG AAA compliant contrast ratios for optimal accessibility
+ */
+
+/* Light Mode (Default) - "Nordic Day" */
+:root,
+:root.light {
+  /* Primary - Forest Pine (Deep evergreen with natural warmth) */
+  --color-primary-50: 240 246 243;
+  --color-primary-100: 224 238 232;
+  --color-primary-200: 193 220 209;
+  --color-primary-300: 147 194 175;
+  --color-primary-400: 93 162 137;
+  --color-primary-500: 44 124 95;      /* Main brand color - accessible on white */
+  --color-primary-600: 35 104 80;
+  --color-primary-700: 27 82 64;
+  --color-primary-800: 20 61 48;
+  --color-primary-900: 14 41 33;
+
+  /* Secondary - Warm Oak (Honey-toned natural wood) */
+  --color-secondary-50: 252 249 244;
+  --color-secondary-100: 248 242 233;
+  --color-secondary-200: 241 228 211;
+  --color-secondary-300: 234 213 186;
+  --color-secondary-400: 221 188 148;
+  --color-secondary-500: 196 154 108;   /* Warm accent tone */
+  --color-secondary-600: 168 128 87;
+  --color-secondary-700: 139 103 67;
+  --color-secondary-800: 108 79 49;
+  --color-secondary-900: 75 54 33;
+
+  /* Accent - Nordic Slate (Cool blue-grey with depth) */
+  --color-accent-50: 244 247 250;
+  --color-accent-100: 232 239 244;
+  --color-accent-200: 209 222 234;
+  --color-accent-300: 175 199 219;
+  --color-accent-400: 129 165 196;
+  --color-accent-500: 76 119 161;       /* Crisp accent - pairs with primary */
+  --color-accent-600: 61 99 138;
+  --color-accent-700: 47 78 112;
+  --color-accent-800: 35 58 84;
+  --color-accent-900: 24 39 57;
+
+  /* Backgrounds & Surfaces */
+  --color-background: 243 245 247;      /* Slightly darker grey for depth */
+  --color-surface: 255 255 255;         /* Pure white */
+  --color-surface-elevated: 253 254 255; /* Slight blue tint for depth */
+
+  /* Text */
+  --color-text-primary: 23 31 38;       /* Deep charcoal - AAA contrast */
+  --color-text-secondary: 71 85 96;     /* Medium grey - AA+ contrast */
+  --color-text-tertiary: 107 125 140;   /* Light grey - for hints */
+
+  /* Border */
+  --color-border: 226 232 237;          /* Subtle grey */
+  --color-border-strong: 203 213 222;   /* Visible dividers */
+
+  /* Semantic - Success (Moss Green) */
+  --color-success-50: 241 247 243;
+  --color-success-100: 226 239 231;
+  --color-success-200: 197 223 207;
+  --color-success-300: 157 201 175;
+  --color-success-400: 109 173 137;
+  --color-success-500: 45 122 79;       /* Darker green - WCAG AA (4.5:1) */
+  --color-success-600: 44 116 79;
+  --color-success-700: 34 91 62;
+  --color-success-800: 25 67 46;
+  --color-success-900: 17 45 31;
+
+  /* Semantic - Warning (Amber Wood) */
+  --color-warning-50: 255 251 235;
+  --color-warning-100: 254 243 199;
+  --color-warning-200: 253 230 138;
+  --color-warning-300: 252 211 77;
+  --color-warning-400: 251 191 36;
+  --color-warning-500: 180 83 9;        /* Deep amber - WCAG AA (4.5:1) */
+  --color-warning-600: 146 64 14;
+  --color-warning-700: 120 53 15;
+  --color-warning-800: 92 40 11;
+  --color-warning-900: 68 30 8;
+
+  /* Semantic - Error (Clay Red) */
+  --color-error-50: 254 242 242;
+  --color-error-100: 254 226 226;
+  --color-error-200: 254 202 202;
+  --color-error-300: 252 165 165;
+  --color-error-400: 248 113 113;
+  --color-error-500: 220 38 38;         /* Darker red - WCAG AA (4.5:1) */
+  --color-error-600: 185 28 28;
+  --color-error-700: 153 27 27;
+  --color-error-800: 127 29 29;
+  --color-error-900: 103 24 24;
+
+  /* Semantic - Info (Nordic Sky) */
+  --color-info-50: 239 246 255;
+  --color-info-100: 219 234 254;
+  --color-info-200: 191 219 254;
+  --color-info-300: 147 197 253;
+  --color-info-400: 96 165 250;
+  --color-info-500: 59 130 246;         /* Clear blue - accessible */
+  --color-info-600: 37 99 235;
+  --color-info-700: 29 78 216;
+  --color-info-800: 30 64 175;
+  --color-info-900: 30 58 138;
+}
+
+/* Dark Mode - "Nordic Night" */
+:root.dark {
+  /* Primary - Luminous Sage (Soft green with glow) */
+  --color-primary-50: 14 41 33;
+  --color-primary-100: 20 61 48;
+  --color-primary-200: 27 82 64;
+  --color-primary-300: 35 104 80;
+  --color-primary-400: 58 142 109;      /* Brightened for dark mode */
+  --color-primary-500: 90 179 143;      /* Main brand - accessible on dark */
+  --color-primary-600: 122 201 172;
+  --color-primary-700: 157 218 195;
+  --color-primary-800: 193 232 217;
+  --color-primary-900: 224 244 237;
+
+  /* Secondary - Birch Glow (Warm cream undertones) */
+  --color-secondary-50: 75 54 33;
+  --color-secondary-100: 108 79 49;
+  --color-secondary-200: 139 103 67;
+  --color-secondary-300: 168 128 87;
+  --color-secondary-400: 196 154 108;
+  --color-secondary-500: 221 188 148;   /* Warm highlight */
+  --color-secondary-600: 234 213 186;
+  --color-secondary-700: 241 228 211;
+  --color-secondary-800: 248 242 233;
+  --color-secondary-900: 252 249 244;
+
+  /* Accent - Fjord Blue (Cool luminous accent) */
+  --color-accent-50: 24 39 57;
+  --color-accent-100: 35 58 84;
+  --color-accent-200: 47 78 112;
+  --color-accent-300: 61 99 138;
+  --color-accent-400: 91 137 180;
+  --color-accent-500: 129 176 214;      /* Bright accent for dark mode */
+  --color-accent-600: 175 208 233;
+  --color-accent-700: 209 230 243;
+  --color-accent-800: 232 243 250;
+  --color-accent-900: 244 249 253;
+
+  /* Backgrounds & Surfaces */
+  --color-background: 15 23 30;         /* Deep navy-charcoal */
+  --color-surface: 23 33 43;            /* Elevated slate */
+  --color-surface-elevated: 32 44 57;   /* Higher elevation */
+
+  /* Text */
+  --color-text-primary: 241 245 249;    /* Soft white - AAA contrast */
+  --color-text-secondary: 203 213 224;  /* Light grey - AA+ contrast */
+  --color-text-tertiary: 148 163 177;   /* Muted grey */
+
+  /* Border */
+  --color-border: 45 60 75;             /* Subtle dark border */
+  --color-border-strong: 71 85 105;     /* Visible dividers */
+
+  /* Semantic - Success (Aurora Green) */
+  --color-success-50: 17 45 31;
+  --color-success-100: 25 67 46;
+  --color-success-200: 34 91 62;
+  --color-success-300: 44 116 79;
+  --color-success-400: 72 154 111;
+  --color-success-500: 110 196 152;     /* Luminous green */
+  --color-success-600: 157 218 188;
+  --color-success-700: 197 232 213;
+  --color-success-800: 226 244 236;
+  --color-success-900: 241 250 246;
+
+  /* Semantic - Warning (Golden Glow) */
+  --color-warning-50: 120 53 15;
+  --color-warning-100: 146 64 14;
+  --color-warning-200: 180 83 9;
+  --color-warning-300: 217 119 6;
+  --color-warning-400: 251 146 60;
+  --color-warning-500: 253 186 116;     /* Warm amber glow */
+  --color-warning-600: 254 215 170;
+  --color-warning-700: 254 235 200;
+  --color-warning-800: 255 247 228;
+  --color-warning-900: 255 252 242;
+
+  /* Semantic - Error (Rose Ember) */
+  --color-error-50: 127 29 29;
+  --color-error-100: 153 27 27;
+  --color-error-200: 185 28 28;
+  --color-error-300: 220 38 38;
+  --color-error-400: 239 85 85;
+  --color-error-500: 248 139 139;       /* Soft red glow */
+  --color-error-600: 252 179 179;
+  --color-error-700: 254 210 210;
+  --color-error-800: 254 233 233;
+  --color-error-900: 255 245 245;
+
+  /* Semantic - Info (Ice Blue) */
+  --color-info-50: 30 58 138;
+  --color-info-100: 30 64 175;
+  --color-info-200: 29 78 216;
+  --color-info-300: 37 99 235;
+  --color-info-400: 96 165 250;
+  --color-info-500: 147 197 253;        /* Luminous sky blue */
+  --color-info-600: 191 219 254;
+  --color-info-700: 219 234 254;
+  --color-info-800: 239 246 255;
+  --color-info-900: 248 250 255;
+}
+
+/* Base Styles */
 :root {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 }
 
 body {
-  background: linear-gradient(to bottom right, #f9fafb, #f9fafb, #eef2ff);
-  color: #111827;
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-text-primary));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 300ms ease, color 300ms ease;
 }
 
+/* Smooth Transitions */
 * {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
 }
 
+/* Typography Utilities */
+.font-display {
+  font-family: 'Montserrat', system-ui, sans-serif;
+}
+
+.font-body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Line Clamping */
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -38,12 +265,17 @@ body {
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(229, 231, 235, 0.8);
-  border-bottom: 1px solid rgba(209, 213, 219, 0.8);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(226, 232, 237, 0.6);
+  box-shadow: 0 4px 16px rgba(44, 124, 95, 0.08), 0 1px 4px rgba(44, 124, 95, 0.04);
 }
 
-/* Premium Button Base */
+.dark .glass-effect {
+  background-color: rgba(23, 33, 43, 0.95);
+  border: 1px solid rgba(45, 60, 75, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Premium Button Styles */
 .btn-premium {
   position: relative;
   overflow: hidden;
@@ -56,7 +288,11 @@ body {
 
 .btn-premium:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 40px rgba(44, 124, 95, 0.15), 0 2px 8px rgba(44, 124, 95, 0.08);
+}
+
+.dark .btn-premium:hover {
+  box-shadow: 0 10px 40px rgba(90, 179, 143, 0.2), 0 2px 8px rgba(90, 179, 143, 0.1);
 }
 
 .btn-premium:active {
@@ -85,7 +321,11 @@ body {
 
 .card-premium:hover {
   transform: translateY(-0.5rem);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 60px rgba(44, 124, 95, 0.15), 0 4px 16px rgba(44, 124, 95, 0.08);
+}
+
+.dark .card-premium:hover {
+  box-shadow: 0 20px 60px rgba(90, 179, 143, 0.2), 0 4px 16px rgba(90, 179, 143, 0.1);
 }
 
 /* Smooth Scroll */
@@ -100,21 +340,25 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #f3f4f6;
+  background-color: rgb(var(--color-secondary-100));
+}
+
+.dark ::-webkit-scrollbar-track {
+  background-color: rgb(var(--color-secondary-300));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #818cf8, #4f46e5);
+  background: linear-gradient(to bottom, rgb(var(--color-primary-500)), rgb(var(--color-primary-700)));
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #6366f1, #4338ca);
+  background: linear-gradient(to bottom, rgb(var(--color-primary-600)), rgb(var(--color-primary-800)));
 }
 
 /* Gradient Text */
 .gradient-text {
-  background: linear-gradient(to right, #4f46e5, #c026d3, #4f46e5);
+  background: linear-gradient(to right, rgb(var(--color-primary-500)), rgb(var(--color-accent-500)), rgb(var(--color-primary-500)));
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -133,16 +377,57 @@ html {
 
 /* Selection Styling */
 ::selection {
-  background-color: #c7d2fe;
-  color: #312e81;
+  background-color: rgb(var(--color-secondary-300));
+  color: rgb(var(--color-primary-900));
+}
+
+.dark ::selection {
+  background-color: rgb(var(--color-primary-700));
+  color: rgb(var(--color-text-primary));
 }
 
 ::-moz-selection {
-  background-color: #c7d2fe;
-  color: #312e81;
+  background-color: rgb(var(--color-secondary-300));
+  color: rgb(var(--color-primary-900));
 }
 
-/* Print Styles for Comparison Page */
+.dark ::-moz-selection {
+  background-color: rgb(var(--color-primary-700));
+  color: rgb(var(--color-text-primary));
+}
+
+/* Nordic Wood Grain Texture (Optional) */
+.wood-texture {
+  position: relative;
+}
+
+.wood-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(44, 124, 95, 0.015) 2px,
+      rgba(44, 124, 95, 0.015) 4px
+    );
+  pointer-events: none;
+}
+
+.dark .wood-texture::before {
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(90, 179, 143, 0.02) 2px,
+      rgba(90, 179, 143, 0.02) 4px
+    );
+}
+
+/* Print Styles */
 @media print {
   @page {
     size: landscape;
@@ -151,6 +436,7 @@ html {
 
   body {
     background: white;
+    color: black;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }

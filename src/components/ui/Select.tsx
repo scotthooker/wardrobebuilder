@@ -8,14 +8,14 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const selectVariants = cva(
-  'w-full rounded-lg border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 bg-white appearance-none',
+  'w-full rounded-lg border-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-100 bg-white appearance-none',
   {
     variants: {
       variant: {
         default:
-          'border-gray-300 text-gray-900 focus:border-primary-500 focus:ring-primary-500',
+          'border-gray-300 text-text-primary focus:border-primary-500 focus:ring-primary-500',
         error:
-          'border-error-300 text-gray-900 focus:border-error-500 focus:ring-error-500',
+          'border-error-300 text-text-primary focus:border-error-500 focus:ring-error-500',
       },
       selectSize: {
         sm: 'px-3 py-1.5 pr-10 text-sm',
@@ -131,7 +131,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           </select>
 
           {/* Chevron icon */}
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none text-gray-400">
+          <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center pointer-events-none text-text-tertiary">
             <svg
               className="h-5 w-5"
               xmlns="http://www.w3.org/2000/svg"
@@ -151,7 +151,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           <p
             className={cn(
               'mt-1.5 text-sm',
-              error ? 'text-error-600' : 'text-gray-500'
+              error ? 'text-error-600' : 'text-text-secondary'
             )}
           >
             {helperText}

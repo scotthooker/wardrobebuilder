@@ -72,7 +72,7 @@ export function BuildImageCarousel({ gallery, className = '' }: BuildImageCarous
   if (parsedGallery.length === 0) {
     return (
       <div className={`bg-gray-200 flex items-center justify-center ${className}`}>
-        <span className="text-gray-500">No image</span>
+        <span className="text-text-secondary">No image</span>
       </div>
     )
   }

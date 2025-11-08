@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Trash2, Star } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
+import { Badge } from '@/components/ui/Badge';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
@@ -80,7 +82,7 @@ export function ImageGallery({ buildId, gallery, onGalleryUpdate }: ImageGallery
 
   if (!gallery || gallery.length === 0) {
     return (
-      <div className="text-center py-8 text-gray-500">
+      <div className="text-center py-8 text-text-secondary">
         <p>No images in gallery yet.</p>
         <p className="text-sm mt-1">Generate your first image above!</p>
       </div>
@@ -89,7 +91,7 @@ export function ImageGallery({ buildId, gallery, onGalleryUpdate }: ImageGallery
 
   return (
     <div className="space-y-3">
-      <h5 className="font-semibold text-gray-900">Image Gallery ({gallery.length})</h5>
+      <h5 className="font-semibold text-text-primary">Image Gallery ({gallery.length})</h5>
 
       <div className="grid grid-cols-2 gap-3">
         {gallery.map((image, index) => (
@@ -108,36 +110,45 @@ export function ImageGallery({ buildId, gallery, onGalleryUpdate }: ImageGallery
 
             {/* Primary Badge */}
             {image.is_primary && (
-              <div className="absolute top-2 left-2 bg-green-600 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1">
-                <Star className="w-3 h-3 fill-current" />
+              <Badge
+                variant="success"
+                size="sm"
+                icon={<Star className="w-3 h-3 fill-current" />}
+                className="absolute top-2 left-2"
+              >
                 Primary
-              </div>
+              </Badge>
             )}
 
             {/* Actions Overlay */}
             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100">
               {!image.is_primary && (
-                <button
+                <Button
                   onClick={() => handleSetPrimary(image.url)}
                   disabled={settingPrimary === image.url}
-                  className="px-3 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition flex items-center gap-1 disabled:opacity-50"
+                  loading={settingPrimary === image.url}
+                  variant="success"
+                  size="sm"
+                  leftIcon={<Star className="w-4 h-4" />}
                   title="Set as primary"
                 >
-                  <Star className="w-4 h-4" />
                   {settingPrimary === image.url ? 'Setting...' : 'Set Primary'}
-                </button>
+                </Button>
               )}
 
               {gallery.length > 1 && (
-                <button
+                <Button
                   onClick={() => handleDeleteImage(image.url)}
                   disabled={deletingImage === image.url}
-                  className="px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition flex items-center gap-1 disabled:opacity-50"
+                  loading={deletingImage === image.url}
+                  variant="secondary"
+                  size="sm"
+                  leftIcon={<Trash2 className="w-4 h-4" />}
                   title="Delete image"
+                  className="bg-red-600 border-red-700 hover:bg-red-700 hover:border-red-800 focus:ring-red-500 active:bg-red-800"
                 >
-                  <Trash2 className="w-4 h-4" />
                   {deletingImage === image.url ? 'Deleting...' : 'Delete'}
-                </button>
+                </Button>
               )}
             </div>
 

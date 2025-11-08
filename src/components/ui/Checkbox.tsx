@@ -68,13 +68,13 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             {label && (
               <label
                 htmlFor={checkboxId}
-                className="text-sm font-medium text-gray-700 cursor-pointer"
+                className="text-sm font-medium text-text-primary cursor-pointer"
               >
                 {label}
               </label>
             )}
             {helperText && (
-              <p className="text-sm text-gray-500 mt-0.5">{helperText}</p>
+              <p className="text-sm text-text-secondary mt-0.5">{helperText}</p>
             )}
           </div>
         )}

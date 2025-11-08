@@ -108,7 +108,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                   {showCloseButton && (
                     <button
                       type="button"
-                      className="absolute right-4 top-4 rounded-lg p-1 text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                      className="absolute right-4 top-4 rounded-lg p-1 text-text-tertiary transition-colors hover:bg-gray-100 hover:text-text-secondary focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
                       onClick={onClose}
                       aria-label="Close modal"
                     >
@@ -136,7 +136,7 @@ export const ModalTitle = forwardRef<
   <Dialog.Title
     ref={ref}
     as="h3"
-    className={cn('text-xl font-bold text-gray-900', className)}
+    className={cn('text-xl font-bold text-text-primary', className)}
     {...props}
   >
     {children}
@@ -150,7 +150,7 @@ export const ModalDescription = forwardRef<
 >(({ className, children, ...props }, ref) => (
   <Dialog.Description
     ref={ref}
-    className={cn('mt-2 text-sm text-gray-600', className)}
+    className={cn('mt-2 text-sm text-text-secondary', className)}
     {...props}
   >
     {children}

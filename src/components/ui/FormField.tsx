@@ -49,7 +49,7 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
         {label && (
           <label
             htmlFor={htmlFor}
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-sm font-medium text-text-primary mb-2"
           >
             {label}
             {required && <span className="text-error-600 ml-1">*</span>}
@@ -62,7 +62,7 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
           <p
             className={cn(
               'mt-1.5 text-sm',
-              hasError ? 'text-error-600' : 'text-gray-500'
+              hasError ? 'text-error-600' : 'text-text-secondary'
             )}
           >
             {error || helperText}

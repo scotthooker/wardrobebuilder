@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-11-08T20:47:00.570Z",
+  "database_url": "postgresql://wardrobe_user:****@localhost:5432/wardrobe_builder",
+  "stats": {
+    "total_builds": "18",
+    "wardrobes": "11",
+    "desks": "7",
+    "materials": "10",
+    "material_options": "25",
+    "suppliers": "2",
+    "hardware_items": "7",
+    "door_drawer_products": "4",
+    "pricing_entries": "4"
+  },
+  "files": {
+    "builds": "builds.json",
+    "materials": "materials.json",
+    "suppliers": "suppliers.json",
+    "hardware": "hardware.json",
+    "doors_drawers": "doors_drawers.json"
+  }
+}

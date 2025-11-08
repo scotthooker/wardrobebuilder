@@ -79,8 +79,8 @@ export function DeskStorageStep({ configuration, updateConfiguration }: DeskStor
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Storage Configuration</h2>
-        <p className="text-gray-600">Configure overhead storage and hutch options</p>
+        <h2 className="text-2xl font-bold text-text-primary mb-2">Storage Configuration</h2>
+        <p className="text-text-secondary">Configure overhead storage and hutch options</p>
       </div>
 
       {/* Overhead Storage Toggle */}
@@ -99,7 +99,7 @@ export function DeskStorageStep({ configuration, updateConfiguration }: DeskStor
         <div className="space-y-6">
           {/* Overhead Type Selection */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-3">
+            <label className="block text-sm font-medium text-text-primary mb-3">
               Overhead Type
             </label>
             <ButtonGroup
@@ -109,14 +109,14 @@ export function DeskStorageStep({ configuration, updateConfiguration }: DeskStor
               size="lg"
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full"
             />
-            <p className="text-xs text-gray-500 mt-2">
+            <p className="text-xs text-text-secondary mt-2">
               {DESK_OVERHEAD_STORAGE[selectedOverheadType.toUpperCase() as keyof typeof DESK_OVERHEAD_STORAGE]?.description}
             </p>
           </div>
 
           {/* Overhead Height */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-text-primary mb-2">
               Overhead Height (mm)
             </label>
             <Input
@@ -134,28 +134,28 @@ export function DeskStorageStep({ configuration, updateConfiguration }: DeskStor
 
       {/* Preview */}
       <Card variant="glass" padding="md" className="border-gray-200">
-        <h3 className="font-medium text-gray-900 mb-4">Storage Preview</h3>
+        <h3 className="font-medium text-text-primary mb-4">Storage Preview</h3>
         <CardContent>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span className="text-gray-600">Overhead Storage:</span>
+              <span className="text-text-secondary">Overhead Storage:</span>
               <span className="font-medium">{overheadEnabled ? 'Enabled' : 'Disabled'}</span>
             </div>
             {overheadEnabled && (
               <>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Overhead Type:</span>
+                  <span className="text-text-secondary">Overhead Type:</span>
                   <span className="font-medium">
                     {DESK_OVERHEAD_STORAGE[selectedOverheadType.toUpperCase() as keyof typeof DESK_OVERHEAD_STORAGE]?.name ||
                       selectedOverheadType}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Overhead Height:</span>
+                  <span className="text-text-secondary">Overhead Height:</span>
                   <span className="font-medium">{overheadHeight}mm</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Total Desk Height:</span>
+                  <span className="text-text-secondary">Total Desk Height:</span>
                   <span className="font-medium">
                     {(configuration.height || 730) +
                       DESK_DEFAULTS.CLEARANCE_ABOVE_DESKTOP +

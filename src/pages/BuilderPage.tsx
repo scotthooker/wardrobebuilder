@@ -21,7 +21,7 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
 interface BuildData {
   name: string
   character: string
-  image: string | null
+  image: string | null | undefined
   costs?: Record<string, unknown>
   hardware?: unknown[]
   extras?: Record<string, unknown>
@@ -31,13 +31,19 @@ interface SavedBuild {
   id: number
   name: string
   character: string
-  image: string | null
-  furnitureType: string
+  image: string | null | undefined
+  furnitureType: 'wardrobe' | 'desk'
   width: number
   height: number
   depth: number
   configuration: FurnitureConfiguration
-  costs: Record<string, unknown>
+  costs: {
+    materialTotal: number
+    grandTotal: number
+    savingsVsBudget: number
+    hardwareTotal: number
+    [key: string]: any
+  }
   hardware: unknown[]
   extras: Record<string, unknown>
 }
@@ -56,7 +62,15 @@ export function BuilderPage() {
       // Convert configuration to build object
       const furnitureType = configuration.furnitureType || 'wardrobe'
       const defaultName = furnitureType === 'desk' ? 'My Custom Desk' : 'My Custom Wardrobe'
-      const buildData: BuildData = configurationToBuild(configuration, defaultName)
+      const buildResult = configurationToBuild(configuration as any, defaultName)
+      const buildData: BuildData = {
+        name: buildResult.name,
+        character: buildResult.character,
+        image: buildResult.image,
+        costs: buildResult.costs as unknown as Record<string, unknown>,
+        hardware: Array.isArray(buildResult.costs.hardware) ? buildResult.costs.hardware : Object.values(buildResult.costs.hardware || {}),
+        extras: buildResult.costs.extras as unknown as Record<string, unknown>
+      }
 
       // Save to database
       const response = await fetch(`${API_URL}/api/builds`, {
@@ -89,7 +103,7 @@ export function BuilderPage() {
       const buildsResponse = await fetch(`${API_URL}/api/builds`)
       if (buildsResponse.ok) {
         const builds: SavedBuild[] = await buildsResponse.json()
-        setBuilds(builds)
+        setBuilds(builds as any)
       }
 
       // Navigate to the new build's detail page

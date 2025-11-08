@@ -20,10 +20,10 @@ export function FurnitureTypeStep({ configuration, updateConfiguration }: Furnit
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">
+        <h2 className="text-3xl font-bold text-text-primary mb-2">
           Choose Furniture Type
         </h2>
-        <p className="text-gray-600">
+        <p className="text-text-secondary">
           Select the type of built-in furniture you want to create
         </p>
       </div>
@@ -65,7 +65,7 @@ export function FurnitureTypeStep({ configuration, updateConfiguration }: Furnit
                     text-2xl font-bold
                     ${isSelected
                       ? `text-${type.color}-900`
-                      : 'text-gray-900'
+                      : 'text-text-primary'
                     }
                   `}>
                     {type.name}
@@ -76,7 +76,7 @@ export function FurnitureTypeStep({ configuration, updateConfiguration }: Furnit
                     text-sm leading-relaxed
                     ${isSelected
                       ? `text-${type.color}-700`
-                      : 'text-gray-600'
+                      : 'text-text-secondary'
                     }
                   `}>
                     {type.description}

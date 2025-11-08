@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 // @ts-ignore - useBuilds is a JS module, will be migrated to TS later
 import { useSelectedBuilds } from '../../hooks/useBuilds'
 import { Button } from '@/components/ui/Button'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 
 export function Header() {
   const { selectedCount } = useSelectedBuilds() as { selectedCount: number }
@@ -23,10 +24,10 @@ export function Header() {
               <Menu className="w-6 h-6" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">
+              <h1 className="text-xl font-bold text-text-primary">
                 Wardrobe Builder
               </h1>
-              <p className="text-xs text-gray-600 font-medium flex items-center gap-1">
+              <p className="text-xs text-text-secondary font-medium flex items-center gap-1">
                 <Sparkles className="w-3 h-3 text-accent-600" />
                 Premium Custom Builds
               </p>
@@ -64,6 +65,8 @@ export function Header() {
                 </Button>
               </Link>
             )}
+
+            <ThemeToggle className="shadow-md hover:shadow-lg" />
           </nav>
         </div>
       </div>

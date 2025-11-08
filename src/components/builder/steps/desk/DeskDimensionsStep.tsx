@@ -68,13 +68,13 @@ export function DeskDimensionsStep({
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">Desk Dimensions</h2>
-        <p className="text-gray-600">Configure the size and shape of your desk</p>
+        <h2 className="text-2xl font-bold text-text-primary mb-2">Desk Dimensions</h2>
+        <p className="text-text-secondary">Configure the size and shape of your desk</p>
       </div>
 
       {/* Desk Shape Selection */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-3">
+        <label className="block text-sm font-medium text-text-primary mb-3">
           Desk Shape
         </label>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -96,8 +96,8 @@ export function DeskDimensionsStep({
               <CardContent>
                 <div className="text-center">
                   <div className="text-3xl mb-2">{deskShape.icon}</div>
-                  <div className="font-medium text-gray-900">{deskShape.name}</div>
-                  <div className="text-sm text-gray-500 mt-1">{deskShape.description}</div>
+                  <div className="font-medium text-text-primary">{deskShape.name}</div>
+                  <div className="text-sm text-text-secondary mt-1">{deskShape.description}</div>
                 </div>
               </CardContent>
             </Card>
@@ -152,11 +152,11 @@ export function DeskDimensionsStep({
 
       {/* Budget Selection */}
       <div>
-        <label className="block text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
+        <label className="block text-sm font-semibold text-text-primary mb-3 flex items-center gap-2">
           <PoundSterling className="w-5 h-5 text-green-600" />
           Target Budget
         </label>
-        <p className="text-sm text-gray-600 mb-4">
+        <p className="text-sm text-text-secondary mb-4">
           Set your target budget for this desk build. This will be used to calculate savings and compare costs.
         </p>
 
@@ -185,16 +185,16 @@ export function DeskDimensionsStep({
       {/* Preview */}
       <Card variant="glass" padding="md" className="bg-gray-50 border-gray-200">
         <CardHeader>
-          <CardTitle className="text-base font-medium text-gray-900 mb-4">Preview</CardTitle>
+          <CardTitle className="text-base font-medium text-text-primary mb-4">Preview</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span className="text-gray-600">Shape:</span>
+              <span className="text-text-secondary">Shape:</span>
               <span className="font-medium">{selectedShape?.name || shape}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">Dimensions:</span>
+              <span className="text-text-secondary">Dimensions:</span>
               <span className="font-medium">{width}mm W × {depth}mm D × {height}mm H</span>
             </div>
             <div className="flex justify-between">

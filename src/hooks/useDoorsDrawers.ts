@@ -2,17 +2,44 @@ import { useState, useEffect } from 'react';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
+// Type definitions
+export interface ProductPricing {
+  supplier: string;
+  price: number;
+  isPreferred?: boolean;
+}
+
+export interface DoorDrawerProduct {
+  key: string;
+  category: string;
+  productType: string;
+  name?: string;
+  description?: string;
+  pricing: ProductPricing[];
+}
+
+export interface UseDoorsDrawersReturn {
+  products: DoorDrawerProduct[];
+  isLoading: boolean;
+  error: string | null;
+  getProductByKey: (key: string) => DoorDrawerProduct | null;
+  getProductsByCategory: (category: string) => DoorDrawerProduct[];
+  getProductsByType: (type: string) => DoorDrawerProduct[];
+  getPreferredPricing: (key: string) => ProductPricing | null;
+  getAllPricing: (key: string) => ProductPricing[];
+}
+
 /**
  * Custom hook to fetch door/drawer products from database
  * Returns products with multi-supplier pricing
  */
-export function useDoorsDrawers() {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+export function useDoorsDrawers(): UseDoorsDrawersReturn {
+  const [products, setProducts] = useState<DoorDrawerProduct[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function fetchProducts() {
+    async function fetchProducts(): Promise<void> {
       try {
         setIsLoading(true);
         const response = await fetch(`${API_URL}/api/doors-drawers`);
@@ -21,12 +48,13 @@ export function useDoorsDrawers() {
           throw new Error('Failed to fetch door/drawer products');
         }
 
-        const data = await response.json();
+        const data: DoorDrawerProduct[] = await response.json();
         setProducts(data);
         setError(null);
       } catch (err) {
         console.error('Error fetching doors/drawers:', err);
-        setError(err.message);
+        const errorMessage = err instanceof Error ? err.message : 'Unknown error occurred';
+        setError(errorMessage);
       } finally {
         setIsLoading(false);
       }
@@ -37,37 +65,29 @@ export function useDoorsDrawers() {
 
   /**
    * Get product by key
-   * @param {string} key - Product key (e.g., 'largeDoors', 'smallDoors')
-   * @returns {object|null} Product with pricing or null if not found
    */
-  const getProductByKey = (key) => {
+  const getProductByKey = (key: string): DoorDrawerProduct | null => {
     return products.find(p => p.key === key) || null;
   };
 
   /**
    * Get products by category
-   * @param {string} category - Category name ('doors' or 'drawers')
-   * @returns {array} Array of products in the category
    */
-  const getProductsByCategory = (category) => {
+  const getProductsByCategory = (category: string): DoorDrawerProduct[] => {
     return products.filter(p => p.category === category);
   };
 
   /**
    * Get products by type
-   * @param {string} type - Product type ('door' or 'drawer_front')
-   * @returns {array} Array of products of the type
    */
-  const getProductsByType = (type) => {
+  const getProductsByType = (type: string): DoorDrawerProduct[] => {
     return products.filter(p => p.productType === type);
   };
 
   /**
    * Get preferred supplier pricing for a product
-   * @param {string} key - Product key
-   * @returns {object|null} Preferred pricing object or null
    */
-  const getPreferredPricing = (key) => {
+  const getPreferredPricing = (key: string): ProductPricing | null => {
     const product = getProductByKey(key);
     if (!product || !product.pricing) return null;
 
@@ -76,10 +96,8 @@ export function useDoorsDrawers() {
 
   /**
    * Get all pricing options for a product
-   * @param {string} key - Product key
-   * @returns {array} Array of pricing objects from different suppliers
    */
-  const getAllPricing = (key) => {
+  const getAllPricing = (key: string): ProductPricing[] => {
     const product = getProductByKey(key);
     return product?.pricing || [];
   };
