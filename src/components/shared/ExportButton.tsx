@@ -2,10 +2,62 @@ import { Download, FileText, FileSpreadsheet } from 'lucide-react';
 import { useState } from 'react';
 import { exportBuildsToCSV, exportBuildDetailsToCSV, exportBuildsToJSON } from '../../utils/exportCSV';
 
-export function ExportButton({ builds, build, variant = 'default' }) {
+interface Build {
+  id: string | number;
+  name?: string;
+  character?: string;
+  costs: {
+    materialTotal: number;
+    professionalDoorsDrawersTotal: number;
+    extrasTotal: number;
+    hardwareTotal: number;
+    grandTotal: number;
+    savingsVsBudget: number;
+    savingsPercent: number;
+    materials: Array<{
+      component: string;
+      material: string;
+      thickness: string;
+      sheets: number;
+      pricePerSheet: number;
+      subtotal: number;
+      sku: string;
+      note?: string;
+    }>;
+    professionalDoorsDrawers: Record<string, {
+      desc: string;
+      size: string;
+      qty: number;
+      unitPrice: number;
+      total: number;
+    }>;
+    hardware: Record<string, {
+      desc: string;
+      qty: number;
+      unitPrice: number;
+      total: number;
+    }>;
+    extras: Array<{
+      item: string;
+      desc: string;
+      estimate: number;
+    }>;
+  };
+  toJSON?: () => unknown;
+}
+
+type ExportFormat = 'csv' | 'csv-details' | 'json';
+
+interface ExportButtonProps {
+  builds?: Build[];
+  build?: Build;
+  variant?: 'default' | 'simple';
+}
+
+export function ExportButton({ builds, build, variant = 'default' }: ExportButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleExport = (format) => {
+  const handleExport = (format: ExportFormat) => {
     if (build) {
       // Single build export
       if (format === 'csv-details') {

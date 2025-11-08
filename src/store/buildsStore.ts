@@ -1,12 +1,68 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import type { Build } from '@/components/builds/BuildCard';
 
 /**
  * Global state store for wardrobe builds
  * Using Zustand for lightweight, performant state management
  * Database-powered - no more static JSON files
  */
-export const useBuildsStore = create(
+
+// State interface
+interface BuildsState {
+  // === State ===
+  builds: Build[];
+  selectedBuildIds: Array<string | number>;
+  editingBuildId: string | number | null;
+  isEditing: boolean;
+  isLoading: boolean;
+  error: string | null;
+}
+
+// Actions interface
+interface BuildsActions {
+  // === Data Loading Actions ===
+  setBuilds: (builds: Build[]) => void;
+  setLoading: (isLoading: boolean) => void;
+  setError: (error: string | null) => void;
+
+  // === Build Selection Actions ===
+  toggleBuildSelection: (id: string | number) => void;
+  selectBuild: (id: string | number) => void;
+  deselectBuild: (id: string | number) => void;
+  clearSelection: () => void;
+  selectAll: () => void;
+
+  // === Editing Actions ===
+  startEditing: (id: string | number) => void;
+  stopEditing: () => void;
+
+  // === Build Modification Actions ===
+  updateBuild: (id: string | number, updates: Partial<Build>) => void;
+  addBuild: (build: Build) => void;
+  removeBuild: (id: string | number) => void;
+
+  // === Utility Actions ===
+  getBuildById: (id: string | number) => Build | undefined;
+  getSelectedBuilds: () => Build[];
+
+  // === Export Actions ===
+  exportState: () => { builds: Build[] };
+  exportSelectedBuilds: () => Build[];
+
+  // === Reset Action ===
+  reset: () => void;
+}
+
+// Combined store type
+type BuildsStore = BuildsState & BuildsActions;
+
+// Persisted state type (only what we persist)
+interface PersistedState {
+  selectedBuildIds: Array<string | number>;
+}
+
+export const useBuildsStore = create<BuildsStore>()(
   persist(
     (set, get) => ({
       // === State ===
@@ -103,7 +159,7 @@ export const useBuildsStore = create(
     {
       name: 'wardrobe-builder-storage',
       // Only persist user selections, not the full state
-      partialize: (state) => ({
+      partialize: (state): PersistedState => ({
         selectedBuildIds: state.selectedBuildIds
       })
     }

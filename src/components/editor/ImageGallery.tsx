@@ -3,11 +3,28 @@ import { Trash2, Star } from 'lucide-react';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
-export function ImageGallery({ buildId, gallery, onGalleryUpdate }) {
-  const [deletingImage, setDeletingImage] = useState(null);
-  const [settingPrimary, setSettingPrimary] = useState(null);
+interface GalleryImage {
+  url: string;
+  created_at: string;
+  is_primary: boolean;
+  prompt?: string;
+}
 
-  const handleSetPrimary = async (imageUrl) => {
+interface ImageGalleryProps {
+  buildId: number;
+  gallery: GalleryImage[];
+  onGalleryUpdate: (updatedGallery: GalleryImage[]) => void;
+}
+
+interface ApiResponse {
+  gallery: GalleryImage[];
+}
+
+export function ImageGallery({ buildId, gallery, onGalleryUpdate }: ImageGalleryProps) {
+  const [deletingImage, setDeletingImage] = useState<string | null>(null);
+  const [settingPrimary, setSettingPrimary] = useState<string | null>(null);
+
+  const handleSetPrimary = async (imageUrl: string): Promise<void> => {
     setSettingPrimary(imageUrl);
     try {
       const response = await fetch(`${API_URL}/api/builds/${buildId}/gallery/set-primary`, {
@@ -22,7 +39,7 @@ export function ImageGallery({ buildId, gallery, onGalleryUpdate }) {
         throw new Error('Failed to set primary image');
       }
 
-      const data = await response.json();
+      const data: ApiResponse = await response.json();
       onGalleryUpdate(data.gallery);
     } catch (error) {
       console.error('Error setting primary image:', error);
@@ -32,7 +49,7 @@ export function ImageGallery({ buildId, gallery, onGalleryUpdate }) {
     }
   };
 
-  const handleDeleteImage = async (imageUrl) => {
+  const handleDeleteImage = async (imageUrl: string): Promise<void> => {
     if (!confirm('Are you sure you want to delete this image?')) {
       return;
     }
@@ -51,7 +68,7 @@ export function ImageGallery({ buildId, gallery, onGalleryUpdate }) {
         throw new Error('Failed to delete image');
       }
 
-      const data = await response.json();
+      const data: ApiResponse = await response.json();
       onGalleryUpdate(data.gallery);
     } catch (error) {
       console.error('Error deleting image:', error);
