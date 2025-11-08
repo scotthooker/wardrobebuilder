@@ -4,11 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Application Overview
 
-**Wardrobe Builder** is a full-stack web application for designing, visualizing, and comparing custom built-in wardrobes. The app combines:
+**Wardrobe Builder** is a full-stack web application for designing, visualizing, and comparing custom built-in furniture (wardrobes and desks). The app combines:
 
-- **Static Build Viewer**: Browse 11 pre-designed wardrobe builds with detailed cost breakdowns
-- **Interactive Wizard**: Create custom wardrobe configurations with a 5-step builder
-- **AI Image Generation**: Generate photorealistic wardrobe visualizations using AI
+- **Static Build Viewer**: Browse pre-designed wardrobe and desk builds with detailed cost breakdowns
+- **Interactive Wizard**: Create custom furniture configurations with type-specific wizards (5 steps for wardrobes, 5 steps for desks)
+- **Furniture Type Support**: Full support for wardrobes and home office desks with separate configuration paths
+- **AI Image Generation**: Generate photorealistic furniture visualizations using AI
 - **Material Management**: Database-backed material pricing and options
 - **Export Capabilities**: Export builds to CSV/JSON for comparison
 
@@ -50,6 +51,7 @@ node server/importMaterials.js    # Import materials from JSON to PostgreSQL
 
 # Build generation
 node scripts/generateBuilds.js    # Generate all 11 build JSON files
+node scripts/createExampleDesks.js # Create example desk builds in database
 
 # Image regeneration
 node scripts/regeneratePromptsAndImages.js  # Regenerate AI prompts and images for all builds
@@ -85,8 +87,9 @@ This application operates in **two distinct modes**:
    - Displays AI-generated images from `public/generated-images/`
 
 2. **Build Creator Mode** (Database-backed)
-   - Interactive 5-step wizard for creating custom wardrobes
-   - PostgreSQL database for persistent storage
+   - Interactive wizard for creating custom furniture (wardrobes: 5 steps, desks: 5 steps)
+   - Unified FurnitureBuilder with type-specific step configurations
+   - PostgreSQL database for persistent storage with furniture_type column
    - Express API at `http://localhost:3001` (or `http://localhost:3002` in Docker)
    - Material pricing from `materials` and `material_options` tables
    - AI-powered prompt and image generation via OpenRouter
@@ -183,13 +186,26 @@ Configuration Structure:
 
 ### Wizard Steps
 
-The `WardrobeBuilder` component implements a 5-step wizard:
+The `FurnitureBuilder` component implements a unified wizard with type-specific steps:
 
+**Furniture Type Selection (Step 0)**:
+- **FurnitureTypeStep**: Choose between Wardrobe or Desk
+- Sets `furnitureType` in configuration
+- Determines which wizard steps to display
+
+**Wardrobe Wizard (5 steps)**:
 1. **DimensionsStep**: Set overall width, height, depth
 2. **CarcassLayoutStep**: Define vertical sections and carcass heights with material selection
 3. **InteriorDesignStep**: Configure interior (rails, shelves, drawers) for each carcass
 4. **DoorsDrawersStep**: Add door zones and external drawer configurations
 5. **ReviewStep**: Summary and save to database
+
+**Desk Wizard (5 steps)**:
+1. **DeskDimensionsStep**: Select desk shape (Straight/L-Shaped/U-Shaped) and dimensions
+2. **DeskLayoutStep**: Configure base type (Pedestals/Panel Sides/Legs/Trestle) and pedestal widths
+3. **DeskStorageStep**: Configure overhead storage (Hutch/Open Shelving/Closed Cabinets/Wall-Mounted)
+4. **DeskAccessoriesStep**: Select accessories (Keyboard Tray, Cable Management, Monitor Arm, etc.)
+5. **DeskReviewStep**: Summary and save to database
 
 Each step updates the shared `configuration` object via `updateConfiguration()`.
 
@@ -231,7 +247,8 @@ Each carcass stores:
 
 **builds table**:
 - Stores user-created configurations as JSONB
-- Fields: `id`, `name`, `character`, `image`, `costs_json`, `materials_json`, `extras_json`, `generated_image`, `generated_prompt`, `image_gallery`
+- Fields: `id`, `name`, `character`, `image`, `furniture_type`, `costs_json`, `materials_json`, `extras_json`, `generated_image`, `generated_prompt`, `image_gallery`
+- `furniture_type`: TEXT column with default 'wardrobe' (values: 'wardrobe', 'desk')
 - `image_gallery`: JSONB array of image objects `[{url: "/generated-images/...", prompt: "..."}]`
 
 **materials table**:
@@ -249,22 +266,27 @@ Each carcass stores:
 GET  /api/health                  # Health check
 GET  /api/materials/sheet-goods   # Get carcass materials with pricing
 GET  /api/builds                  # Get all builds from database
+GET  /api/builds/type/:type       # Get builds by furniture type (wardrobe/desk)
 GET  /api/builds/:id              # Get specific build
-POST /api/builds                  # Create new build
+POST /api/builds                  # Create new build (requires furniture_type field)
 PUT  /api/builds/:id              # Update build
 DELETE /api/builds/:id            # Delete build
 POST /api/generate-prompt         # Generate image prompt via AI (OpenRouter)
-POST /api/generate-image          # Generate wardrobe image (OpenRouter)
+POST /api/generate-image          # Generate furniture image (OpenRouter)
 POST /api/upload-image            # Upload image to gallery
 ```
 
 ### AI Image Generation
 
+**Supports both wardrobes and desks** with furniture-type-specific prompt templates.
+
 **Workflow**:
 1. User edits a build in EditPanel
 2. Click "Generate Design Prompt" → POST `/api/generate-prompt`
-   - Sends build materials, hardware, dimensions to AI
-   - AI generates detailed architectural visualization prompt
+   - Sends build materials, hardware, dimensions, **furniture type**, and **configuration** to AI
+   - AI generates detailed architectural visualization prompt specific to furniture type:
+     - **Wardrobes**: Architectural visualization with hinged/sliding doors, interior organization, material finishes
+     - **Desks**: Home office photography with desk shape, base type, overhead storage, workspace accessories
 3. User can edit the prompt
 4. Click "Generate Image" → POST `/api/generate-image`
    - Sends prompt to OpenRouter (Gemini 2.5 Flash Image model)
@@ -274,8 +296,15 @@ POST /api/upload-image            # Upload image to gallery
 5. Image displays in gallery carousel
 
 **Models Used**:
-- Prompt generation: `google/gemini-2.0-flash-exp:free`
+- Prompt generation: `anthropic/claude-3.5-sonnet` (via OpenRouter)
 - Image generation: `google/gemini-2.5-flash-image-preview`
+
+**Implementation Files**:
+- `server/imageGeneration.js`: AI prompt generation with furniture type detection
+- `server/promptTemplate.js`: Furniture-type-specific prompt templates
+  - `generateWardrobePrompt()`: Wardrobe-specific prompts with materials, doors, interior features
+  - `generateDeskPrompt()`: Desk-specific prompts with shape, base type, overhead storage, accessories
+- `src/components/editor/EditPanel.jsx`: Frontend UI for prompt generation and image creation
 
 ### Image Gallery
 
@@ -293,17 +322,28 @@ image_gallery: "[{\"url\":\"/generated-images/1.png\"}]"  // JSON string
 image_gallery: [{url: "/generated-images/1.png"}]         // Array
 ```
 
-### Cost Calculation (BuildModel)
+### Cost Calculation
 
-The `BuildModel` class in `src/models/BuildModel.js` calculates:
+**BuildModel (Wardrobes)** - `src/models/BuildModel.js`:
 1. **Material costs**: Sheets × price per sheet (from `pricing-data.json`)
 2. **Professional doors/drawers**: From `base-config.json`
 3. **Hardware**: Hinges, handles, rails (from `base-config.json`)
 4. **Extras**: Build-specific additions
 5. **Grand total**: Sum of all costs
 6. **Savings**: Comparison vs £5,000 budget
+- Uses **inheritance pattern**: base-config.json provides defaults, individual builds override/extend
 
-The BuildModel uses an **inheritance pattern**: base-config.json provides defaults, individual builds override/extend.
+**DeskModel (Desks)** - `src/models/DeskModel.js`:
+1. **Desktop material**: Calculated based on area (width × depth) and shape multiplier
+   - Straight desk: 1.0× area
+   - L-shaped desk: 1.5× area
+   - U-shaped desk: 2.0× area
+2. **Base material**: Pedestal/panel carcasses (if pedestals or panel_sides selected)
+3. **Overhead material**: Hutch/cabinet/shelving materials (if overhead enabled)
+4. **Hardware**: Drawer slides, hinges, legs, etc. based on configuration
+5. **Accessories**: Selected accessories with pricing (keyboard tray, monitor arm, etc.)
+6. **Grand total**: Sum of all costs
+7. **Savings**: Comparison vs £5,000 budget
 
 ## File Organization
 
@@ -316,10 +356,19 @@ The BuildModel uses an **inheritance pattern**: base-config.json provides defaul
   - `server/index.js`: Express routes and middleware
   - `server/init.sql`: Database schema
   - `server/importMaterials.js`: Material data seeding
-- `src/components/builder/`: Wizard steps for creating wardrobes
+- `src/components/builder/`: Wizard steps and unified FurnitureBuilder
+  - `FurnitureBuilder.jsx`: Unified furniture wizard with type-specific routing
+  - `steps/`: Wardrobe wizard steps (DimensionsStep, CarcassLayoutStep, etc.)
+  - `steps/desk/`: Desk wizard steps (DeskDimensionsStep, DeskLayoutStep, etc.)
+  - `steps/FurnitureTypeStep.jsx`: Furniture type selection (Step 0)
 - `src/components/editor/`: EditPanel for editing builds and generating images
 - `src/components/`: BuildImageCarousel and other shared components
-- `src/models/`: BuildModel business logic
+- `src/constants/`: Configuration constants
+  - `furnitureTypes.js`: Furniture type definitions (WARDROBE, DESK)
+  - `deskSectionTypes.js`: Desk shapes, base types, storage, accessories
+- `src/models/`: Business logic for cost calculations
+  - `BuildModel.js`: Wardrobe cost calculations
+  - `DeskModel.js`: Desk cost calculations
 - `public/data/`: JSON configuration files (materials metadata)
 - `public/generated-images/`: AI-generated wardrobe visualizations
 - `scripts/`: Utilities for scraping, build generation, image regeneration
@@ -468,14 +517,18 @@ docker-compose exec db psql -U wardrobe_user -d wardrobe_builder
 - **Edit drawer**: Right-side panel with 20% opacity backdrop, max 700px width
 - **Buttons**: Strong colors with borders for visibility (blue primary, green export, white with dark border)
 - **Carousel**: BuildImageCarousel handles both string and array data formats
+- **Furniture type filtering**: BuildListPage has filter buttons (All/Wardrobes/Desks) with counts
+- **Furniture type badges**: BuildCard displays color-coded badges (blue for wardrobes, green for desks) with emoji icons
 - **Responsive**: Mobile-first design with breakpoint-specific utilities
 
 ### Data Handling
 - **Gallery data**: Always parse defensively - API may return JSON string or array
 - **Material thickness**: Account for panel thickness in dimension calculations (internal = external - thickness × 2)
 - **Database naming**: PostgreSQL returns snake_case; API layer converts to camelCase for React
-- **Door zones**: Doors span multiple carcasses via `startCarcass` and `endCarcass` indices
-- **External drawers**: Marked with `isExternal: true` in interior sections; appear as drawer fronts instead of door panels
+- **Furniture types**: Always default to 'wardrobe' if furnitureType is missing; database column has default 'wardrobe'
+- **Door zones**: Doors span multiple carcasses via `startCarcass` and `endCarcass` indices (wardrobes only)
+- **External drawers**: Marked with `isExternal: true` in interior sections; appear as drawer fronts instead of door panels (wardrobes only)
+- **Desk configurations**: Store desk shape, base type, overhead storage, and accessories in configuration object
 
 ### Development Patterns
 - **No difficulty/ranking references**: All difficulty ratings and complexity scores have been removed from the codebase
@@ -565,10 +618,19 @@ docker-compose up -d
 
 ### Database Migration
 
-All 11 wardrobe builds have been migrated from CSV files to PostgreSQL:
+Database now contains both wardrobe and desk builds in PostgreSQL:
 
 ```sql
-SELECT COUNT(*) FROM builds;  -- Returns: 11
+SELECT COUNT(*), furniture_type FROM builds GROUP BY furniture_type;
+-- wardrobes: 11 pre-designed builds
+-- desks: 7 example builds (Executive Office, Home Office Compact, Creative Workspace, etc.)
+```
+
+**Migration Script**:
+```sql
+-- Add furniture_type column (required for desk support)
+ALTER TABLE builds ADD COLUMN IF NOT EXISTS furniture_type TEXT NOT NULL DEFAULT 'wardrobe';
+CREATE INDEX IF NOT EXISTS idx_builds_furniture_type ON builds(furniture_type);
 ```
 
 **Legacy files archived** (outside git):
@@ -579,7 +641,32 @@ SELECT COUNT(*) FROM builds;  -- Returns: 11
 
 ## Recent Updates
 
-**Latest Changes**:
+**AI Image Generation for All Furniture Types (Latest)**:
+- ✅ Enabled AI image generation for both wardrobes and desks
+- ✅ Created furniture-type-specific prompt templates in `server/promptTemplate.js`:
+  - `generateWardrobePrompt()`: Architectural visualization with doors, interior features, materials
+  - `generateDeskPrompt()`: Home office photography with desk shape, base, storage, accessories
+- ✅ Updated `imageGeneration.js` to detect furniture type and use appropriate templates
+- ✅ Updated API endpoints (`/api/generate-prompt`) to accept `furnitureType` and `configuration`
+- ✅ Updated EditPanel to send furniture type and configuration when generating prompts
+- ✅ Added fallback prompt generation for both furniture types when AI fails
+- ✅ Tested prompt generation with both desk and wardrobe builds successfully
+
+**Desk Functionality**:
+- ✅ Added full desk builder support with 5-step wizard
+- ✅ Created unified FurnitureBuilder with furniture type selection (Step 0)
+- ✅ Implemented desk-specific wizard steps (Dimensions, Layout, Storage, Accessories, Review)
+- ✅ Created DeskModel class for desk cost calculations
+- ✅ Added furniture_type column to builds table with 'wardrobe' default
+- ✅ Implemented furniture type filtering on home page (All/Wardrobes/Desks)
+- ✅ Added color-coded furniture type badges (blue for wardrobes, green for desks)
+- ✅ Created configurationToDeskBuild converter for desk configurations
+- ✅ Added desk constants (shapes, base types, storage, accessories) in deskSectionTypes.js
+- ✅ Created 7 example desk builds (Executive Office, Home Office Compact, Creative Workspace, etc.)
+- ✅ Added GET /api/builds/type/:type endpoint for filtering by furniture type
+- ✅ Full Playwright test coverage for desk save flow
+
+**Previous Updates**:
 - ✅ Committed to GitHub: `github.com/scotthooker/wardrobebuilder`
 - ✅ Added Vercel deployment configuration (serverless functions)
 - ✅ Archived 65 legacy CSV/HTML files (all data migrated to PostgreSQL)

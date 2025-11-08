@@ -9,6 +9,19 @@
  * @returns {string} - Formatted prompt for AI image generation
  */
 export function generateBuildPrompt(build) {
+  const furnitureType = build.furnitureType || build.configuration?.furnitureType || 'wardrobe';
+
+  if (furnitureType === 'desk') {
+    return generateDeskPrompt(build);
+  } else {
+    return generateWardrobePrompt(build);
+  }
+}
+
+/**
+ * Generate prompt specifically for wardrobe builds
+ */
+function generateWardrobePrompt(build) {
   const config = build.configuration;
   const costs = build.costs;
 
@@ -21,6 +34,26 @@ export function generateBuildPrompt(build) {
 
   // Build prompt using template
   const prompt = `Professional product photography of a ${style.adjective} wardrobe${style.descriptor ? ', ' + style.descriptor : ''}. ${sectionCount}-section wardrobe with ${doorStyle} doors, featuring ${interiorFeatures.join(', ')}. Built from ${materials.primary}, ${materials.finish}, ${materials.details}. ${style.setting}, ${style.lighting}. Front 3/4 view showing full wardrobe at slight angle, doors partially open revealing interior organization. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, product photography, professional lighting.`;
+
+  return prompt;
+}
+
+/**
+ * Generate prompt specifically for desk builds
+ */
+function generateDeskPrompt(build) {
+  const config = build.configuration;
+  const costs = build.costs;
+
+  // Extract key desk information
+  const materials = extractDeskMaterials(build);
+  const style = inferDeskStyle(build);
+  const features = extractDeskFeatures(config);
+  const shape = config.deskShape || 'straight';
+  const dimensions = `${config.width || 1600}mm × ${config.depth || 700}mm`;
+
+  // Build prompt using desk template
+  const prompt = `Professional product photography of a ${style.adjective} ${shape.replace('_', '-')} desk${style.descriptor ? ', ' + style.descriptor : ''}. ${dimensions} desk featuring ${features.join(', ')}. Desktop crafted from ${materials.desktop}, ${materials.base}, ${materials.finish}. ${style.setting}, ${style.lighting}. Front 3/4 angled view showing full desk setup, showcasing workspace organization and storage solutions. Photorealistic, high-quality furniture catalog style, 8k resolution, sharp focus. Style: architectural visualization, home office photography, professional lighting.`;
 
   return prompt;
 }
@@ -214,4 +247,200 @@ export function updateBuildPrompt(build) {
     ...build,
     generatedPrompt: newPrompt
   };
+}
+
+/**
+ * Extract material information from desk build
+ */
+function extractDeskMaterials(build) {
+  const costs = build.costs;
+
+  // Get desktop material
+  const desktopMaterial = costs.materials?.find(m =>
+    m.component?.toLowerCase().includes('desktop')
+  );
+
+  // Get base material (pedestals/panels)
+  const baseMaterial = costs.materials?.find(m =>
+    m.component?.toLowerCase().includes('pedestal') ||
+    m.component?.toLowerCase().includes('panel')
+  );
+
+  let desktop = 'premium oak veneer';
+  let base = 'sturdy construction';
+  let finish = 'professional finish';
+
+  if (desktopMaterial) {
+    const matName = desktopMaterial.material.toLowerCase();
+
+    if (matName.includes('oak')) {
+      desktop = 'premium oak veneered desktop with rich grain';
+      finish = 'natural wood finish with protective coating';
+    } else if (matName.includes('walnut')) {
+      desktop = 'luxury walnut veneered desktop';
+      finish = 'rich dark wood finish';
+    } else if (matName.includes('ash')) {
+      desktop = 'light ash veneered desktop';
+      finish = 'contemporary blonde wood finish';
+    } else if (matName.includes('melamine')) {
+      desktop = 'clean white melamine desktop';
+      finish = 'smooth matte surface';
+    } else {
+      desktop = 'quality engineered wood desktop';
+      finish = 'durable work surface';
+    }
+  }
+
+  if (baseMaterial) {
+    const matName = baseMaterial.material.toLowerCase();
+
+    if (matName.includes('pedestal')) {
+      base = 'matching pedestal units with drawer storage';
+    } else if (matName.includes('panel')) {
+      base = 'solid panel sides for stability';
+    }
+  }
+
+  // Check hardware for base type
+  const hardware = build.costs.hardware || [];
+  const hardwareText = JSON.stringify(hardware).toLowerCase();
+
+  if (hardwareText.includes('trestle')) {
+    base = 'modern trestle base with industrial aesthetic';
+  } else if (hardwareText.includes('legs') || hardwareText.includes('adjustable')) {
+    base = 'adjustable metal legs for ergonomic height';
+  }
+
+  return { desktop, base, finish };
+}
+
+/**
+ * Infer style and aesthetic from desk build characteristics
+ */
+function inferDeskStyle(build) {
+  const name = (build.name || '').toLowerCase();
+  const character = (build.character || '').toLowerCase();
+  const config = build.configuration || {};
+
+  let adjective = 'modern';
+  let descriptor = 'home office design';
+  let setting = 'contemporary home office with neutral walls';
+  let lighting = 'bright natural lighting from window, soft shadows';
+
+  // Executive/Premium
+  if (name.includes('executive') || name.includes('premium') || name.includes('professional')) {
+    adjective = 'executive';
+    descriptor = 'professional workspace';
+    setting = 'upscale home office, designer furniture, professional environment';
+    lighting = 'soft professional lighting, elegant ambiance';
+  }
+  // Gaming
+  else if (name.includes('gaming') || name.includes('command center')) {
+    adjective = 'gaming';
+    descriptor = 'command center setup';
+    setting = 'modern gaming room with LED accent lighting, tech-forward environment';
+    lighting = 'dramatic ambient lighting with RGB accents visible';
+  }
+  // Standing desk
+  else if (name.includes('standing') || config.height > 1000) {
+    adjective = 'ergonomic standing';
+    descriptor = 'height-adjustable workspace';
+    setting = 'modern ergonomic office, health-conscious workspace';
+    lighting = 'bright even lighting emphasizing workspace ergonomics';
+  }
+  // Creative/Studio
+  else if (name.includes('creative') || name.includes('studio')) {
+    adjective = 'creative professional';
+    descriptor = 'spacious studio workspace';
+    setting = 'artist studio or design office, creative environment, plants and inspiration';
+    lighting = 'natural daylight with task lighting, creative ambiance';
+  }
+  // Minimalist
+  else if (name.includes('minimalist') || name.includes('compact')) {
+    adjective = 'minimalist';
+    descriptor = 'clean simple design';
+    setting = 'minimal home office, scandinavian aesthetic, uncluttered space';
+    lighting = 'bright clean lighting, airy feel';
+  }
+  // Corner/L-shaped
+  else if (name.includes('corner') || config.deskShape === 'l_shaped') {
+    adjective = 'corner';
+    descriptor = 'space-efficient L-configuration';
+    setting = 'organized corner office setup, maximized workspace';
+    lighting = 'balanced ambient lighting from multiple angles';
+  }
+
+  return { adjective, descriptor, setting, lighting };
+}
+
+/**
+ * Extract desk features to highlight in prompt
+ */
+function extractDeskFeatures(config) {
+  const features = [];
+
+  // Base type features
+  if (config.base?.type === 'pedestals') {
+    const pedestalCount = (config.base.left?.enabled ? 1 : 0) + (config.base.right?.enabled ? 1 : 0);
+    if (pedestalCount === 2) {
+      features.push('dual pedestal storage with soft-close drawers');
+    } else if (pedestalCount === 1) {
+      features.push('single pedestal unit with integrated storage');
+    }
+  } else if (config.base?.type === 'panel_sides') {
+    features.push('solid panel sides for clean aesthetic');
+  } else if (config.base?.type === 'trestle') {
+    features.push('industrial trestle base');
+  } else if (config.base?.type === 'legs') {
+    features.push('height-adjustable legs');
+  }
+
+  // Overhead storage
+  if (config.overhead?.enabled) {
+    if (config.overhead.type === 'hutch') {
+      features.push('overhead hutch with enclosed storage');
+    } else if (config.overhead.type === 'open_shelving') {
+      features.push('open shelving for display and organization');
+    } else if (config.overhead.type === 'closed_cabinets') {
+      features.push('overhead closed cabinets');
+    }
+  }
+
+  // Accessories
+  const accessories = config.accessories || {};
+  const accessoryFeatures = [];
+
+  if (accessories.keyboard_tray) {
+    accessoryFeatures.push('slide-out keyboard tray');
+  }
+  if (accessories.cable_management) {
+    accessoryFeatures.push('integrated cable management');
+  }
+  if (accessories.monitor_arm) {
+    accessoryFeatures.push('adjustable monitor arm');
+  }
+  if (accessories.cpu_holder) {
+    accessoryFeatures.push('under-desk CPU holder');
+  }
+  if (accessories.desk_lamp) {
+    accessoryFeatures.push('modern desk lamp');
+  }
+
+  if (accessoryFeatures.length > 0) {
+    features.push(accessoryFeatures.join(', '));
+  }
+
+  // Desk shape
+  const shape = config.deskShape || 'straight';
+  if (shape === 'l_shaped') {
+    features.push('spacious L-shaped layout maximizing corner space');
+  } else if (shape === 'u_shaped') {
+    features.push('expansive U-shaped configuration for maximum workspace');
+  }
+
+  if (features.length === 0) {
+    features.push('functional workspace design');
+  }
+
+  return features;
 }

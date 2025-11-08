@@ -1,7 +1,56 @@
+import { DeskModel } from '../models/DeskModel';
+
 /**
- * Converts wardrobe configuration from builder to build object
+ * Converts furniture configuration from builder to build object
+ * Handles both wardrobes and desks
  */
-export function configurationToBuild(configuration, buildName = 'My Wardrobe') {
+export function configurationToBuild(configuration, buildName) {
+  // Determine furniture type
+  const furnitureType = configuration.furnitureType || 'wardrobe';
+
+  // Use appropriate converter based on type
+  if (furnitureType === 'desk') {
+    return configurationToDeskBuild(configuration, buildName || 'My Desk');
+  } else {
+    return configurationToWardrobeBuild(configuration, buildName || 'My Wardrobe');
+  }
+}
+
+/**
+ * Convert desk configuration to build object
+ */
+function configurationToDeskBuild(configuration, buildName) {
+  const deskModel = new DeskModel(configuration);
+  const costs = deskModel.costs;
+  const budget = configuration.budget || 5000;
+
+  return {
+    id: Date.now(),
+    name: buildName,
+    character: `${configuration.deskShape} desk, ${configuration.width}×${configuration.depth}mm`,
+    image: '/placeholder-desk.png',
+    furnitureType: 'desk',
+    budget,
+    configuration,
+    costs: {
+      materials: costs.materials,
+      materialTotal: costs.materialTotal,
+      professionalDoorsDrawers: {},
+      professionalDoorsDrawersTotal: 0,
+      hardware: costs.hardware,
+      hardwareTotal: costs.hardwareTotal,
+      extras: costs.accessories,
+      extrasTotal: costs.accessoriesTotal,
+      grandTotal: costs.grandTotal,
+      savingsVsBudget: budget - costs.grandTotal
+    }
+  };
+}
+
+/**
+ * Convert wardrobe configuration to build object
+ */
+function configurationToWardrobeBuild(configuration, buildName) {
   // Calculate materials needed
   const materials = [];
 
@@ -110,12 +159,15 @@ export function configurationToBuild(configuration, buildName = 'My Wardrobe') {
   );
 
   const grandTotal = materialTotal + professionalDoorsDrawersTotal + hardwareTotal;
+  const budget = configuration.budget || 5000;
 
   return {
     id: Date.now(),
     name: buildName,
     character: `${configuration.width}x${configuration.height}x${configuration.depth}mm, ${configuration.numCarcasses} carcasses`,
     image: '/placeholder-wardrobe.png',
+    furnitureType: 'wardrobe',
+    budget,
     configuration, // Store the full configuration
     costs: {
       materials,
@@ -127,7 +179,7 @@ export function configurationToBuild(configuration, buildName = 'My Wardrobe') {
       extras: [],
       extrasTotal: 0,
       grandTotal,
-      savingsVsBudget: 5000 - grandTotal
+      savingsVsBudget: budget - grandTotal
     }
   };
 }

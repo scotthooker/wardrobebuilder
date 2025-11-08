@@ -7,6 +7,7 @@ import fs from 'fs';
 import { generatePrompt, generateImage } from './imageGeneration.js';
 import {
   getAllBuilds,
+  getBuildsByType,
   getBuildById,
   createBuild,
   updateBuild,
@@ -123,6 +124,18 @@ app.get('/api/builds', async (req, res) => {
   }
 });
 
+// Get builds by furniture type
+app.get('/api/builds/type/:type', async (req, res) => {
+  try {
+    const furnitureType = req.params.type;
+    const builds = await getBuildsByType(furnitureType);
+    res.json(builds);
+  } catch (error) {
+    console.error('Error fetching builds by type:', error);
+    res.status(500).json({ error: 'Failed to fetch builds by type' });
+  }
+});
+
 // Get single build
 app.get('/api/builds/:id', async (req, res) => {
   try {
@@ -181,7 +194,7 @@ app.delete('/api/builds/:id', async (req, res) => {
 // Generate prompt from materials
 app.post('/api/generate-prompt', async (req, res) => {
   try {
-    const { materials, buildName, buildCharacter, hardware, doors } = req.body;
+    const { materials, buildName, buildCharacter, hardware, doors, furnitureType, configuration } = req.body;
 
     if (!materials || !Array.isArray(materials)) {
       return res.status(400).json({ error: 'Materials array is required' });
@@ -192,7 +205,9 @@ app.post('/api/generate-prompt', async (req, res) => {
       buildName,
       buildCharacter,
       hardware,
-      doors
+      doors,
+      furnitureType: furnitureType || 'wardrobe',
+      configuration
     });
 
     res.json({ prompt });

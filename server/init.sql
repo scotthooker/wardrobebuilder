@@ -160,12 +160,15 @@ CREATE TABLE builds (
   character TEXT,
   image TEXT,
 
-  -- Wardrobe dimensions
+  -- Furniture type (wardrobe, desk, etc.)
+  furniture_type TEXT NOT NULL DEFAULT 'wardrobe',
+
+  -- Dimensions
   width INTEGER NOT NULL, -- in mm
   height INTEGER NOT NULL, -- in mm
   depth INTEGER NOT NULL, -- in mm
 
-  -- Configuration stored as JSONB (sections, carcasses, doors)
+  -- Configuration stored as JSONB (sections, carcasses, doors for wardrobes; desktop, base, hutch for desks)
   -- Structure: {sections: [{id, width, carcasses: [...]}], doors: {...}}
   configuration JSONB NOT NULL,
 
@@ -212,6 +215,7 @@ CREATE TABLE builds (
 );
 
 CREATE INDEX IF NOT EXISTS idx_builds_name ON builds(name);
+CREATE INDEX IF NOT EXISTS idx_builds_furniture_type ON builds(furniture_type);
 CREATE INDEX IF NOT EXISTS idx_builds_created_at ON builds(created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_builds_width ON builds(width);
 CREATE INDEX IF NOT EXISTS idx_builds_height ON builds(height);

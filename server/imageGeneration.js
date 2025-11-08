@@ -3,26 +3,27 @@ import { generateText } from 'ai';
 import fetch from 'node-fetch';
 
 /**
- * Generate a detailed prompt for wardrobe mockup using AI
+ * Generate a detailed prompt for furniture mockup using AI
+ * Supports both wardrobes and desks
  */
-export async function generatePrompt({ materials, buildName, buildCharacter, hardware, doors }) {
+export async function generatePrompt({ materials, buildName, buildCharacter, hardware, doors, furnitureType = 'wardrobe', configuration }) {
   try {
-    // Extract primary materials
-    const carcassMaterial = materials.find(m =>
-      m.category === 'CARCASS' || m.component?.toLowerCase().includes('carcass')
-    );
-    const liningMaterial = materials.find(m =>
-      m.category === 'LINING' || m.component?.toLowerCase().includes('lining')
-    );
-    const drawerMaterial = materials.find(m =>
-      m.category === 'DRAWER' || m.component?.toLowerCase().includes('drawer')
-    );
-
-    // Count doors and drawers
-    const doorCount = doors ? Object.values(doors).reduce((sum, door) => sum + (door.qty || 0), 0) : 0;
+    const isDesk = furnitureType === 'desk';
 
     // Use AI to generate a refined prompt
-    const systemPrompt = `You are an expert interior designer and architectural visualizer. Generate a detailed, professional image generation prompt for an AI image model to create a photorealistic wardrobe visualization.
+    const systemPrompt = isDesk
+      ? `You are an expert interior designer and architectural visualizer. Generate a detailed, professional image generation prompt for an AI image model to create a photorealistic home office desk visualization.
+
+The prompt should include:
+- Professional home office photography style
+- Specific material descriptions and textures
+- Lighting and workspace ambiance
+- Composition and viewpoint (3/4 angle showing full desk)
+- Level of detail and finish quality
+- Workspace organization and accessories
+
+Keep the prompt concise but highly descriptive (2-3 sentences maximum).`
+      : `You are an expert interior designer and architectural visualizer. Generate a detailed, professional image generation prompt for an AI image model to create a photorealistic wardrobe visualization.
 
 The prompt should include:
 - Architectural and professional photography style
@@ -33,7 +34,45 @@ The prompt should include:
 
 Keep the prompt concise but highly descriptive (2-3 sentences maximum).`;
 
-    const userPrompt = `Create an image generation prompt for a wardrobe called "${buildName}" with character: "${buildCharacter}".
+    let userPrompt;
+
+    if (isDesk) {
+      // Desk-specific prompt generation
+      const desktopMaterial = materials.find(m => m.component?.toLowerCase().includes('desktop'));
+      const baseMaterial = materials.find(m =>
+        m.component?.toLowerCase().includes('pedestal') ||
+        m.component?.toLowerCase().includes('panel')
+      );
+      const deskShape = configuration?.deskShape || 'straight';
+      const baseType = configuration?.base?.type || 'legs';
+      const hasOverhead = configuration?.overhead?.enabled || false;
+      const accessories = configuration?.accessories || {};
+
+      userPrompt = `Create an image generation prompt for a desk called "${buildName}" with character: "${buildCharacter}".
+
+Desk specifications:
+- Shape: ${deskShape.replace('_', '-')}
+- Base: ${baseType.replace('_', ' ')}
+- Desktop material: ${desktopMaterial?.material || 'Oak Veneered MDF'} (${desktopMaterial?.thickness || '25mm'})
+${baseMaterial ? `- Base material: ${baseMaterial.material} (${baseMaterial.thickness})` : ''}
+${hasOverhead ? `- Overhead storage: ${configuration.overhead.type.replace('_', ' ')}` : ''}
+${Object.keys(accessories).filter(k => accessories[k]).length > 0 ? `- Accessories: ${Object.keys(accessories).filter(k => accessories[k]).join(', ').replace(/_/g, ' ')}` : ''}
+
+Generate a prompt that captures the essence of this desk build while being suitable for an AI image generator. Focus on workspace organization and home office aesthetics.`;
+    } else {
+      // Wardrobe-specific prompt generation
+      const carcassMaterial = materials.find(m =>
+        m.category === 'CARCASS' || m.component?.toLowerCase().includes('carcass')
+      );
+      const liningMaterial = materials.find(m =>
+        m.category === 'LINING' || m.component?.toLowerCase().includes('lining')
+      );
+      const drawerMaterial = materials.find(m =>
+        m.category === 'DRAWER' || m.component?.toLowerCase().includes('drawer')
+      );
+      const doorCount = doors ? Object.values(doors).reduce((sum, door) => sum + (door.qty || 0), 0) : 0;
+
+      userPrompt = `Create an image generation prompt for a wardrobe called "${buildName}" with character: "${buildCharacter}".
 
 Materials used:
 - Carcass: ${carcassMaterial?.material || 'Standard MDF'} (${carcassMaterial?.thickness || '18mm'})
@@ -44,6 +83,7 @@ ${doorCount ? `Total doors/drawer fronts: ${doorCount}` : ''}
 ${hardware ? `Hardware items: ${Object.keys(hardware).length}` : ''}
 
 Generate a prompt that captures the essence of this build while being suitable for an AI image generator.`;
+    }
 
     const response = await generateText({
       model: openrouter('anthropic/claude-3.5-sonnet'),
@@ -58,49 +98,100 @@ Generate a prompt that captures the essence of this build while being suitable f
   } catch (error) {
     console.error('Error generating prompt with AI:', error);
 
-    // Fallback to template-based prompt
-    const carcassMaterial = materials.find(m =>
-      m.category === 'CARCASS' || m.component?.toLowerCase().includes('carcass')
-    );
-    const liningMaterial = materials.find(m =>
-      m.category === 'LINING' || m.component?.toLowerCase().includes('lining')
-    );
-    const drawerMaterial = materials.find(m =>
-      m.category === 'DRAWER' || m.component?.toLowerCase().includes('drawer')
-    );
-
-    let prompt = `Professional architectural visualization of a luxury fitted wardrobe system. ${buildCharacter || 'Modern minimalist design'}. `;
-
-    if (carcassMaterial) {
-      prompt += `Built with ${carcassMaterial.material} panels in ${carcassMaterial.thickness} thickness. `;
+    // Fallback to template-based prompt based on furniture type
+    if (furnitureType === 'desk') {
+      return generateDeskFallbackPrompt({ materials, buildName, buildCharacter, configuration });
+    } else {
+      return generateWardrobeFallbackPrompt({ materials, buildName, buildCharacter, hardware });
     }
-
-    if (liningMaterial) {
-      const materialName = liningMaterial.material.toLowerCase();
-      if (materialName.includes('oak')) {
-        prompt += `Interior surfaces finished in elegant oak veneer with rich grain pattern. `;
-      } else if (materialName.includes('ash')) {
-        prompt += `Interior surfaces finished in elegant ash veneer with light blonde color and distinctive grain. `;
-      } else if (materialName.includes('walnut')) {
-        prompt += `Interior surfaces finished in rich walnut veneer with deep brown tones. `;
-      } else {
-        prompt += `Interior surfaces with premium veneer finish. `;
-      }
-    }
-
-    if (drawerMaterial) {
-      const materialName = drawerMaterial.material.toLowerCase();
-      if (materialName.includes('birch') || materialName.includes('plywood')) {
-        prompt += `Premium birch plywood drawer boxes with dovetail joinery visible. `;
-      } else {
-        prompt += `Quality drawer boxes with visible craftsmanship. `;
-      }
-    }
-
-    prompt += `Photorealistic rendering, studio lighting with soft shadows. Interior view showing open wardrobe with visible shelving, hanging rails, and drawer details. Focus on material quality and wood grain texture. Clean lines. Depth of field emphasizing material craftsmanship. Professional furniture catalog photography style. High resolution, detailed textures.`;
-
-    return prompt;
   }
+}
+
+/**
+ * Fallback prompt generation for desks
+ */
+function generateDeskFallbackPrompt({ materials, buildName, buildCharacter, configuration }) {
+  const desktopMaterial = materials.find(m => m.component?.toLowerCase().includes('desktop'));
+  const deskShape = configuration?.deskShape || 'straight';
+  const baseType = configuration?.base?.type || 'legs';
+
+  let prompt = `Professional product photography of a ${deskShape.replace('_', '-')} home office desk. ${buildCharacter || 'Modern functional design'}. `;
+
+  if (desktopMaterial) {
+    const matName = desktopMaterial.material.toLowerCase();
+    if (matName.includes('oak')) {
+      prompt += `Premium oak veneered desktop with rich natural grain and protective coating. `;
+    } else if (matName.includes('walnut')) {
+      prompt += `Luxury walnut veneered desktop with deep brown tones. `;
+    } else {
+      prompt += `Quality engineered wood desktop surface. `;
+    }
+  }
+
+  if (baseType === 'pedestals') {
+    prompt += `Pedestal storage units with soft-close drawer systems. `;
+  } else if (baseType === 'panel_sides') {
+    prompt += `Solid panel sides for clean minimalist aesthetic. `;
+  } else if (baseType === 'trestle') {
+    prompt += `Industrial trestle base with modern appeal. `;
+  } else {
+    prompt += `Adjustable metal legs for ergonomic comfort. `;
+  }
+
+  if (configuration?.overhead?.enabled) {
+    prompt += `Overhead storage ${configuration.overhead.type.replace('_', ' ')} for organization. `;
+  }
+
+  prompt += `Front 3/4 angled view showing full workspace setup. Photorealistic rendering, contemporary home office setting with neutral walls. Natural lighting from window with soft shadows. Clean organized workspace with monitor, keyboard, and office accessories visible. Professional furniture catalog photography style. High resolution, detailed textures. Style: architectural visualization, home office photography.`;
+
+  return prompt;
+}
+
+/**
+ * Fallback prompt generation for wardrobes
+ */
+function generateWardrobeFallbackPrompt({ materials, buildName, buildCharacter, hardware }) {
+  const carcassMaterial = materials.find(m =>
+    m.category === 'CARCASS' || m.component?.toLowerCase().includes('carcass')
+  );
+  const liningMaterial = materials.find(m =>
+    m.category === 'LINING' || m.component?.toLowerCase().includes('lining')
+  );
+  const drawerMaterial = materials.find(m =>
+    m.category === 'DRAWER' || m.component?.toLowerCase().includes('drawer')
+  );
+
+  let prompt = `Professional architectural visualization of a luxury fitted wardrobe system. ${buildCharacter || 'Modern minimalist design'}. `;
+
+  if (carcassMaterial) {
+    prompt += `Built with ${carcassMaterial.material} panels in ${carcassMaterial.thickness} thickness. `;
+  }
+
+  if (liningMaterial) {
+    const materialName = liningMaterial.material.toLowerCase();
+    if (materialName.includes('oak')) {
+      prompt += `Interior surfaces finished in elegant oak veneer with rich grain pattern. `;
+    } else if (materialName.includes('ash')) {
+      prompt += `Interior surfaces finished in elegant ash veneer with light blonde color and distinctive grain. `;
+    } else if (materialName.includes('walnut')) {
+      prompt += `Interior surfaces finished in rich walnut veneer with deep brown tones. `;
+    } else {
+      prompt += `Interior surfaces with premium veneer finish. `;
+    }
+  }
+
+  if (drawerMaterial) {
+    const materialName = drawerMaterial.material.toLowerCase();
+    if (materialName.includes('birch') || materialName.includes('plywood')) {
+      prompt += `Premium birch plywood drawer boxes with dovetail joinery visible. `;
+    } else {
+      prompt += `Quality drawer boxes with visible craftsmanship. `;
+    }
+  }
+
+  prompt += `Photorealistic rendering, studio lighting with soft shadows. Interior view showing open wardrobe with visible shelving, hanging rails, and drawer details. Focus on material quality and wood grain texture. Clean lines. Depth of field emphasizing material craftsmanship. Professional furniture catalog photography style. High resolution, detailed textures.`;
+
+  return prompt;
 }
 
 /**

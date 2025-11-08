@@ -74,12 +74,18 @@ function parseBuildFields(row) {
     character: row.character,
     image: row.image,
 
+    // Furniture type
+    furnitureType: row.furniture_type || 'wardrobe',
+
+    // Budget
+    budget: row.budget ? parseFloat(row.budget) : 5000,
+
     // Dimensions
     width: row.width,
     height: row.height,
     depth: row.depth,
 
-    // Configuration (sections, carcasses, doors)
+    // Configuration (sections, carcasses, doors for wardrobes; desktop, base, hutch for desks)
     configuration: row.configuration || {},
 
     // Costs
@@ -121,6 +127,20 @@ export async function getAllBuilds() {
   }
 }
 
+// Get builds by furniture type
+export async function getBuildsByType(furnitureType) {
+  const client = await pool.connect();
+  try {
+    const result = await client.query(
+      'SELECT * FROM builds WHERE furniture_type = $1 ORDER BY created_at DESC',
+      [furnitureType]
+    );
+    return result.rows.map(parseBuildFields);
+  } finally {
+    client.release();
+  }
+}
+
 // Get build by ID
 export async function getBuildById(id) {
   const client = await pool.connect();
@@ -138,17 +158,19 @@ export async function createBuild(build) {
   try {
     const result = await client.query(
       `INSERT INTO builds (
-        name, character, image,
+        name, character, image, furniture_type, budget,
         width, height, depth,
         configuration, costs_json, hardware_json, extras_json,
         special_tools, considerations, recommended_for,
         generated_image, generated_prompt
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
       RETURNING *`,
       [
         build.name,
         build.character || null,
         build.image || null,
+        build.furnitureType || 'wardrobe',
+        build.budget || 5000,
         build.width || 0,
         build.height || 0,
         build.depth || 0,
@@ -183,26 +205,30 @@ export async function updateBuild(id, updates) {
         name = $1,
         character = $2,
         image = $3,
-        width = $4,
-        height = $5,
-        depth = $6,
-        configuration = $7,
-        costs_json = $8,
-        hardware_json = $9,
-        extras_json = $10,
-        special_tools = $11,
-        considerations = $12,
-        recommended_for = $13,
-        generated_image = $14,
-        generated_prompt = $15,
-        image_gallery = $16,
+        furniture_type = $4,
+        budget = $5,
+        width = $6,
+        height = $7,
+        depth = $8,
+        configuration = $9,
+        costs_json = $10,
+        hardware_json = $11,
+        extras_json = $12,
+        special_tools = $13,
+        considerations = $14,
+        recommended_for = $15,
+        generated_image = $16,
+        generated_prompt = $17,
+        image_gallery = $18,
         updated_at = CURRENT_TIMESTAMP
-      WHERE id = $17
+      WHERE id = $19
       RETURNING *`,
       [
         updates.name !== undefined ? updates.name : existing.name,
         updates.character !== undefined ? updates.character : existing.character,
         updates.image !== undefined ? updates.image : existing.image,
+        updates.furnitureType !== undefined ? updates.furnitureType : existing.furnitureType,
+        updates.budget !== undefined ? updates.budget : existing.budget,
         updates.width !== undefined ? updates.width : existing.width,
         updates.height !== undefined ? updates.height : existing.height,
         updates.depth !== undefined ? updates.depth : existing.depth,
