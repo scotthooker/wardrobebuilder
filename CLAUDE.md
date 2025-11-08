@@ -17,12 +17,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Backend**: Express + Node.js
 - **Database**: PostgreSQL 16
 - **AI**: OpenRouter API (Gemini/GPT models)
-- **Deployment**: Docker Compose (dev environment)
+- **Deployment**: Docker Compose (dev), Vercel (production)
+
+## Repository
+
+- **GitHub**: [github.com/scotthooker/wardrobebuilder](https://github.com/scotthooker/wardrobebuilder)
+- **Branch**: main
+- **Production**: Deployable to Vercel with serverless functions
 
 ## Development Commands
 
 ```bash
-# Docker Development (Recommended)
+# Docker Development (Recommended for local dev)
 docker-compose up -d              # Start all services (frontend, API, database)
 docker-compose logs -f app        # View frontend logs
 docker-compose logs -f api        # View backend logs
@@ -55,9 +61,14 @@ npm run scrape:quick              # Quick scrape (2 pages max)
 npm run scrape:headless           # Scrape without browser UI
 
 # Production
-npm run build                     # Build for production
+npm run build                     # Build for production (Vite)
+npm run vercel-build              # Build for Vercel deployment
 npm run preview                   # Preview production build
 npm run lint                      # Run ESLint
+
+# Git
+git push                          # Push to GitHub
+git status                        # Check git status
 ```
 
 ## Architecture Overview
@@ -297,7 +308,9 @@ The BuildModel uses an **inheritance pattern**: base-config.json provides defaul
 ## File Organization
 
 **Critical directories**:
-- `server/`: Express API, database logic, image generation
+- `api/`: Vercel serverless functions (production deployment)
+  - `api/index.js`: Serverless function wrapper for Express routes
+- `server/`: Express API, database logic, image generation (local dev)
   - `server/db.js`: PostgreSQL queries and connection
   - `server/imageGeneration.js`: OpenRouter integration
   - `server/index.js`: Express routes and middleware
@@ -307,15 +320,28 @@ The BuildModel uses an **inheritance pattern**: base-config.json provides defaul
 - `src/components/editor/`: EditPanel for editing builds and generating images
 - `src/components/`: BuildImageCarousel and other shared components
 - `src/models/`: BuildModel business logic
-- `public/data/`: JSON configuration files (base-config, pricing-data, builds)
+- `public/data/`: JSON configuration files (materials metadata)
 - `public/generated-images/`: AI-generated wardrobe visualizations
 - `scripts/`: Utilities for scraping, build generation, image regeneration
+- `archive/`: Archived development files (dist builds, old docs)
 
 **Environment setup**:
-- Create `.env` file with:
+- Copy `.env.example` to `.env`
+- Local development:
   - `DATABASE_URL=postgresql://wardrobe_user:wardrobe_password@localhost:5432/wardrobe_builder`
   - `OPENROUTER_API_KEY=sk-or-v1-...`
   - `VITE_API_URL=http://localhost:3001` (or `http://localhost:3002` for Docker)
+- Production (Vercel):
+  - `DATABASE_URL=postgresql://...@neon.tech/...` (Neon PostgreSQL)
+  - `OPENROUTER_API_KEY=sk-or-v1-...`
+  - `VITE_API_URL=/api`
+  - `NODE_ENV=production`
+
+**Archived files** (outside repository):
+- `/Users/scotthooker/hardwoods/csv-archive/`: 65 legacy files
+  - 53 CSV files (build data, materials, comparisons)
+  - 12 HTML files (static build previews)
+  - All data migrated to PostgreSQL database
 
 ## Data Flow Patterns
 
@@ -507,9 +533,56 @@ node server/importMaterials.js
 - Verify file changes are detected
 - Restart container: `docker-compose restart app`
 
+## Deployment
+
+### Local Development (Docker)
+
+```bash
+docker-compose up -d
+# Access at: http://localhost:5173
+```
+
+**Services**:
+- Frontend: http://localhost:5173
+- API: http://localhost:3002 (maps to container port 3001)
+- Database: localhost:5432
+
+### Production (Vercel)
+
+1. **Prerequisites**:
+   - PostgreSQL database (Neon.tech recommended)
+   - OpenRouter API key
+
+2. **Deploy**:
+   - Connected to GitHub: `scotthooker/wardrobebuilder`
+   - Auto-deploys on push to `main` branch
+   - Configure environment variables in Vercel dashboard
+
+3. **Configuration files**:
+   - `vercel.json`: Serverless routing configuration
+   - `api/index.js`: Serverless function entry point
+   - See `VERCEL_DEPLOYMENT.md` for full guide
+
+### Database Migration
+
+All 11 wardrobe builds have been migrated from CSV files to PostgreSQL:
+
+```sql
+SELECT COUNT(*) FROM builds;  -- Returns: 11
+```
+
+**Legacy files archived** (outside git):
+- Location: `/Users/scotthooker/hardwoods/csv-archive/`
+- 53 CSV files (materials, order lists, considerations, tools)
+- 12 HTML files (static build previews)
+- All data now in PostgreSQL, legacy files can be deleted
+
 ## Recent Updates
 
 **Latest Changes**:
+- ✅ Committed to GitHub: `github.com/scotthooker/wardrobebuilder`
+- ✅ Added Vercel deployment configuration (serverless functions)
+- ✅ Archived 65 legacy CSV/HTML files (all data migrated to PostgreSQL)
 - ✅ Fixed EditPanel crash by checking `editedBuild.costs` exists
 - ✅ BuildImageCarousel handles both string and array formats for `image_gallery`
 - ✅ Improved edit drawer UX with lighter backdrop (20% opacity) and narrower width
